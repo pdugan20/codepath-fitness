@@ -12,6 +12,7 @@ Help people work towards their goal (however they want to)
 
 ####Screens
 *Primary*
+
 1. Home
 2. Setup (different state of Home)
 3. Preview Workout 
@@ -20,7 +21,7 @@ Help people work towards their goal (however they want to)
 6. Workout complete 
 
 *Secondary (nice to have)*
-3. Profile
+* Profile
 
 
 
