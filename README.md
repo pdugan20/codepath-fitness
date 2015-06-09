@@ -8,16 +8,17 @@ Help people work towards their goal (however they want to)
 
 ####Flows
 **First-Time Use:** FTUE → Set Up (Home) → Preview Workout → Workout 
+
 **Repeat Use:** Quick Start (Home) → Preview Workout → Workout (+ detail view) → Done
 
 ####Screens
 *Primary*
-1a. Home
-1b. Setup
-2a. Preview Workout 
-2b. Workout (different state of Preview)
-2c. Lock Screen
-3. Workout complete 
+1. Home
+2. Setup (different state of Home)
+3. Preview Workout 
+4. Workout (different state of Preview)
+5. Lock Screen (different state of Workout)
+6. Workout complete 
 
 *Secondary (nice to have)*
 3. Profile
@@ -62,7 +63,8 @@ Inventory of exercises, each containing
 ###Design
 ####Interaction
 *Version 1 Flow*
-[Clickable prototype!](https://www.flinto.com/p/a569eae1)
+
+[Clickable prototype](https://www.flinto.com/p/a569eae1)
 
 <img src="https://lh3.googleusercontent.com/-3j5kRncOWEc/VXdCavPMhlI/AAAAAAAADeI/hd1BmeUlbXI/s563/GymPlaylist_WireWalkthrough_v01pw.gif">
 
