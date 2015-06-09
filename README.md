@@ -1,15 +1,14 @@
 ##Gym Playlist Overview
 A fitness application that creates tailored workout playlists.
 
-**Team:**Kyle and Patrick(squared)
+**Team:** Kyle and Patrick(squared)
 
 ####Goal
 Help people work towards their goal (however they want to)
 
 ####Flows
-**First-Time Use:** FTUE → Set Up (Home) → Preview Workout → Workout 
-
-**Repeat Use:** Quick Start (Home) → Preview Workout → Workout (+ detail view) → Done
+1. **First-Time Use:** FTUE → Set Up (Home) → Preview Workout → Workout 
+2. **Repeat Use:** Quick Start (Home) → Preview Workout → Workout (+ detail view) → Done
 
 ####Screens
 *Primary*
