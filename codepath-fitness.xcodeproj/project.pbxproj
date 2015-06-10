@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57F5C13B73FCEDE6D5370BC0 /* libPods-codepath-fitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */; };
+		E7D7CF1F1B29011800BB54F0 /* GenerateWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */; };
+		E7D7CF211B29016D00BB54F0 /* NuxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF201B29016D00BB54F0 /* NuxViewController.swift */; };
+		E7D7CF231B29019700BB54F0 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */; };
+		E7D7CF251B2901E400BB54F0 /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF241B2901E400BB54F0 /* ExerciseDetailViewController.swift */; };
+		E7D7CF271B29021B00BB54F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF261B29021B00BB54F0 /* SettingsViewController.swift */; };
 		E7F0ED2C1B264B5C008645F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F0ED2B1B264B5C008645F5 /* AppDelegate.swift */; };
-		E7F0ED2E1B264B5C008645F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F0ED2D1B264B5C008645F5 /* ViewController.swift */; };
 		E7F0ED311B264B5C008645F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F0ED2F1B264B5C008645F5 /* Main.storyboard */; };
 		E7F0ED331B264B5C008645F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7F0ED321B264B5C008645F5 /* Images.xcassets */; };
 		E7F0ED421B264B5C008645F5 /* codepath_fitnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F0ED411B264B5C008645F5 /* codepath_fitnessTests.swift */; };
@@ -28,10 +33,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-codepath-fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA387BF9514957CEC52F06EE /* Pods-codepath-fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.release.xcconfig"; sourceTree = "<group>"; };
+		E0C2C4ABE61C308C08CF1A98 /* Pods-codepath-fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.debug.xcconfig"; sourceTree = "<group>"; };
+		E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateWorkoutViewController.swift; sourceTree = "<group>"; };
+		E7D7CF201B29016D00BB54F0 /* NuxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuxViewController.swift; sourceTree = "<group>"; };
+		E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
+		E7D7CF241B2901E400BB54F0 /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
+		E7D7CF261B29021B00BB54F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E7F0ED261B264B5C008645F5 /* codepath-fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codepath-fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F0ED2A1B264B5C008645F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7F0ED2B1B264B5C008645F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7F0ED2D1B264B5C008645F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E7F0ED301B264B5C008645F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E7F0ED321B264B5C008645F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E7F0ED3B1B264B5C008645F5 /* codepath-fitnessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "codepath-fitnessTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F5C13B73FCEDE6D5370BC0 /* libPods-codepath-fitness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +73,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A099FFFA2B84A35CDADD080 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		984F86FF60B633E06DE375BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0C2C4ABE61C308C08CF1A98 /* Pods-codepath-fitness.debug.xcconfig */,
+				CA387BF9514957CEC52F06EE /* Pods-codepath-fitness.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E7F0ED1D1B264B5C008645F5 = {
 			isa = PBXGroup;
 			children = (
 				E7F0ED281B264B5C008645F5 /* codepath-fitness */,
 				E7F0ED3E1B264B5C008645F5 /* codepath-fitnessTests */,
 				E7F0ED271B264B5C008645F5 /* Products */,
+				984F86FF60B633E06DE375BD /* Pods */,
+				1A099FFFA2B84A35CDADD080 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,7 +152,11 @@
 		E7F0ED4B1B264B85008645F5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7F0ED2D1B264B5C008645F5 /* ViewController.swift */,
+				E7D7CF241B2901E400BB54F0 /* ExerciseDetailViewController.swift */,
+				E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */,
+				E7D7CF201B29016D00BB54F0 /* NuxViewController.swift */,
+				E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */,
+				E7D7CF261B29021B00BB54F0 /* SettingsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -151,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7F0ED451B264B5C008645F5 /* Build configuration list for PBXNativeTarget "codepath-fitness" */;
 			buildPhases = (
+				1D69EE955942464E5C8075C7 /* Check Pods Manifest.lock */,
 				E7F0ED221B264B5C008645F5 /* Sources */,
 				E7F0ED231B264B5C008645F5 /* Frameworks */,
 				E7F0ED241B264B5C008645F5 /* Resources */,
+				6AF80E2067F048745D44716C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,16 +276,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1D69EE955942464E5C8075C7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6AF80E2067F048745D44716C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E7F0ED221B264B5C008645F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7F0ED2E1B264B5C008645F5 /* ViewController.swift in Sources */,
 				E7F0ED4F1B264C2D008645F5 /* BaseTransition.swift in Sources */,
 				E7F0ED501B264C2D008645F5 /* FadeTransition.swift in Sources */,
+				E7D7CF231B29019700BB54F0 /* PlaylistViewController.swift in Sources */,
+				E7D7CF251B2901E400BB54F0 /* ExerciseDetailViewController.swift in Sources */,
+				E7D7CF211B29016D00BB54F0 /* NuxViewController.swift in Sources */,
+				E7D7CF1F1B29011800BB54F0 /* GenerateWorkoutViewController.swift in Sources */,
 				E7F0ED541B264C60008645F5 /* Common.swift in Sources */,
 				E7F0ED2C1B264B5C008645F5 /* AppDelegate.swift in Sources */,
+				E7D7CF271B29021B00BB54F0 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +437,7 @@
 		};
 		E7F0ED461B264B5C008645F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0C2C4ABE61C308C08CF1A98 /* Pods-codepath-fitness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -374,6 +450,7 @@
 		};
 		E7F0ED471B264B5C008645F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA387BF9514957CEC52F06EE /* Pods-codepath-fitness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -437,6 +514,7 @@
 				E7F0ED471B264B5C008645F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E7F0ED481B264B5C008645F5 /* Build configuration list for PBXNativeTarget "codepath-fitnessTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +523,7 @@
 				E7F0ED4A1B264B5C008645F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
