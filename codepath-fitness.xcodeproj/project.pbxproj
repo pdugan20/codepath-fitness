@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		57F5C13B73FCEDE6D5370BC0 /* libPods-codepath-fitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */; };
+		E70F05C81B2BB2F8001A1F0C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70F05C71B2BB2F8001A1F0C /* ExerciseCell.swift */; };
 		E7D7CF1F1B29011800BB54F0 /* GenerateWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */; };
 		E7D7CF211B29016D00BB54F0 /* NuxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF201B29016D00BB54F0 /* NuxViewController.swift */; };
 		E7D7CF231B29019700BB54F0 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */; };
@@ -36,6 +37,7 @@
 		0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-codepath-fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA387BF9514957CEC52F06EE /* Pods-codepath-fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.release.xcconfig"; sourceTree = "<group>"; };
 		E0C2C4ABE61C308C08CF1A98 /* Pods-codepath-fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.debug.xcconfig"; sourceTree = "<group>"; };
+		E70F05C71B2BB2F8001A1F0C /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateWorkoutViewController.swift; sourceTree = "<group>"; };
 		E7D7CF201B29016D00BB54F0 /* NuxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuxViewController.swift; sourceTree = "<group>"; };
 		E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E70F05C91B2BB304001A1F0C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E70F05C71B2BB2F8001A1F0C /* ExerciseCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		E7F0ED1D1B264B5C008645F5 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 				E7F0ED521B264C33008645F5 /* Transitions */,
 				E7F0ED4B1B264B85008645F5 /* View Controllers */,
 				E7F0ED2F1B264B5C008645F5 /* Main.storyboard */,
+				E70F05C91B2BB304001A1F0C /* Cells */,
 				E7F0ED321B264B5C008645F5 /* Images.xcassets */,
 				E7F0ED551B264C64008645F5 /* Libraries */,
 				E7F0ED291B264B5C008645F5 /* Supporting Files */,
@@ -317,6 +328,7 @@
 				E7F0ED4F1B264C2D008645F5 /* BaseTransition.swift in Sources */,
 				E7F0ED501B264C2D008645F5 /* FadeTransition.swift in Sources */,
 				E7D7CF231B29019700BB54F0 /* PlaylistViewController.swift in Sources */,
+				E70F05C81B2BB2F8001A1F0C /* ExerciseCell.swift in Sources */,
 				E7D7CF251B2901E400BB54F0 /* ExerciseDetailViewController.swift in Sources */,
 				E7D7CF211B29016D00BB54F0 /* NuxViewController.swift in Sources */,
 				E7D7CF1F1B29011800BB54F0 /* GenerateWorkoutViewController.swift in Sources */,

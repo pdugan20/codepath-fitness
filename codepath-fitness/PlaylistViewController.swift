@@ -8,28 +8,59 @@
 
 import UIKit
 
-class PlaylistViewController: UIViewController {
+class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var playlistTableView: UITableView!
+    
+    // Declare parent exercise array
+    var exerciseArray: NSArray! = []
+
+    // Declare individual exercise dictionaries
+    var pullUpDict = [
+        "name" : "Pull-ups", 
+        "intensity" : "low", 
+        "duration" : "5", 
+        "description" : "Pull yourself up over the bar!"]
+    var sitUpDict = [
+        "name" : "Sit-ups", 
+        "intensity" : "medium", 
+        "duration" : "3", 
+        "description" : "Bend your knees and sit up!"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Setup initial tableView
+        playlistTableView.delegate = self
+        playlistTableView.dataSource = self
+        
+        // Add exercises to an array
+        exerciseArray = [pullUpDict, sitUpDict]
+        
+    }
+    
+    // View for the cell in the TableView
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // Define exerciseCell
+        var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
+        
+        // Populate exerciseCell
+        cell.exerciseLabel.text = exerciseArray[indexPath.row]["name"] as? String
+        cell.durationLabel.text = exerciseArray[indexPath.row]["duration"] as? String
+        cell.intensityLabel.text = exerciseArray[indexPath.row]["intensity"] as? String
+        
+        return cell
+    }
+    
+    // How many rows in TableView
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exerciseArray.count
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
