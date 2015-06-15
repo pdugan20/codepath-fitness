@@ -17,6 +17,7 @@ class ExerciseCell: UITableViewCell {
     @IBOutlet weak var archiveIconImageView: UIImageView!
     @IBOutlet weak var laterIconImageView: UIImageView!
     @IBOutlet weak var exerciseCellView: UIView!
+    @IBOutlet weak var exerciseCellContentView: UIView!
     
     let blueColor = UIColor(red: 68/255, green: 170/255, blue: 210/255, alpha: 1)
     let yellowColor = UIColor(red: 254/255, green: 202/255, blue: 22/255, alpha: 1)
@@ -54,7 +55,7 @@ class ExerciseCell: UITableViewCell {
         
         if sender.state == UIGestureRecognizerState.Began {
             gestureViewStartingOrigin = location
-            exerciseCellViewStartingOrigin = exerciseCellView.frame.origin
+            exerciseCellViewStartingOrigin = exerciseCellContentView.frame.origin
             laterIconStartingOrigin = laterIconImageView.frame.origin
             archiveIconStartingOrigin = archiveIconImageView.frame.origin
             
@@ -67,7 +68,7 @@ class ExerciseCell: UITableViewCell {
             
             var currentOrigin = exerciseCellViewStartingOrigin.x + location.x -
                 gestureViewStartingOrigin.x
-            exerciseCellView.frame.origin.x = currentOrigin
+            exerciseCellContentView.frame.origin.x = currentOrigin
             
             // Swipe left inside of messageView
             if currentOrigin < 0 {
@@ -142,7 +143,7 @@ class ExerciseCell: UITableViewCell {
                 // Snap back to original origin
                 if -60 < translation.x {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellView.frame.origin.x = self.exerciseCellViewStartingOrigin.x
+                        self.exerciseCellContentView.frame.origin.x = self.exerciseCellViewStartingOrigin.x
                         self.laterIconImageView.frame.origin.x = self.laterIconStartingOrigin.x
                         self.laterIconImageView.alpha = 0
                         self.exerciseCellView.backgroundColor = self.grayColor
@@ -152,7 +153,7 @@ class ExerciseCell: UITableViewCell {
                     // Complete animation (yellow background + later icon)
                 else if (-260 <= translation.x) && (translation.x < -60) {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellView.frame.origin.x = -320
+                        self.exerciseCellContentView.frame.origin.x = -320
                         self.laterIconImageView.alpha = 0
                         self.exerciseCellView.backgroundColor = self.yellowColor
                         
@@ -166,7 +167,7 @@ class ExerciseCell: UITableViewCell {
                     // Complete animation (brown background + list icon)
                 } else {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellView.frame.origin.x = -320
+                        self.exerciseCellContentView.frame.origin.x = -320
                         self.laterIconImageView.alpha = 0
                         self.exerciseCellView.backgroundColor = self.brownColor
                         
@@ -184,7 +185,7 @@ class ExerciseCell: UITableViewCell {
                 // Snap back to original origin
                 if translation.x < 60 {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellView.frame.origin.x = self.exerciseCellViewStartingOrigin.x
+                        self.exerciseCellContentView.frame.origin.x = self.exerciseCellViewStartingOrigin.x
                         self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x
                         self.archiveIconImageView.alpha = 0
                         self.exerciseCellView.backgroundColor = self.grayColor
@@ -193,7 +194,7 @@ class ExerciseCell: UITableViewCell {
                     // Complete animation (green background + archive icon)
                 } else if (60 < translation.x) && (translation.x <= 260) {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellView.frame.origin.x = 320
+                        self.exerciseCellContentView.frame.origin.x = 320
                         self.archiveIconImageView.alpha = 0
                         self.exerciseCellView.backgroundColor = self.greenColor
                         
@@ -205,7 +206,7 @@ class ExerciseCell: UITableViewCell {
                     // Complete animation (red background + delete icon)
                 } else {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellView.frame.origin.x = 320
+                        self.exerciseCellContentView.frame.origin.x = 320
                         self.archiveIconImageView.alpha = 0
                         self.exerciseCellView.backgroundColor = self.redColor
                         
