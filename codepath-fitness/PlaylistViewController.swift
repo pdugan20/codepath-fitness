@@ -26,6 +26,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "intensity" : "medium", 
         "duration" : "3", 
         "description" : "Bend your knees and sit up!"]
+    var burpeeDict = [
+        "name" : "Burpees",
+        "intensity" : "high",
+        "duration" : "5",
+        "description" : "Jump up then do a push up and don't be a wimp."]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +44,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         var fitnessApiUrl = NSURL(string: "https://www.kimonolabs.com/api/bfcfz33q?apikey=\(clientId)")!
         
         // Add exercises to an array
-        exerciseArray = [pullUpDict, sitUpDict]
+        exerciseArray = [pullUpDict, sitUpDict, burpeeDict]
         
         // Networking request for JSON feed
         var request = NSURLRequest(URL: fitnessApiUrl)
