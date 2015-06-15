@@ -41,6 +41,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Add exercises to an array
         exerciseArray = [pullUpDict, sitUpDict]
         
+        // Networking request for JSON feed
         var request = NSURLRequest(URL: fitnessApiUrl)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
             (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
@@ -66,6 +67,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.exerciseLabel.text = exerciseArray[indexPath.row]["name"] as? String
         cell.durationLabel.text = exerciseArray[indexPath.row]["duration"] as? String
         cell.intensityLabel.text = exerciseArray[indexPath.row]["intensity"] as? String
+        
+        // Hide icons and full-screen images on initial view load
+        cell.laterIconImageView.alpha = 0
+        cell.archiveIconImageView.alpha = 0
         
         return cell
     }
