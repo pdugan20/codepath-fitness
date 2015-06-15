@@ -8,12 +8,17 @@
 
 import UIKit
 
-class NuxViewController: UIViewController {
+class NuxViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var pager: UIPageControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        scrollView.contentSize = CGSizeMake(1280, 568)
+        scrollView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +26,11 @@ class NuxViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView){
+        var page : Int = Int(round(scrollView.contentOffset.x / 320))
+        pager.currentPage = page
+        
+    }
 
     /*
     // MARK: - Navigation
