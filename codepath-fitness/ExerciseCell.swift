@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import QuartzCore
+
+protocol TableViewCellDelegate {
+}
 
 class ExerciseCell: UITableViewCell {
 
@@ -37,14 +41,27 @@ class ExerciseCell: UITableViewCell {
     var laterIconStartingOrigin: CGPoint!
     var archiveIconStartingOrigin: CGPoint!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var delegate: TableViewCellDelegate?
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        addSubview(exerciseLabel)
+        addSubview(durationLabel)
+        addSubview(intensityLabel)
         
         // Adds a pan recognizer
         var sender = UIPanGestureRecognizer(target: self, action: "didPanExerciseCell:")
         sender.delegate = self
         addGestureRecognizer(sender)
-        
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
     }
     
     // Message pan gesture recgonizer

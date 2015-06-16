@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
 
     @IBOutlet weak var playlistTableView: UITableView!
     
@@ -38,6 +38,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Setup initial tableView
         playlistTableView.delegate = self
         playlistTableView.dataSource = self
+        playlistTableView.registerClass(ExerciseCell.self, forCellReuseIdentifier: "ExerciseCell")
         
         // API url
         var clientId = "BpmHUyPDIDaWYqoSL5rTcj27ryCj9N29"
@@ -61,9 +62,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // View for the cell in the TableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        // Define exerciseCell
-        var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell", forIndexPath: indexPath) as! ExerciseCell
         
         // var exercise = exerciseArray[indexPath.row] as! NSDictionary
         // var exerciseName = exercise.valueForKeyPath("Collection1.Exercise Name.text") as? String
@@ -76,6 +75,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Hide icons and full-screen images on initial view load
         cell.laterIconImageView.alpha = 0
         cell.archiveIconImageView.alpha = 0
+        
+        cell.delegate = self
         
         return cell
     }
