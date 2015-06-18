@@ -85,6 +85,27 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         return exerciseArray.count
         // return 20
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Determine which row was selected
+        var cell = sender as! UITableViewCell
+        var indexPath = playlistTableView.indexPathForCell(cell)
+        
+        // Get the view controller that we're transitioning to.
+        var exerciseDetailViewController = segue.destinationViewController as! ExerciseDetailViewController
+        
+        // Set the data of the view controller
+        var exerciseName = exerciseArray[indexPath!.row]["name"] as? String
+        var exerciseDuration = exerciseArray[indexPath!.row]["duration"] as? String
+        var exerciseIntensity = exerciseArray[indexPath!.row]["intensity"] as? String
+        var exerciseDescription  = exerciseArray[indexPath!.row]["description"] as? String
+        
+        // Pass through the data into the child of the segue
+        exerciseDetailViewController.exerciseName = exerciseName
+        exerciseDetailViewController.exerciseIntensity = exerciseIntensity
+        exerciseDetailViewController.exerciseDuration = exerciseDuration
+        exerciseDetailViewController.exerciseDescription = exerciseDescription
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
