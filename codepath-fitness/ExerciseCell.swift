@@ -40,6 +40,8 @@ class ExerciseCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        println("Attaching gesture recognzier to cell")
+        
         // Adds a pan recognizer
         var sender = UIPanGestureRecognizer(target: self, action: "didPanExerciseCell:")
         sender.delegate = self
@@ -52,6 +54,8 @@ class ExerciseCell: UITableViewCell {
         var location = sender.locationInView(self)
         var translation = sender.translationInView(self)
         var velocity = sender.velocityInView(self)
+
+        println("Gesture triggering")
         
         if sender.state == UIGestureRecognizerState.Began {
             gestureViewStartingOrigin = location

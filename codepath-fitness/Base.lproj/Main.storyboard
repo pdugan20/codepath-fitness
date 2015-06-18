@@ -99,7 +99,6 @@
                                             <outlet property="exerciseLabel" destination="PP4-8N-Trj" id="Wdj-E4-nLZ"/>
                                             <outlet property="intensityLabel" destination="W3r-Tn-15J" id="czr-au-ZaM"/>
                                             <outlet property="laterIconImageView" destination="lGF-VH-f9P" id="WVN-6v-48V"/>
-                                            <outletCollection property="gestureRecognizers" destination="3e0-h8-cB7" appends="YES" id="Za0-70-gzx"/>
                                             <segue destination="k8T-yz-Xnb" kind="push" id="abw-OT-RCy"/>
                                         </connections>
                                     </tableViewCell>
@@ -114,11 +113,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEc-k0-tZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="3e0-h8-cB7">
-                    <connections>
-                        <action selector="didPanExerciseCell:" destination="cCX-YU-QkM" id="6XC-8b-irE"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1527" y="247"/>
         </scene>

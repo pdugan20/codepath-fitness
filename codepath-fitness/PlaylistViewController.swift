@@ -50,7 +50,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         var request = NSURLRequest(URL: fitnessApiUrl)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
             (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
+            // var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
             // println(responseDictionary)
             // self.exerciseArray = responseDictionary["results"] as! NSArray
             // println(self.exerciseArray)
