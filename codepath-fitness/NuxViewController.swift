@@ -17,7 +17,7 @@ class NuxViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scrollView.contentSize = CGSizeMake(1500, 667)
+        scrollView.contentSize = CGSizeMake(1280, 568)
         scrollView.delegate = self
     }
 
@@ -27,10 +27,12 @@ class NuxViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView){
-        var page : Int = Int(round(scrollView.contentOffset.x / 375))
+        var page : Int = Int(round(scrollView.contentOffset.x / 320))
         pager.currentPage = page
         
     }
+
+
 
     /*
     // MARK: - Navigation

@@ -21,6 +21,8 @@
 		E76754091B3232B100D5ABD6 /* SF-UI-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E76753FD1B3232B100D5ABD6 /* SF-UI-Text-Regular.otf */; };
 		E767540A1B3232B100D5ABD6 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E76753FE1B3232B100D5ABD6 /* SF-UI-Text-Semibold.otf */; };
 		E767540B1B3232B100D5ABD6 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E76753FF1B3232B100D5ABD6 /* SF-UI-Text-SemiboldItalic.otf */; };
+		E767540F1B326EAA00D5ABD6 /* WorkoutCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E767540E1B326EAA00D5ABD6 /* WorkoutCompleteViewController.swift */; };
+		E76754111B326F0B00D5ABD6 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76754101B326F0B00D5ABD6 /* SetupViewController.swift */; };
 		E7D7CF1F1B29011800BB54F0 /* GenerateWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */; };
 		E7D7CF211B29016D00BB54F0 /* NuxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF201B29016D00BB54F0 /* NuxViewController.swift */; };
 		E7D7CF231B29019700BB54F0 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */; };
@@ -62,6 +64,8 @@
 		E76753FD1B3232B100D5ABD6 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
 		E76753FE1B3232B100D5ABD6 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		E76753FF1B3232B100D5ABD6 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		E767540E1B326EAA00D5ABD6 /* WorkoutCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCompleteViewController.swift; sourceTree = "<group>"; };
+		E76754101B326F0B00D5ABD6 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateWorkoutViewController.swift; sourceTree = "<group>"; };
 		E7D7CF201B29016D00BB54F0 /* NuxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NuxViewController.swift; sourceTree = "<group>"; };
 		E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				E7F0ED521B264C33008645F5 /* Transitions */,
 				E7F0ED4B1B264B85008645F5 /* View Controllers */,
 				E7F0ED2F1B264B5C008645F5 /* Main.storyboard */,
+				E767540E1B326EAA00D5ABD6 /* WorkoutCompleteViewController.swift */,
+				E76754101B326F0B00D5ABD6 /* SetupViewController.swift */,
 				E70F05C91B2BB304001A1F0C /* Cells */,
 				E7F0ED321B264B5C008645F5 /* Images.xcassets */,
 				E7F0ED551B264C64008645F5 /* Libraries */,
@@ -393,8 +399,10 @@
 				E7F0ED501B264C2D008645F5 /* FadeTransition.swift in Sources */,
 				E7D7CF231B29019700BB54F0 /* PlaylistViewController.swift in Sources */,
 				E70F05C81B2BB2F8001A1F0C /* ExerciseCell.swift in Sources */,
+				E76754111B326F0B00D5ABD6 /* SetupViewController.swift in Sources */,
 				E7D7CF251B2901E400BB54F0 /* ExerciseDetailViewController.swift in Sources */,
 				E7D7CF211B29016D00BB54F0 /* NuxViewController.swift in Sources */,
+				E767540F1B326EAA00D5ABD6 /* WorkoutCompleteViewController.swift in Sources */,
 				E7D7CF1F1B29011800BB54F0 /* GenerateWorkoutViewController.swift in Sources */,
 				E7F0ED541B264C60008645F5 /* Common.swift in Sources */,
 				E7F0ED2C1B264B5C008645F5 /* AppDelegate.swift in Sources */,
