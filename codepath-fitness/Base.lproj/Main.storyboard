@@ -30,11 +30,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ExerciseCell" rowHeight="87" id="lMS-DO-lTW" customClass="ExerciseCell" customModule="codepath_fitness" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseCell" rowHeight="87" id="lMS-DO-lTW" customClass="ExerciseCell" customModule="codepath_fitness" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="86" width="320" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lMS-DO-lTW" id="YeY-vb-wSu" userLabel="exerciseCellView">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="86.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="Lkf-Go-gP1" userLabel="archiveIcon">
@@ -387,9 +387,6 @@
                                         <state key="normal" title="2 Button 2">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="cCX-YU-QkM" kind="modal" id="XS5-xP-zON"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -498,6 +495,7 @@
                         <outlet property="header2option2" destination="cVF-1W-wKL" id="zRs-ri-gX4"/>
                         <outlet property="header2option3" destination="3Ko-cm-BHb" id="vcU-al-MDx"/>
                         <outlet property="header3View" destination="7kx-B5-Fah" id="KIX-PD-BYT"/>
+                        <segue destination="5H5-Of-KHv" kind="modal" modalTransitionStyle="crossDissolve" id="a08-le-l1b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afr-u6-fmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -550,7 +548,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="CH3-IN-AJ6"/>
-    </inferredMetricsTieBreakers>
 </document>
