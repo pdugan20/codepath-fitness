@@ -14,6 +14,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Declare parent exercise array
     var exerciseArray: NSArray! = []
+    
+    // Declare master of displayed exercises
+    var exerciseDisplayCount = 0
 
     // Declare cells for each top-level summary item
     @IBOutlet weak var muscleGroupNavCell: UIView!
@@ -38,7 +41,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "name" : "Burpees",
         "intensity" : "high",
         "duration" : "5",
-        "description" : "Jump up then do a push up and don't be a wimp."]
+        "description" : "Don't be a wimp!"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,16 +81,19 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // View for the cell in the TableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        println(indexPath.row)
+        // println("section \(indexPath.section)")
+        // println("row \(indexPath.row)")
+        // println("exerciseDisplayCount \(exerciseDisplayCount)")
         
+        // If row is even (summary exercise cell)
         if indexPath.row % 2 == 0 {
             
             // Define exerciseCell
             var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
         
-            var exerciseName = exerciseArray[indexPath.row]["name"] as? String
-            var exerciseDuration = exerciseArray[indexPath.row]["duration"] as? String
-            var exerciseIntensity = exerciseArray[indexPath.row]["intensity"] as? String
+            var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
+            var exerciseDuration = exerciseArray[exerciseDisplayCount]["duration"] as? String
+            var exerciseIntensity = exerciseArray[exerciseDisplayCount]["intensity"] as? String
         
             // Populate exerciseCell
             cell.exerciseLabel.text = exerciseName!.capitalizedString
@@ -100,14 +106,17 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         
             return cell
 
+        // If row is odd (detailed exercise cell)
         } else {
             
             // Define exerciseDetailCell
             var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseDetailCell") as! ExerciseDetailCell
-            var exerciseDescription = exerciseArray[indexPath.row]["description"] as? String
+            var exerciseDescription = exerciseArray[exerciseDisplayCount]["description"] as? String
             
             cell.exerciseDescriptionTextField.textAlignment = .Center
             cell.exerciseDescriptionTextField.text = exerciseDescription
+            
+            exerciseDisplayCount += 1
             
             return cell
         }
@@ -117,7 +126,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // How many rows in TableView (2 per section)
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return exerciseArray.count
-        return exerciseArray.count
+        return 2
     }
     
     // How many sections in the TableView (1 per exercise)
