@@ -15,6 +15,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // Declare parent exercise array
     var exerciseArray: NSArray! = []
 
+    // Declare cells for each top-level summary item
+    @IBOutlet weak var muscleGroupNavCell: UIView!
+    @IBOutlet weak var locationNavCell: UIView!
+    @IBOutlet weak var timeNavCell: UIView!
+    
+    // Set UI colors to be used in playlist view
+    var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
+    
     // Declare individual exercise dictionaries
     var pullUpDict = [
         "name" : "Pull-ups", 
@@ -34,6 +42,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Style nav cells
+        muscleGroupNavCell.layer.borderColor = borderColor.CGColor
+        muscleGroupNavCell.layer.borderWidth = 1.0
+        timeNavCell.layer.borderColor = borderColor.CGColor
+        timeNavCell.layer.borderWidth = 1.0
+        locationNavCell.layer.borderColor = borderColor.CGColor
+        locationNavCell.layer.borderWidth = 1.0
         
         // Setup initial tableView
         playlistTableView.delegate = self
@@ -65,13 +81,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Define exerciseCell
         var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
         
-        // var exercise = exerciseArray[indexPath.row] as! NSDictionary
-        // var exerciseName = exercise.valueForKeyPath("Collection1.Exercise Name.text") as? String
+        var exerciseName = exerciseArray[indexPath.row]["name"] as? String
+        var exerciseDuration = exerciseArray[indexPath.row]["duration"] as? String
+        var exerciseIntensity = exerciseArray[indexPath.row]["intensity"] as? String
         
         // Populate exerciseCell
-        cell.exerciseLabel.text = exerciseArray[indexPath.row]["name"] as? String
-        cell.durationLabel.text = exerciseArray[indexPath.row]["duration"] as? String
-        cell.intensityLabel.text = exerciseArray[indexPath.row]["intensity"] as? String
+        cell.exerciseLabel.text = exerciseName!.capitalizedString
+        cell.durationLabel.text = exerciseDuration!.capitalizedString
+        cell.intensityLabel.text = (exerciseIntensity! + " Intensity").capitalizedString
         
         // Hide icons and full-screen images on initial view load
         cell.laterIconImageView.alpha = 0
@@ -105,6 +122,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         exerciseDetailViewController.exerciseIntensity = exerciseIntensity
         exerciseDetailViewController.exerciseDuration = exerciseDuration
         exerciseDetailViewController.exerciseDescription = exerciseDescription
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "Monday's Playlist"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.blackColor()]
     }
 
     override func didReceiveMemoryWarning() {
