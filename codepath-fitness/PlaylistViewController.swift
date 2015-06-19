@@ -27,21 +27,101 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
     
     // Declare individual exercise dictionaries
-    var pullUpDict = [
-        "name" : "Pull-ups", 
+    var jogDict = [
+        "name" : "Light jog", 
         "intensity" : "low", 
-        "duration" : "5", 
-        "description" : "Pull yourself up over the bar!"]
-    var sitUpDict = [
-        "name" : "Sit-ups", 
-        "intensity" : "medium", 
-        "duration" : "3", 
-        "description" : "Bend your knees and sit up!"]
-    var burpeeDict = [
-        "name" : "Burpees",
-        "intensity" : "high",
         "duration" : "5",
-        "description" : "Don't be a wimp!"]
+        "workoutGroup" : "Warmup",
+        "muscleGroup" : "Full Body",
+        "imageGroup" : ["",""],
+        "reps": "0",
+        "sets": "1",
+        "equipmentRequired" : "None",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var dumbellPressDict = [
+        "name" : "Dumbbell bench press", 
+        "intensity" : "low", 
+        "duration" : "5",
+        "workoutGroup" : "Chest",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["exercise03", "exercise09"],
+        "reps": "6-10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var bentOverRowDict = [
+        "name" : "Bent over row", 
+        "intensity" : "low", 
+        "duration" : "4",
+        "workoutGroup" : "Back",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["exercise03", "exercise09"],
+        "reps": "8-12",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var squatDict = [
+        "name" : "Squats", 
+        "intensity" : "low", 
+        "duration" : "3",
+        "workoutGroup" : "Quadriceps",
+        "muscleGroup" : "Lower Body",
+        "imageGroup" : ["exercise01", "exercise06"],
+        "reps": "20",
+        "sets": "3",
+        "equipmentRequired" : "None",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var stepUpDict = [
+        "name" : "Step up with curl", 
+        "intensity" : "low", 
+        "duration" : "6",
+        "workoutGroup" : "Legs, Biceps",
+        "muscleGroup" : "Full Body",
+        "imageGroup" : ["exercise01", "exercise03"],
+        "reps": "10",
+        "sets": "2",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var standingDumbbellDict = [
+        "name" : "Standing dumbbell shoulder press", 
+        "intensity" : "low", 
+        "duration" : "4",
+        "workoutGroup" : "Shoulders",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["exercise04", "exercise08"],
+        "reps": "8-10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var tricepExtensionDict = [
+        "name" : "Bent over tricep extension", 
+        "intensity" : "low", 
+        "duration" : "5",
+        "workoutGroup" : "Triceps",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["exercise03", "exercise07"],
+        "reps": "8-12",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var legRaiseDict = [
+        "name" : "Leg raises", 
+        "intensity" : "low", 
+        "duration" : "3",
+        "workoutGroup" : "Abs",
+        "muscleGroup" : "Core",
+        "imageGroup" : ["exercise03", "exercise07"],
+        "reps": "10-15",
+        "sets": "4",
+        "equipmentRequired" : "Pull-up Bar",
+        "description" : "Warm up your muscles and get your heart rate up."]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +143,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         var fitnessApiUrl = NSURL(string: "https://www.kimonolabs.com/api/bfcfz33q?apikey=\(clientId)")!
         
         // Add exercises to an array
-        exerciseArray = [pullUpDict, sitUpDict, burpeeDict]
+        exerciseArray = [jogDict, dumbellPressDict, bentOverRowDict, squatDict, stepUpDict, standingDumbbellDict, tricepExtensionDict, legRaiseDict]
         
         // Networking request for JSON feed
         var request = NSURLRequest(URL: fitnessApiUrl)
