@@ -41,9 +41,9 @@ class ExerciseCell: UITableViewCell {
         super.awakeFromNib()
         
         // Adds a pan recognizer
-        var sender = UIPanGestureRecognizer(target: self, action: "didPanExerciseCell:")
-        sender.delegate = self
-        addGestureRecognizer(sender)
+        // var sender = UIPanGestureRecognizer(target: self, action: "didPanExerciseCell:")
+        // sender.delegate = self
+        // addGestureRecognizer(sender)
         
     }
     

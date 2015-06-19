@@ -78,29 +78,51 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // View for the cell in the TableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        // Define exerciseCell
-        var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
+        println(indexPath.row)
         
-        var exerciseName = exerciseArray[indexPath.row]["name"] as? String
-        var exerciseDuration = exerciseArray[indexPath.row]["duration"] as? String
-        var exerciseIntensity = exerciseArray[indexPath.row]["intensity"] as? String
+        if indexPath.row % 2 == 0 {
+            
+            // Define exerciseCell
+            var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
         
-        // Populate exerciseCell
-        cell.exerciseLabel.text = exerciseName!.capitalizedString
-        cell.durationLabel.text = exerciseDuration!.capitalizedString
-        cell.intensityLabel.text = (exerciseIntensity! + " Intensity").capitalizedString
+            var exerciseName = exerciseArray[indexPath.row]["name"] as? String
+            var exerciseDuration = exerciseArray[indexPath.row]["duration"] as? String
+            var exerciseIntensity = exerciseArray[indexPath.row]["intensity"] as? String
         
-        // Hide icons and full-screen images on initial view load
-        cell.laterIconImageView.alpha = 0
-        cell.archiveIconImageView.alpha = 0
+            // Populate exerciseCell
+            cell.exerciseLabel.text = exerciseName!.capitalizedString
+            cell.durationLabel.text = exerciseDuration!.capitalizedString
+            cell.intensityLabel.text = (exerciseIntensity! + " Intensity").capitalizedString
         
-        return cell
+            // Hide icons and full-screen images on initial view load
+            cell.laterIconImageView.alpha = 0
+            cell.archiveIconImageView.alpha = 0
+        
+            return cell
+
+        } else {
+            
+            // Define exerciseDetailCell
+            var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseDetailCell") as! ExerciseDetailCell
+            var exerciseDescription = exerciseArray[indexPath.row]["description"] as? String
+            
+            cell.exerciseDescriptionTextField.textAlignment = .Center
+            cell.exerciseDescriptionTextField.text = exerciseDescription
+            
+            return cell
+        }
+        
     }
     
-    // How many rows in TableView
+    // How many rows in TableView (2 per section)
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // return exerciseArray.count
         return exerciseArray.count
-        // return 20
+    }
+    
+    // How many sections in the TableView (1 per exercise)
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return exerciseArray.count
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
