@@ -173,6 +173,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                     </view>
                     <navigationItem key="navigationItem" title="Monday's Playlist" id="DQv-9U-QN5">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="E7J-cO-xhn"/>
