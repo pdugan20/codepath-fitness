@@ -8,12 +8,12 @@
 
 import UIKit
 
-class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
 
     @IBOutlet weak var playlistTableView: UITableView!
     
     // Declare parent exercise array
-    var exerciseArray: NSArray! = []
+    var exerciseArray: [AnyObject] = []
     
     // Declare master of displayed exercises
     var exerciseDisplayCount: Int!
@@ -137,6 +137,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Setup initial tableView
         playlistTableView.delegate = self
         playlistTableView.dataSource = self
+        playlistTableView.registerClass(ExerciseCell.self, forCellReuseIdentifier: "cell")
         
         // API url
         var clientId = "BpmHUyPDIDaWYqoSL5rTcj27ryCj9N29"
@@ -164,7 +165,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Variables for debugging
         // println("section \(indexPath.section)")
         // println("row \(indexPath.row)")
-        println("combined \(indexPath.row + indexPath.section)")
+        // println("combined \(indexPath.row + indexPath.section)")
         // println("exerciseDisplayCount \(exerciseDisplayCount)")
         
         exerciseDisplayCount = (indexPath.row + indexPath.section)
@@ -178,7 +179,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         if indexPath.row % 2 == 0 {
             
             // Define exerciseCell
-            var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
+            let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
         
             var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
             var exerciseDuration = exerciseArray[exerciseDisplayCount]["duration"] as? String
@@ -188,18 +189,22 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.exerciseLabel.text = exerciseName!.capitalizedString
             cell.durationLabel.text = exerciseDuration!.capitalizedString
             cell.intensityLabel.text = (exerciseIntensity! + " Intensity").capitalizedString
+            
+            // Passes the exerciseDisplayCount into cell
+            cell.exerciseLabel.tag = exerciseDisplayCount
         
             // Hide icons and full-screen images on initial view load
             cell.laterIconImageView.alpha = 0
             cell.archiveIconImageView.alpha = 0
-        
+            cell.delegate = self
+            
             return cell
 
         // If row is odd (detailed exercise cell)
         } else {
             
             // Define exerciseDetailCell
-            var cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseDetailCell") as! ExerciseDetailCell
+            let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseDetailCell") as! ExerciseDetailCell
             var exerciseDescription = exerciseArray[exerciseDisplayCount]["description"] as? String
             
             cell.exerciseDescriptionTextField.textAlignment = .Center
@@ -219,6 +224,16 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // How many sections in the TableView (1 per exercise)
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return exerciseArray.count
+    }
+    
+    func exerciseDeleted(exerciseIndex: Int) {
+        exerciseArray.removeAtIndex(exerciseIndex)
+        playlistTableView.beginUpdates()
+        
+        let indexPathForRow = NSIndexPath(forRow: exerciseIndex, inSection: 0)
+        
+        playlistTableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
+        playlistTableView.endUpdates()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

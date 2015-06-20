@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol TableViewCellDelegate {
+    func exerciseDeleted(exerciseIndex: Int)
+}
+
 class ExerciseCell: UITableViewCell {
+    
+    var delegate: TableViewCellDelegate?
 
     @IBOutlet weak var exerciseLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -36,14 +42,14 @@ class ExerciseCell: UITableViewCell {
     var exerciseCellViewStartingOrigin: CGPoint!
     var laterIconStartingOrigin: CGPoint!
     var archiveIconStartingOrigin: CGPoint!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Adds a pan recognizer
-        // var sender = UIPanGestureRecognizer(target: self, action: "didPanExerciseCell:")
-        // sender.delegate = self
-        // addGestureRecognizer(sender)
+        var sender = UIPanGestureRecognizer(target: self, action: "didPanExerciseCell:")
+        sender.delegate = self
+        addGestureRecognizer(sender)
         
     }
     
@@ -52,6 +58,8 @@ class ExerciseCell: UITableViewCell {
         var location = sender.locationInView(self)
         var translation = sender.translationInView(self)
         var velocity = sender.velocityInView(self)
+        
+        var exerciseIndex = exerciseLabel.tag
         
         if sender.state == UIGestureRecognizerState.Began {
             gestureViewStartingOrigin = location
@@ -212,12 +220,20 @@ class ExerciseCell: UITableViewCell {
                         
                         // Hide the messageView
                         }, completion: { (BOOL) -> Void in
-                            // self.hideMessageView()
+                            if self.delegate != nil {
+                                self.delegate!.exerciseDeleted(exerciseIndex)
+                            }
                     })
                 }
             }
         }
     }
+    
+    // Adds ability for TableView to scroll and cells to pan
+    override func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
