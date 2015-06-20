@@ -16,7 +16,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     var exerciseArray: NSArray! = []
     
     // Declare master of displayed exercises
-    var exerciseDisplayCount = 0
+    var exerciseDisplayCount: Int!
 
     // Declare cells for each top-level summary item
     @IBOutlet weak var muscleGroupNavCell: UIView!
@@ -164,12 +164,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Variables for debugging
         // println("section \(indexPath.section)")
         // println("row \(indexPath.row)")
-        // println("combined \(indexPath.row + indexPath.section)")
+        println("combined \(indexPath.row + indexPath.section)")
         // println("exerciseDisplayCount \(exerciseDisplayCount)")
         
-        exerciseDisplayCount = (indexPath.row + indexPath.section) - 1
-        if exerciseDisplayCount == -1 {
-            exerciseDisplayCount = 0
+        exerciseDisplayCount = (indexPath.row + indexPath.section)
+        
+        // Solves for off by 1 error which causes crash on last exercise
+        if exerciseDisplayCount >= (exerciseArray.count - 1) {
+            exerciseDisplayCount = (exerciseArray.count - 1)
         }
         
         // If row is even (summary exercise cell)
