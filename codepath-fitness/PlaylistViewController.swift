@@ -25,6 +25,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Set UI colors to be used in playlist view
     var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
+    var blueHeaderColor = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 1.0)
     
     // Declare individual exercise dictionaries
     var jogDict = [
@@ -191,7 +192,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // Populate exerciseCell
             cell.exerciseLabel.text = exerciseName!.capitalizedString
             cell.durationLabel.text = exerciseDuration!.capitalizedString
-            cell.intensityLabel.text = (exerciseIntensity! + " Intensity").capitalizedString
             
             // Passes the exerciseDisplayCount into cell so that we can delete it
             cell.exerciseLabel.tag = indexPath.section
@@ -298,9 +298,17 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         exerciseDetailViewController.exerciseDescription = exerciseDescription
     }
     
+    // Sets the style for that sweet sweet navigationBar
     override func viewDidAppear(animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "Monday's Playlist"
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.blackColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.barTintColor = blueHeaderColor
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+    }
+    
+    // Sets status bar style to either light or dark (default)
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
     override func didReceiveMemoryWarning() {
