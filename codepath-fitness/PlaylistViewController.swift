@@ -154,7 +154,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // println(responseDictionary)
             // self.exerciseArray = responseDictionary["results"] as! NSArray
             // println(self.exerciseArray)
-            // self.playlistTableView.reloadData()
+            self.playlistTableView.reloadData()
         }
         
     }
@@ -227,12 +227,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func exerciseDeleted(exerciseIndex: Int) {
-        exerciseArray.removeAtIndex(exerciseIndex)
+        var index = 0
+        exerciseArray.removeAtIndex(index)
         playlistTableView.beginUpdates()
-        
-        let indexPathForRow = NSIndexPath(forRow: exerciseIndex, inSection: 0)
-        
-        playlistTableView.deleteRowsAtIndexPaths([indexPathForRow], withRowAnimation: .Fade)
+        playlistTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
+        playlistTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
         playlistTableView.endUpdates()
     }
     
