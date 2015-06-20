@@ -47,7 +47,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "workoutGroup" : "Chest",
         "muscleGroup" : "Upper Body",
         "imageGroup" : ["exercise03", "exercise09"],
-        "reps": "6-10",
+        "reps": "8",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
         "description" : "Warm up your muscles and get your heart rate up."]
@@ -59,7 +59,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "workoutGroup" : "Back",
         "muscleGroup" : "Upper Body",
         "imageGroup" : ["exercise03", "exercise09"],
-        "reps": "8-12",
+        "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
         "description" : "Warm up your muscles and get your heart rate up."]
@@ -95,7 +95,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "workoutGroup" : "Shoulders",
         "muscleGroup" : "Upper Body",
         "imageGroup" : ["exercise04", "exercise08"],
-        "reps": "8-10",
+        "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
         "description" : "Warm up your muscles and get your heart rate up."]
@@ -107,7 +107,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "workoutGroup" : "Triceps",
         "muscleGroup" : "Upper Body",
         "imageGroup" : ["exercise03", "exercise07"],
-        "reps": "8-12",
+        "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
         "description" : "Warm up your muscles and get your heart rate up."]
@@ -119,7 +119,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "workoutGroup" : "Abs",
         "muscleGroup" : "Core",
         "imageGroup" : ["exercise03", "exercise07"],
-        "reps": "10-15",
+        "reps": "12",
         "sets": "4",
         "equipmentRequired" : "Pull-up Bar",
         "description" : "Warm up your muscles and get your heart rate up."]
@@ -184,14 +184,30 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // Define exerciseCell
             let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            // cell.contentView.layer.borderColor = borderColor.CGColor
+            // cell.contentView.layer.borderWidth = 5.0
+            
+            self.playlistTableView.layer.masksToBounds = true
+            
+            // Sets the tableview cells to align margin left
+            self.playlistTableView.separatorInset = UIEdgeInsetsZero
+            self.playlistTableView.layoutMargins = UIEdgeInsetsZero
+            
+            cell.layoutMargins = UIEdgeInsetsZero
         
             var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
             var exerciseDuration = exerciseArray[exerciseDisplayCount]["duration"] as? String
             var exerciseIntensity = exerciseArray[exerciseDisplayCount]["intensity"] as? String
+            var setCount = exerciseArray[exerciseDisplayCount]["sets"] as? String
+            var repCount = exerciseArray[exerciseDisplayCount]["reps"] as? String
+            var workoutGroup = exerciseArray[exerciseDisplayCount]["workoutGroup"] as? String
         
             // Populate exerciseCell
             cell.exerciseLabel.text = exerciseName!.capitalizedString
             cell.durationLabel.text = exerciseDuration!.capitalizedString
+            cell.setRepLabel.text = (setCount! + " x " + repCount!)
+            cell.workoutGroupLabel.text = workoutGroup!.capitalizedString
             
             // Passes the exerciseDisplayCount into cell so that we can delete it
             cell.exerciseLabel.tag = indexPath.section

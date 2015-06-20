@@ -18,7 +18,8 @@ class ExerciseCell: UITableViewCell {
 
     @IBOutlet weak var exerciseLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var intensityLabel: UILabel!
+    @IBOutlet weak var workoutGroupLabel: UILabel!
+    @IBOutlet weak var setRepLabel: UILabel!
     
     @IBOutlet weak var archiveIconImageView: UIImageView!
     @IBOutlet weak var laterIconImageView: UIImageView!
