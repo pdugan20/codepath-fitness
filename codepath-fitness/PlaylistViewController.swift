@@ -123,6 +123,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "equipmentRequired" : "Pull-up Bar",
         "description" : "Warm up your muscles and get your heart rate up."]
     
+    var expandedSection: Int! = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -163,7 +165,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // Variables for debugging
-        println("section \(indexPath.section)")
+        // println("section \(indexPath.section)")
         // println("row \(indexPath.row)")
         // println("combined \(indexPath.row + indexPath.section)")
         // println("exerciseDisplayCount \(exerciseDisplayCount)")
@@ -180,6 +182,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             // Define exerciseCell
             let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
         
             var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
             var exerciseDuration = exerciseArray[exerciseDisplayCount]["duration"] as? String
@@ -209,6 +212,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             cell.exerciseDescriptionTextField.textAlignment = .Center
             cell.exerciseDescriptionTextField.text = exerciseDescription
+            cell.clipsToBounds = true
             
             return cell
         }
@@ -224,6 +228,37 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // How many sections in the TableView (1 per exercise)
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return exerciseArray.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            if expandedSection == indexPath.section {
+                // If you tap on the section that's already expanded, you should collapse it
+                expandedSection = -1
+            } else {
+                expandedSection = indexPath.section
+            }
+            
+            // This causes the row height change to be animated
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            tableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Top, animated: true)
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var exerciseHeight = CGFloat(86)
+        if indexPath.row == 0 {
+            return exerciseHeight
+        } else {
+            if indexPath.section == expandedSection {
+                // Calculate the height of the detail view so that there is room for an exercise header above and below the detail view.
+                var height = tableView.frame.size.height - 2 * exerciseHeight
+                return height
+            } else {
+                return 0
+            }
+        }
     }
     
     func exerciseDeleted(exerciseIndex: Int) {

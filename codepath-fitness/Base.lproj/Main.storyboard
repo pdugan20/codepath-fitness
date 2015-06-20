@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5H5-Of-KHv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5H5-Of-KHv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -146,7 +146,6 @@
                                             <outlet property="exerciseLabel" destination="PP4-8N-Trj" id="Wdj-E4-nLZ"/>
                                             <outlet property="intensityLabel" destination="W3r-Tn-15J" id="czr-au-ZaM"/>
                                             <outlet property="laterIconImageView" destination="lGF-VH-f9P" id="WVN-6v-48V"/>
-                                            <segue destination="k8T-yz-Xnb" kind="push" id="abw-OT-RCy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseDetailCell" rowHeight="87" id="J8n-0x-dSd" customClass="ExerciseDetailCell" customModule="codepath_fitness" customModuleProvider="target">
