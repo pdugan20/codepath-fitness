@@ -19,6 +19,7 @@ class NuxViewController: UIViewController, UIScrollViewDelegate {
 
         scrollView.contentSize = CGSizeMake(1280, 568)
         scrollView.delegate = self
+        skipButton.alpha = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +30,20 @@ class NuxViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(scrollView: UIScrollView){
         var page : Int = Int(round(scrollView.contentOffset.x / 320))
         pager.currentPage = page
+        
+        if pager.currentPage == 3{
+            UIView.animateWithDuration(0.1, animations: {
+                self.pager.alpha = 0
+                self.skipButton.alpha = 1
+            })
+        }
+            
+        else {
+            UIView.animateWithDuration(0.2, animations: {
+                self.pager.alpha = 1
+                self.skipButton.alpha = 0
+            })
+        }
         
     }
 
