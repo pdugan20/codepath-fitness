@@ -161,12 +161,16 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // View for the cell in the TableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var scrollVelocity = tableView.panGestureRecognizer.velocityInView(tableView)
+        // Variables for debugging
+        // println("section \(indexPath.section)")
+        // println("row \(indexPath.row)")
+        // println("combined \(indexPath.row + indexPath.section)")
+        // println("exerciseDisplayCount \(exerciseDisplayCount)")
         
-        println("section \(indexPath.section)")
-        println("row \(indexPath.row)")
-        println("exerciseDisplayCount \(exerciseDisplayCount)")
-        // println(scrollVelocity)
+        exerciseDisplayCount = (indexPath.row + indexPath.section) - 1
+        if exerciseDisplayCount == -1 {
+            exerciseDisplayCount = 0
+        }
         
         // If row is even (summary exercise cell)
         if indexPath.row % 2 == 0 {
@@ -198,17 +202,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             cell.exerciseDescriptionTextField.textAlignment = .Center
             cell.exerciseDescriptionTextField.text = exerciseDescription
-            
-            // If scrolling down
-            if scrollVelocity.y < 0 {
-                exerciseDisplayCount += 1
-            // If scrolling up
-            } else if scrollVelocity.y > 0 {
-                exerciseDisplayCount -= 1
-            // To initalize tableview when not scrolling
-            } else {
-                exerciseDisplayCount += 1
-            }
             
             return cell
         }
