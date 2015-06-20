@@ -24,7 +24,6 @@
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
-            <string>SFUIText-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -103,35 +102,28 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="njb-Fu-3fz">
-                                                            <rect key="frame" x="273" y="32" width="15" height="21"/>
+                                                            <rect key="frame" x="71" y="19" width="15" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qfl-wo-R9J">
-                                                            <rect key="frame" x="288" y="32" width="24" height="21"/>
+                                                            <rect key="frame" x="86" y="19" width="24" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Warmup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C3W-QT-yTb">
-                                                            <rect key="frame" x="8" y="32" width="75" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W3r-Tn-15J">
-                                                            <rect key="frame" x="97" y="43" width="163" height="21"/>
+                                                            <rect key="frame" x="8" y="19" width="75" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dumbell Bench" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PP4-8N-Trj" userLabel="exerciseLabel">
-                                                            <rect key="frame" x="97" y="21" width="163" height="21"/>
+                                                            <rect key="frame" x="8" y="43" width="260" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -149,9 +141,7 @@
                                             <outlet property="exerciseCellContentView" destination="gun-VB-ZyZ" id="L2o-yi-IAH"/>
                                             <outlet property="exerciseCellView" destination="YeY-vb-wSu" id="5bd-nJ-fx1"/>
                                             <outlet property="exerciseLabel" destination="PP4-8N-Trj" id="Wdj-E4-nLZ"/>
-                                            <outlet property="intensityLabel" destination="W3r-Tn-15J" id="czr-au-ZaM"/>
                                             <outlet property="laterIconImageView" destination="lGF-VH-f9P" id="WVN-6v-48V"/>
-                                            <segue destination="k8T-yz-Xnb" kind="push" id="abw-OT-RCy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseDetailCell" rowHeight="87" id="J8n-0x-dSd" customClass="ExerciseDetailCell" customModule="codepath_fitness" customModuleProvider="target">
@@ -409,14 +399,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="J5l-sJ-XhH">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Og-zj-KH8" userLabel="Generate Button">
+                                <rect key="frame" x="60" y="348" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="GenerateWorkoutButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5H5-Of-KHv" kind="modal" identifier="generateWorkoutSegue" modalTransitionStyle="crossDissolve" id="16W-6h-BgW"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="7ee-l6-lCh" userLabel="Button Cover">
+                                <rect key="frame" x="0.0" y="297" width="320" height="271"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HS1-Px-dcp">
+                                        <rect key="frame" x="0.0" y="8" width="320" height="263"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapToExposeButton:" destination="toj-eP-R7D" eventType="touchUpInside" id="KmL-Ep-1cw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="J5l-sJ-XhH" userLabel="1 Option 1">
                                 <rect key="frame" x="0.0" y="148" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZeP-gK-N5N">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="1 Button 1">
+                                        <state key="normal" title="15 min">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -426,14 +443,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="mYU-ZB-dn4">
+                            <view contentMode="scaleToFill" id="mYU-ZB-dn4" userLabel="1 Option 2">
                                 <rect key="frame" x="0.0" y="219" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p68-9c-8Yx">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="1 Button 2">
+                                        <state key="normal" title="30 min">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -443,14 +460,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="80Y-1s-G5v">
+                            <view contentMode="scaleToFill" id="80Y-1s-G5v" userLabel="1 Option 3">
                                 <rect key="frame" x="0.0" y="290" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q6R-mp-t2t">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="1 Button 3">
+                                        <state key="normal" title="45 min">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -460,14 +477,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="uap-tZ-V2j">
+                            <view contentMode="scaleToFill" id="uap-tZ-V2j" userLabel="1 Option 4">
                                 <rect key="frame" x="0.0" y="361" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="adw-FY-TDc">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="1 Button 4">
+                                        <state key="normal" title="60 min">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -484,9 +501,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PP7-e6-XYP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="2 Button 1">
+                                        <state key="normal" title="Full Body">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onOption2ButtonTap:" destination="toj-eP-R7D" eventType="touchUpInside" id="Wnr-BW-LwQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -495,12 +515,15 @@
                                 <rect key="frame" x="0.0" y="292" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ykK-NM-cpl">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ykK-NM-cpl" userLabel="Upper Body">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="2 Button 2">
+                                        <state key="normal" title="Upper Body">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onOption2ButtonTap:" destination="toj-eP-R7D" eventType="touchUpInside" id="2Yr-uX-JWe"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -509,12 +532,49 @@
                                 <rect key="frame" x="0.0" y="363" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0eO-lP-oYi" userLabel="2 Button 3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0eO-lP-oYi" userLabel="Lower Body">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="2 Button 3">
+                                        <state key="normal" title="Lower Body">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onOption2ButtonTap:" destination="toj-eP-R7D" eventType="touchUpInside" id="3zE-LG-cHh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="Ty2-ne-KnG" userLabel="3 Option 1">
+                                <rect key="frame" x="0.0" y="293" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ejr-am-Urt" userLabel="Gym">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Gym">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onOption3ButtonTap:" destination="toj-eP-R7D" eventType="touchUpInside" id="ukQ-s7-qlV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="Qjp-fM-q5r" userLabel="3 Option 2">
+                                <rect key="frame" x="0.0" y="365" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pvX-MP-TrP" userLabel="Home">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Home">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onOption3ButtonTap:" destination="toj-eP-R7D" eventType="touchUpInside" id="HUC-zs-3AB"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82896537530000003" green="0.84041998259999995" blue="0.85875456579999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -526,48 +586,51 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qmm-GW-HiU">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Header 1">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Duration">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onHeader1Tap:" destination="toj-eP-R7D" eventType="touchUpInside" id="TAK-kb-0KW"/>
+                                            <action selector="onHeader1Tap:" destination="toj-eP-R7D" eventType="touchUpInside" id="c20-IF-aXx"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="JXx-U0-QHZ" userLabel="Header View 2">
-                                <rect key="frame" x="0.0" y="433" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="568" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pyj-5W-Xyh">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Header 2">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Workout Type">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onHeader1Tap:" destination="toj-eP-R7D" eventType="touchUpInside" id="fTq-0y-ncK"/>
+                                            <action selector="onHeader2Tap:" destination="toj-eP-R7D" eventType="touchUpInside" id="GDS-Yp-YB8"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="7kx-B5-Fah" userLabel="Header View 3">
-                                <rect key="frame" x="0.0" y="504" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="568" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="h17-5i-s4w">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Header 3">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Location">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onHeader1Tap:" destination="toj-eP-R7D" eventType="touchUpInside" id="FGb-YX-5Ba"/>
+                                            <action selector="onHeader3Tap:" destination="toj-eP-R7D" eventType="touchUpInside" id="WEn-pu-zpx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -595,6 +658,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
+                        <outlet property="buttonCoverView" destination="7ee-l6-lCh" id="lMk-Iy-frQ"/>
+                        <outlet property="durationButton" destination="qmm-GW-HiU" id="bNg-Tg-Vx2"/>
+                        <outlet property="generateWorkoutButton" destination="7Og-zj-KH8" id="zEg-up-Y8k"/>
                         <outlet property="header1View" destination="DBY-JT-JgC" id="aYJ-3Y-71J"/>
                         <outlet property="header1option1" destination="J5l-sJ-XhH" id="n0X-nU-V6d"/>
                         <outlet property="header1option1Button" destination="ZeP-gK-N5N" id="TCp-5X-2pJ"/>
@@ -606,10 +672,18 @@
                         <outlet property="header1option4Button" destination="adw-FY-TDc" id="y9p-xN-e4w"/>
                         <outlet property="header2View" destination="JXx-U0-QHZ" id="hbK-4L-XYD"/>
                         <outlet property="header2option1" destination="DMj-bo-Ryj" id="8BV-Ix-Wte"/>
+                        <outlet property="header2option1Button" destination="PP7-e6-XYP" id="9ei-j1-bAU"/>
                         <outlet property="header2option2" destination="cVF-1W-wKL" id="zRs-ri-gX4"/>
+                        <outlet property="header2option2Button" destination="ykK-NM-cpl" id="Ua1-Q8-SmR"/>
                         <outlet property="header2option3" destination="3Ko-cm-BHb" id="vcU-al-MDx"/>
+                        <outlet property="header2option3Button" destination="0eO-lP-oYi" id="vuc-ur-zz9"/>
                         <outlet property="header3View" destination="7kx-B5-Fah" id="KIX-PD-BYT"/>
-                        <segue destination="5H5-Of-KHv" kind="modal" modalTransitionStyle="crossDissolve" id="a08-le-l1b"/>
+                        <outlet property="header3option1" destination="Ty2-ne-KnG" id="RhX-A1-3ZE"/>
+                        <outlet property="header3option1Button" destination="Ejr-am-Urt" id="CQO-2Y-iib"/>
+                        <outlet property="header3option2" destination="Qjp-fM-q5r" id="PMW-y3-2aE"/>
+                        <outlet property="header3option2Button" destination="pvX-MP-TrP" id="rIs-4v-a3p"/>
+                        <outlet property="locationButton" destination="h17-5i-s4w" id="8U6-Vu-vmW"/>
+                        <outlet property="workoutTypeButton" destination="pyj-5W-Xyh" id="J21-x1-Eva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afr-u6-fmm" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -25,6 +25,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Set UI colors to be used in playlist view
     var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
+    var blueHeaderColor = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 1.0)
     
     // Declare individual exercise dictionaries
     var jogDict = [
@@ -123,6 +124,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "equipmentRequired" : "Pull-up Bar",
         "description" : "Warm up your muscles and get your heart rate up."]
     
+    var expandedSection: Int! = -1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -163,7 +166,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // Variables for debugging
-        println("section \(indexPath.section)")
+        // println("section \(indexPath.section)")
         // println("row \(indexPath.row)")
         // println("combined \(indexPath.row + indexPath.section)")
         // println("exerciseDisplayCount \(exerciseDisplayCount)")
@@ -180,6 +183,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             // Define exerciseCell
             let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
         
             var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
             var exerciseDuration = exerciseArray[exerciseDisplayCount]["duration"] as? String
@@ -188,7 +192,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // Populate exerciseCell
             cell.exerciseLabel.text = exerciseName!.capitalizedString
             cell.durationLabel.text = exerciseDuration!.capitalizedString
-            cell.intensityLabel.text = (exerciseIntensity! + " Intensity").capitalizedString
             
             // Passes the exerciseDisplayCount into cell so that we can delete it
             cell.exerciseLabel.tag = indexPath.section
@@ -209,6 +212,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             cell.exerciseDescriptionTextField.textAlignment = .Center
             cell.exerciseDescriptionTextField.text = exerciseDescription
+            cell.clipsToBounds = true
             
             return cell
         }
@@ -224,6 +228,37 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // How many sections in the TableView (1 per exercise)
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return exerciseArray.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == 0 {
+            if expandedSection == indexPath.section {
+                // If you tap on the section that's already expanded, you should collapse it
+                expandedSection = -1
+            } else {
+                expandedSection = indexPath.section
+            }
+            
+            // This causes the row height change to be animated
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            tableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Top, animated: true)
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var exerciseHeight = CGFloat(86)
+        if indexPath.row == 0 {
+            return exerciseHeight
+        } else {
+            if indexPath.section == expandedSection {
+                // Calculate the height of the detail view so that there is room for an exercise header above and below the detail view.
+                var height = tableView.frame.size.height - 2 * exerciseHeight
+                return height
+            } else {
+                return 0
+            }
+        }
     }
     
     func exerciseDeleted(exerciseIndex: Int) {
@@ -263,9 +298,17 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         exerciseDetailViewController.exerciseDescription = exerciseDescription
     }
     
+    // Sets the style for that sweet sweet navigationBar
     override func viewDidAppear(animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "Monday's Playlist"
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.blackColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.barTintColor = blueHeaderColor
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+    }
+    
+    // Sets status bar style to either light or dark (default)
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 
     override func didReceiveMemoryWarning() {
