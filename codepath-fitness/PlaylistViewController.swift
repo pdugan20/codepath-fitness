@@ -137,7 +137,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Setup initial tableView
         playlistTableView.delegate = self
         playlistTableView.dataSource = self
-        playlistTableView.registerClass(ExerciseCell.self, forCellReuseIdentifier: "cell")
+        // playlistTableView.registerClass(ExerciseCell.self, forCellReuseIdentifier: "cell")
+        self.playlistTableView.reloadData()
         
         // API url
         var clientId = "BpmHUyPDIDaWYqoSL5rTcj27ryCj9N29"
@@ -154,7 +155,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // println(responseDictionary)
             // self.exerciseArray = responseDictionary["results"] as! NSArray
             // println(self.exerciseArray)
-            self.playlistTableView.reloadData()
         }
         
     }
@@ -163,7 +163,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         // Variables for debugging
-        // println("section \(indexPath.section)")
+        println("section \(indexPath.section)")
         // println("row \(indexPath.row)")
         // println("combined \(indexPath.row + indexPath.section)")
         // println("exerciseDisplayCount \(exerciseDisplayCount)")
@@ -190,8 +190,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.durationLabel.text = exerciseDuration!.capitalizedString
             cell.intensityLabel.text = (exerciseIntensity! + " Intensity").capitalizedString
             
-            // Passes the exerciseDisplayCount into cell
-            cell.exerciseLabel.tag = exerciseDisplayCount
+            // Passes the exerciseDisplayCount into cell so that we can delete it
+            cell.exerciseLabel.tag = indexPath.section
         
             // Hide icons and full-screen images on initial view load
             cell.laterIconImageView.alpha = 0
@@ -227,12 +227,19 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func exerciseDeleted(exerciseIndex: Int) {
-        var index = 0
-        exerciseArray.removeAtIndex(index)
+        exerciseArray.removeAtIndex(exerciseIndex)
         playlistTableView.beginUpdates()
-        playlistTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
-        playlistTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
+        
+        // Broken attempt to delete multiple rows at once
+        // playlistTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
+        // playlistTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: (index+1), inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
+        
+        // Deletes current section
+        playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
+        
         playlistTableView.endUpdates()
+        playlistTableView.reloadData()
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

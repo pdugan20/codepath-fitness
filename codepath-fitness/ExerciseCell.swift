@@ -222,11 +222,27 @@ class ExerciseCell: UITableViewCell {
                         }, completion: { (BOOL) -> Void in
                             if self.delegate != nil {
                                 self.delegate!.exerciseDeleted(exerciseIndex)
+                                self.hideMessageView()
                             }
                     })
                 }
             }
         }
+    }
+    
+    // Hides messageView after some user action
+    func hideMessageView() {
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            }, completion:
+            { (BOOL) -> Void in
+                self.exerciseCellContentView.frame.origin.x = 0
+                self.laterIconImageView.frame.origin.x = 279
+                self.laterIconImageView.image = UIImage(named: "later_icon")
+                self.laterIconImageView.alpha = 0
+                self.archiveIconImageView.frame.origin.x = 16
+                self.archiveIconImageView.image = UIImage(named: "archive_icon")
+                self.archiveIconImageView.alpha = 0
+        })
     }
     
     // Adds ability for TableView to scroll and cells to pan
