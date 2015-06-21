@@ -11,15 +11,37 @@ import UIKit
 class ExerciseDetailCell: UITableViewCell {
 
     @IBOutlet weak var exerciseDescriptionTextField: UITextView!
+    @IBOutlet weak var exerciseImageView: UIImageView!
+    @IBOutlet weak var favoriteViewContainer: UIView!
+    @IBOutlet weak var favoriteLabel: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    // Used for favorite button toggle
+    var isHighLighted:Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    @IBAction func didPressFavorite(sender: UIButton) {
+        dispatch_async(dispatch_get_main_queue(), {
+            if self.isHighLighted == false {
+                sender.highlighted = true;
+                self.isHighLighted = true
+                self.favoriteButton.setImage(UIImage(named: "heart_icon_filled.png"), forState: UIControlState.Highlighted)
+                self.favoriteLabel.text = "Favorited!"
+            } else {
+                sender.highlighted = false;
+                self.isHighLighted = false
+                self.favoriteButton.setImage(UIImage(named: "heart_icon_stroke.png"), forState: UIControlState.Normal)
+                self.favoriteLabel.text = "Favorite"
+            }
+        });
+    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

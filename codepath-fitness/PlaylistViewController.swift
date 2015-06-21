@@ -27,6 +27,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
     var blueHeaderColor = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 1.0)
     var blueHeaderColorTinted = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 0.9)
+    var borderGray = UIColor(red: 188/255, green: 186/255, blue: 193/255, alpha: 1.0)
     
     // Declare individual exercise dictionaries
     var jogDict = [
@@ -196,7 +197,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // Sets the tableview cells to align margin left
             self.playlistTableView.separatorInset = UIEdgeInsetsZero
             self.playlistTableView.layoutMargins = UIEdgeInsetsZero
-            
             cell.layoutMargins = UIEdgeInsetsZero
         
             var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
@@ -232,6 +232,15 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.exerciseDescriptionTextField.textAlignment = .Center
             cell.exerciseDescriptionTextField.text = exerciseDescription
             cell.clipsToBounds = true
+            
+            cell.favoriteViewContainer.layer.borderColor = borderGray.CGColor
+            cell.favoriteViewContainer.layer.borderWidth = 0.5;
+            
+            // Keeps cell flush with left margins
+            cell.layoutMargins = UIEdgeInsetsZero
+            
+            // Prevents cell from highlighting
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             
             return cell
         }

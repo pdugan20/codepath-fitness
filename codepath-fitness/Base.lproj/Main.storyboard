@@ -20,6 +20,7 @@
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -135,24 +136,55 @@
                                             <outlet property="workoutGroupLabel" destination="C3W-QT-yTb" id="Pyi-FN-T4A"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseDetailCell" rowHeight="87" id="J8n-0x-dSd" customClass="ExerciseDetailCell" customModule="codepath_fitness" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="109" width="321" height="87"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseDetailCell" rowHeight="344" id="J8n-0x-dSd" customClass="ExerciseDetailCell" customModule="codepath_fitness" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="109" width="321" height="344"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J8n-0x-dSd" id="yXL-oT-TOl">
-                                            <rect key="frame" x="0.0" y="0.0" width="321" height="86.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="321" height="343.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Warm up your muscles and get your heart rate up." textAlignment="center" id="vWW-59-Qel">
-                                                    <rect key="frame" x="8" y="18" width="305" height="50.5"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Warm up your muscles and get your heart rate up." textAlignment="center" id="vWW-59-Qel" userLabel="DescriptionTextView">
+                                                    <rect key="frame" x="8" y="186" width="305" height="50.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02a_dumbbell_press" id="ktq-F9-eEb">
+                                                    <rect key="frame" x="38" y="-47" width="245" height="224"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" id="5zo-6i-2uO" userLabel="FavoriteView">
+                                                    <rect key="frame" x="-8" y="274" width="337" height="77"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rED-dp-eul">
+                                                            <rect key="frame" x="64" y="18" width="92" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XWL-h1-K7d">
+                                                            <rect key="frame" x="27" y="18" width="25" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" backgroundImage="heart_icon_stroke">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="didPressFavorite:" destination="J8n-0x-dSd" eventType="touchUpInside" id="TXo-DG-4hM"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="exerciseDescriptionTextField" destination="vWW-59-Qel" id="eXi-4B-0kM"/>
+                                            <outlet property="exerciseImageView" destination="ktq-F9-eEb" id="eXg-GB-B8k"/>
+                                            <outlet property="favoriteButton" destination="XWL-h1-K7d" id="6Xn-S3-M2X"/>
+                                            <outlet property="favoriteLabel" destination="rED-dp-eul" id="Wo5-F6-w9p"/>
+                                            <outlet property="favoriteViewContainer" destination="5zo-6i-2uO" id="7hO-tC-2MF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -696,8 +728,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="02a_dumbbell_press" width="510" height="608"/>
         <image name="GenerateWorkoutButton" width="248" height="248"/>
         <image name="archive_icon" width="25" height="25"/>
+        <image name="heart_icon_stroke" width="60" height="52"/>
         <image name="later_icon" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
