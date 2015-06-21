@@ -24,7 +24,7 @@ class ExerciseDetailCell: UITableViewCell {
         // Initialization code
     }
     
-    @IBAction func didPressFavorite(sender: UIButton) {
+    @IBAction func didFavoriteExercise(sender: UIButton) {
         dispatch_async(dispatch_get_main_queue(), {
             if self.isHighLighted == false {
                 sender.highlighted = true;
