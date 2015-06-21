@@ -29,7 +29,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     var blueHeaderColorTinted = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 0.9)
     var borderGray = UIColor(red: 188/255, green: 186/255, blue: 193/255, alpha: 1.0)
     
-    // Declare individual exercise dictionaries
+    // Begin Workout #1
+    
     var jogDict = [
         "name" : "Light jog", 
         "intensity" : "low", 
@@ -124,6 +125,20 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "12",
         "sets": "4",
         "equipmentRequired" : "Pull-up Bar",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    // Begin Workout #2
+    
+    var burpeesDict = [
+        "name" : "Leg raises",
+        "intensity" : "low",
+        "duration" : "3",
+        "workoutGroup" : "Legs + Triceps",
+        "muscleGroup" : "Full Body",
+        "imageGroup" : ["", ""],
+        "reps": "15",
+        "sets": "3",
+        "equipmentRequired" : "None",
         "description" : "Warm up your muscles and get your heart rate up."]
     
     var expandedSection: Int! = -1
@@ -236,12 +251,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             var exerciseStartingImagePath = String(exerciseImageArray[0])
             var exerciseEndingImagePath = String(exerciseImageArray[1])
             
-            // 02a_dumbbell_press.png
-            // 09a_bent_row.png
-            
             if exerciseEndingImagePath != "" {
                 cell.exerciseImageView.image = UIImage(named: exerciseStartingImagePath)
-                println(exerciseStartingImagePath)
+                // println(exerciseStartingImagePath)
             }
             
             cell.exerciseDescriptionTextField.textAlignment = .Center

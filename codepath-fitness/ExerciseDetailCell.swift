@@ -30,12 +30,12 @@ class ExerciseDetailCell: UITableViewCell {
                 sender.highlighted = true;
                 self.isHighLighted = true
                 self.favoriteButton.setImage(UIImage(named: "heart_icon_filled.png"), forState: UIControlState.Highlighted)
-                self.favoriteLabel.text = "Favorited!"
+                // self.favoriteLabel.text = "Favorited!"
             } else {
                 sender.highlighted = false;
                 self.isHighLighted = false
                 self.favoriteButton.setImage(UIImage(named: "heart_icon_stroke.png"), forState: UIControlState.Normal)
-                self.favoriteLabel.text = "Favorite"
+                // self.favoriteLabel.text = "Favorite"
             }
         });
     }
