@@ -335,7 +335,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="k5y-V0-7c3" kind="modal" identifier="didTapGo" id="BYb-rV-NAN"/>
+                                    <segue destination="toj-eP-R7D" kind="modal" id="n2I-yz-K07"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" id="9Zk-i3-fDm">
@@ -359,10 +359,72 @@
             </objects>
             <point key="canvasLocation" x="-1047" y="300"/>
         </scene>
+        <!--Profile Content View Controller-->
+        <scene sceneID="0Nz-cB-iAV">
+            <objects>
+                <viewController storyboardIdentifier="ProfileContentViewController" id="gcl-gg-Afe" customClass="ProfileContentViewController" customModule="codepath_fitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hov-kI-OqK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1W1-Mf-me7">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="dxT-qt-HXR">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Screen Shot 2015-06-20 at 4.37.07 PM" id="VrA-rV-HgL">
+                                                <rect key="frame" x="0.0" y="0.0" width="321" height="569"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3l-5D-gAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="-1238"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="Lnt-bN-2sn">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="vrC-SY-YGc" customClass="ProfileViewController" customModule="codepath_fitness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zyj-KH-4et">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="H1Y-Wt-xAU" userLabel="Profile ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="2oA-z1-IuJ" userLabel="Setup">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="profileView" destination="H1Y-Wt-xAU" id="fOD-q6-XTa"/>
+                        <outlet property="setupView" destination="2oA-z1-IuJ" id="tfh-TB-Sio"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUR-ff-504" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="-493"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="GYJ-RD-agS">
             <objects>
-                <viewController id="toj-eP-R7D" customClass="SettingsViewController" customModule="codepath_fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="toj-eP-R7D" customClass="SettingsViewController" customModule="codepath_fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="06t-yr-Pgo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -616,6 +678,18 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Tk-3m-XHY">
+                                        <rect key="frame" x="276" y="36" width="29" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Profile">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="CloseProfile"/>
+                                        <connections>
+                                            <action selector="onTapShowProfile:" destination="vrC-SY-YGc" eventType="touchUpInside" id="ln2-7K-Jcv"/>
+                                            <action selector="onTapToShowProfile:" destination="toj-eP-R7D" eventType="touchUpInside" id="OJT-sA-AyB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18892691950000001" green="0.27394908750000002" blue="0.35585073579999998" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                             </view>
@@ -651,6 +725,7 @@
                         <outlet property="header3option2" destination="Qjp-fM-q5r" id="PMW-y3-2aE"/>
                         <outlet property="header3option2Button" destination="pvX-MP-TrP" id="rIs-4v-a3p"/>
                         <outlet property="locationButton" destination="h17-5i-s4w" id="8U6-Vu-vmW"/>
+                        <outlet property="profileButton" destination="4Tk-3m-XHY" id="Wv0-xT-6BB"/>
                         <outlet property="workoutTypeButton" destination="pyj-5W-Xyh" id="J21-x1-Eva"/>
                     </connections>
                 </viewController>
@@ -676,27 +751,12 @@
             </objects>
             <point key="canvasLocation" x="675" y="-493"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="M2g-qj-BVL">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="k5y-V0-7c3" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z8r-en-EGn">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="toj-eP-R7D" kind="relationship" relationship="rootViewController" id="hQ7-kK-wci"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AOv-rc-AAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="23" y="-493"/>
-        </scene>
     </scenes>
     <resources>
+        <image name="CloseProfile" width="9" height="18"/>
         <image name="GenerateWorkoutButton" width="248" height="248"/>
+        <image name="Profile" width="29" height="26"/>
+        <image name="Screen Shot 2015-06-20 at 4.37.07 PM" width="321" height="569"/>
         <image name="archive_icon" width="25" height="25"/>
         <image name="later_icon" width="25" height="25"/>
     </resources>
