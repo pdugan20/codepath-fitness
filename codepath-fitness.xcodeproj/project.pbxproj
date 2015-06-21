@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391515351B36185400A43CCB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391515341B36185400A43CCB /* ProfileViewController.swift */; };
+		391515371B361B3D00A43CCB /* ProfileContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391515361B361B3D00A43CCB /* ProfileContentViewController.swift */; };
 		57F5C13B73FCEDE6D5370BC0 /* libPods-codepath-fitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */; };
 		E705C0AF1B33D2AE0031D218 /* ExerciseDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705C0AE1B33D2AE0031D218 /* ExerciseDetailCell.swift */; };
 		E70F05C81B2BB2F8001A1F0C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70F05C71B2BB2F8001A1F0C /* ExerciseCell.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-codepath-fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		391515341B36185400A43CCB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		391515361B361B3D00A43CCB /* ProfileContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContentViewController.swift; sourceTree = "<group>"; };
 		CA387BF9514957CEC52F06EE /* Pods-codepath-fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.release.xcconfig"; sourceTree = "<group>"; };
 		E0C2C4ABE61C308C08CF1A98 /* Pods-codepath-fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		E705C0AE1B33D2AE0031D218 /* ExerciseDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailCell.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 		E7F0ED4B1B264B85008645F5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				391515341B36185400A43CCB /* ProfileViewController.swift */,
+				391515361B361B3D00A43CCB /* ProfileContentViewController.swift */,
 				E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */,
 				E7D7CF241B2901E400BB54F0 /* ExerciseDetailViewController.swift */,
 				E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */,
@@ -402,10 +408,12 @@
 				E7F0ED501B264C2D008645F5 /* FadeTransition.swift in Sources */,
 				E7D7CF231B29019700BB54F0 /* PlaylistViewController.swift in Sources */,
 				E70F05C81B2BB2F8001A1F0C /* ExerciseCell.swift in Sources */,
+				391515351B36185400A43CCB /* ProfileViewController.swift in Sources */,
 				E76754111B326F0B00D5ABD6 /* SetupViewController.swift in Sources */,
 				E7D7CF251B2901E400BB54F0 /* ExerciseDetailViewController.swift in Sources */,
 				E7D7CF211B29016D00BB54F0 /* NuxViewController.swift in Sources */,
 				E767540F1B326EAA00D5ABD6 /* WorkoutCompleteViewController.swift in Sources */,
+				391515371B361B3D00A43CCB /* ProfileContentViewController.swift in Sources */,
 				E7D7CF1F1B29011800BB54F0 /* GenerateWorkoutViewController.swift in Sources */,
 				E7F0ED541B264C60008645F5 /* Common.swift in Sources */,
 				E7F0ED2C1B264B5C008645F5 /* AppDelegate.swift in Sources */,

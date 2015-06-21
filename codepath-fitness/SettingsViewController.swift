@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
     @IBOutlet weak var header1View: UIView!
     @IBOutlet weak var durationButton: UIButton!
     @IBOutlet weak var header1option1: UIView!
@@ -20,7 +20,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var header1option2Button: UIButton!
     @IBOutlet weak var header1option3Button: UIButton!
     @IBOutlet weak var header1option4Button: UIButton!
-
+    
     var header1ViewOriginalCenter: CGPoint!
     var header1option1Hidden: CGPoint!
     var header1option1Shown: CGPoint!
@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     var header1option4Hidden: CGPoint!
     var header1option4Shown: CGPoint!
     var durationPreference: String!
-
+    
     var header1optionsShown: Bool!
     
     @IBOutlet weak var header2View: UIView!
@@ -42,7 +42,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var header2option1Button: UIButton!
     @IBOutlet weak var header2option2Button: UIButton!
     @IBOutlet weak var header2option3Button: UIButton!
-
+    
     var header2ViewOriginalCenter: CGPoint!
     var header2ViewExpandPosition: CGPoint!
     var header2BelowExpandedHeader1: CGPoint!
@@ -54,10 +54,10 @@ class SettingsViewController: UIViewController {
     var header2option3Shown: CGPoint!
     
     var header2optionsShown: Bool!
-
+    
     @IBOutlet weak var header3View: UIView!
     @IBOutlet weak var locationButton: UIButton!
-
+    
     var header3ViewOriginalCenter: CGPoint!
     var header3ViewExpandPosition: CGPoint!
     var header3BelowExpandedOption1Position: CGPoint!
@@ -68,6 +68,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var header3option1Button: UIButton!
     @IBOutlet weak var header3option2Button: UIButton!
     
+    var durationSelection: String!
+    var typeSelection: String!
+    var locationSelection: String!
     
     var header3option1Shown: CGPoint!
     var header3option1Hidden: CGPoint!
@@ -80,14 +83,17 @@ class SettingsViewController: UIViewController {
     var generateWorkoutButtonHidden: CGPoint!
     var generateWorkoutButtonShown: CGPoint!
     @IBOutlet weak var buttonCoverView: UIView!
-
+    
     var header2HasBeenPresented: Bool!
     var header3HasBeenPresented: Bool!
     
+    @IBOutlet weak var profileButton: UIButton!
+    
+    var onNavigationButtonPressed:((Void)->Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         header1ViewOriginalCenter = header1View.center
         
         // For all options, shown = the final location of the button when exposed, hidden = animating from behind the header
@@ -111,11 +117,11 @@ class SettingsViewController: UIViewController {
         header1optionsShown = false
         header2optionsShown = false
         header3optionsShown = false
-
+        
         header2option1.alpha = 0
         header2option2.alpha = 0
         header2option3.alpha = 0
-
+        
         header2ViewOriginalCenter = header2View.center
         header2ViewExpandPosition = CGPoint(x: header2View.center.x, y: header1View.center.y + 72)
         header2BelowExpandedHeader1 = CGPoint(x: header2View.center.x, y: header1option4.center.y + 72)
@@ -162,6 +168,8 @@ class SettingsViewController: UIViewController {
         workoutTypeButton.setTitle(("Workout Type"), forState: .Normal)
         locationButton.setTitle(("Location"), forState: .Normal)
         
+        profileButton.selected = false
+        
         // Animates in the initial set of options to choose from
         UIView.animateWithDuration(0.3, delay: 0.3, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.header1option1.center = self.header1option1Shown
@@ -172,7 +180,7 @@ class SettingsViewController: UIViewController {
             }, completion: nil)
         self.header1optionsShown = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -203,11 +211,9 @@ class SettingsViewController: UIViewController {
                     self.buttonCoverView.alpha = 0.95
                     }, completion: nil)
             }
-
-            
             
         } else if header1optionsShown == true {
-
+            
             if header2HasBeenPresented == true && header3HasBeenPresented == false {
                 header1optionsHide()
                 UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
@@ -224,14 +230,14 @@ class SettingsViewController: UIViewController {
                     self.buttonCoverView.alpha = 0
                     }, completion: nil)
             }
-
+            
         }
         
-
+        
     }
     
     @IBAction func onHeader2Tap(sender: AnyObject) {
-
+        
         println("i'm tapping header 2")
         
         if header2optionsShown == false {
@@ -239,7 +245,7 @@ class SettingsViewController: UIViewController {
             if header3HasBeenPresented == false {
                 header2optionsShow()
                 header1optionsHide()
-
+                
             } else if header3HasBeenPresented == true {
                 header1optionsHide()
                 header2optionsShow()
@@ -292,7 +298,6 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    
     @IBAction func onOption1ButtonTap(sender: UIButton) {
         
         header1option1Button.selected = false
@@ -300,6 +305,9 @@ class SettingsViewController: UIViewController {
         header1option3Button.selected = false
         header1option4Button.selected = false
         sender.selected = true
+        
+        // pull pull from here in PrepareForSegue
+        durationSelection = sender.titleLabel?.text
         
         durationButton.setTitle("Duration: " + "\(sender.titleLabel!.text!)", forState: .Normal)
         
@@ -320,7 +328,7 @@ class SettingsViewController: UIViewController {
             
         } else if header2HasBeenPresented == true && header3HasBeenPresented == true {
             header1optionsHide()
-
+            
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                 self.header2View.center = self.header2ViewExpandPosition
                 self.header3View.center = self.header3ViewExpandPosition
@@ -335,10 +343,14 @@ class SettingsViewController: UIViewController {
         header2option2Button.selected = false
         header2option3Button.selected = false
         sender.selected = true
+        
+        // pull pull from here in PrepareForSegue
+        typeSelection = sender.titleLabel?.text
+        
         workoutTypeButton.setTitle("Type: " + "\(sender.titleLabel!.text!)", forState: .Normal)
         
         if header3HasBeenPresented == false {
-
+            
             header2optionsHide()
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                 self.header3View.center = self.header3ViewExpandPosition
@@ -356,30 +368,43 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onOption3ButtonTap(sender: UIButton) {
         
-        header3option1Button.selected = false
-        header3option2Button.selected = false
-        sender.selected = true
-        locationButton.setTitle("Location: " + "\(sender.titleLabel!.text!)", forState: .Normal)
-        
-        header3optionsHide()
-        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-            self.buttonCoverView.alpha = 0
-            }, completion: nil)
-
+        if header3option1Button.selected == false && header3option2Button.selected == false {
+            sender.selected = true
+            locationButton.setTitle("Location: " + "\(sender.titleLabel!.text!)", forState: .Normal)
+            header3optionsHide()
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                self.buttonCoverView.alpha = 0
+                self.generateWorkoutButton.center = self.generateWorkoutButtonShown
+                }, completion: nil)
+        } else {
+            header3option1Button.selected = false
+            header3option2Button.selected = false
+            sender.selected = true
+            
+            // pull pull from here in PrepareForSegue
+            locationSelection = sender.titleLabel?.text
+            
+            locationButton.setTitle("Location: " + "\(sender.titleLabel!.text!)", forState: .Normal)
+            
+            header3optionsHide()
+            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                self.buttonCoverView.alpha = 0
+                }, completion: nil)
+        }
     }
     
     
     func header1optionsShow() {
-
-            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-                self.header1option1.center = self.header1option1Shown
-                self.header1option2.center = self.header1option2Shown
-                self.header1option3.center = self.header1option3Shown
-                self.header1option4.center = self.header1option4Shown
-                
-                }, completion: nil)
-            self.header1optionsShown = true
-
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.header1option1.center = self.header1option1Shown
+            self.header1option2.center = self.header1option2Shown
+            self.header1option3.center = self.header1option3Shown
+            self.header1option4.center = self.header1option4Shown
+            
+            }, completion: nil)
+        self.header1optionsShown = true
+        
     }
     
     func header1optionsHide() {
@@ -389,7 +414,7 @@ class SettingsViewController: UIViewController {
             self.header1option2.center = self.header1option2Hidden
             self.header1option3.center = self.header1option3Hidden
             self.header1option4.center = self.header1option4Hidden
-        
+            
             
             }, completion: nil)
         self.header1optionsShown = false
@@ -416,7 +441,7 @@ class SettingsViewController: UIViewController {
             self.header2option1.center = self.header2option1Hidden
             self.header2option2.center = self.header2option2Hidden
             self.header2option3.center = self.header2option3Hidden
-        
+            
             self.header2option1.alpha = 0
             self.header2option2.alpha = 0
             self.header2option3.alpha = 0
@@ -447,13 +472,12 @@ class SettingsViewController: UIViewController {
             self.header3option1.alpha = 0
             self.header3option2.alpha = 0
             
-            self.generateWorkoutButton.center = self.generateWorkoutButtonShown
             
             }, completion: nil)
         self.header3optionsShown = false
         
     }
-
+    
     @IBAction func onTapToExposeButton(sender: AnyObject) {
         
         
@@ -467,22 +491,28 @@ class SettingsViewController: UIViewController {
             self.buttonCoverView.alpha = 0
             
             }, completion: nil)
-        
-        
-        
-        
     }
     
+    @IBAction func onTapToShowProfile(sender: AnyObject) {
+        onNavigationButtonPressed()
 
+        if profileButton.selected == false {
+            profileButton.selected = true
+        } else {
+            profileButton.selected = false
+        }
 
+//        NSNotificationCenter.defaultCenter().postNotificationName("displayTrayUI", object: nil)
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
