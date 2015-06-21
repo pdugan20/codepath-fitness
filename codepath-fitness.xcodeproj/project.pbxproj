@@ -226,9 +226,9 @@
 		E7F0ED4B1B264B85008645F5 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */,
 				391515341B36185400A43CCB /* ProfileViewController.swift */,
 				391515361B361B3D00A43CCB /* ProfileContentViewController.swift */,
-				E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */,
 				E7D7CF241B2901E400BB54F0 /* ExerciseDetailViewController.swift */,
 				E7D7CF1E1B29011800BB54F0 /* GenerateWorkoutViewController.swift */,
 				E7D7CF201B29016D00BB54F0 /* NuxViewController.swift */,

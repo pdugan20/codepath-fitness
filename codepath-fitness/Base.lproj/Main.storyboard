@@ -143,13 +143,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="321" height="395.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Warm up your muscles and get your heart rate up." textAlignment="center" id="vWW-59-Qel">
-                                                    <rect key="frame" x="8" y="207" width="305" height="50.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                                 <view contentMode="scaleToFill" id="kLm-lg-HRb" userLabel="favoriteViewContainer">
                                                     <rect key="frame" x="-10" y="271" width="338" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -174,10 +167,17 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02b_dumbbell_press" id="1Ol-81-jb0" userLabel="exerciseImageView">
-                                                    <rect key="frame" x="63" y="38" width="192" height="161"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02a_dumbbell_press" id="1Ol-81-jb0" userLabel="exerciseImageView">
+                                                    <rect key="frame" x="63" y="13" width="192" height="161"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Warm up your muscles and get your heart rate up." textAlignment="center" id="vWW-59-Qel">
+                                                    <rect key="frame" x="21" y="182" width="278" height="50.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -786,7 +786,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="02b_dumbbell_press" width="510" height="608"/>
+        <image name="02a_dumbbell_press" width="510" height="608"/>
         <image name="CloseProfile" width="9" height="18"/>
         <image name="GenerateWorkoutButton" width="248" height="248"/>
         <image name="Profile" width="29" height="26"/>

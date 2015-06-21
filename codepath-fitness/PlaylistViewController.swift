@@ -225,6 +225,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // If row is odd (detailed exercise cell)
         } else {
             
+            // Offset exerciseDisplayCount
+            exerciseDisplayCount = exerciseDisplayCount - 1
+            
             // Define exerciseDetailCell
             let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseDetailCell") as! ExerciseDetailCell
             var exerciseDescription = exerciseArray[exerciseDisplayCount]["description"] as? String
