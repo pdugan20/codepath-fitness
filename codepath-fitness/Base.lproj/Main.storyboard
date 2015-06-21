@@ -9,6 +9,9 @@
             <string>SFUIText-Bold</string>
             <string>SFUIText-Bold</string>
         </mutableArray>
+        <mutableArray key="SF-UI-Text-Medium.otf">
+            <string>SFUIText-Medium</string>
+        </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
@@ -77,9 +80,16 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="swap_icon" id="lGF-VH-f9P" userLabel="swapIcon">
-                                                    <rect key="frame" x="282" y="31" width="30" height="25"/>
+                                                    <rect key="frame" x="282" y="26" width="23" height="19"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swap" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x9x-tm-sDz" userLabel="swapLabel">
+                                                    <rect key="frame" x="275" y="46" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <view contentMode="scaleToFill" id="gun-VB-ZyZ" userLabel="exerciseCellContentView">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="86.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -133,6 +143,7 @@
                                             <outlet property="exerciseLabel" destination="PP4-8N-Trj" id="Wdj-E4-nLZ"/>
                                             <outlet property="laterIconImageView" destination="lGF-VH-f9P" id="WVN-6v-48V"/>
                                             <outlet property="setRepLabel" destination="I3P-qZ-80g" id="7Ac-Pd-k4o"/>
+                                            <outlet property="swapLabel" destination="x9x-tm-sDz" id="K5R-HC-fUf"/>
                                             <outlet property="workoutGroupLabel" destination="C3W-QT-yTb" id="Pyi-FN-T4A"/>
                                         </connections>
                                     </tableViewCell>
