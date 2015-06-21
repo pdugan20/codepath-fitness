@@ -12,16 +12,15 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var playlistTableView: UITableView!
     
-    // Declare parent exercise array
+    // Declare parent exercise arrays
     var exerciseArray: [AnyObject] = []
+    var exerciseArray2: [AnyObject] = []
     
     // Declare master of displayed exercises
     var exerciseDisplayCount: Int!
 
     // Declare cells for each top-level summary item
     @IBOutlet weak var muscleGroupNavCell: UIView!
-    @IBOutlet weak var locationNavCell: UIView!
-    @IBOutlet weak var timeNavCell: UIView!
     
     // Set UI colors to be used in playlist view
     // var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
@@ -141,6 +140,102 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "equipmentRequired" : "None",
         "description" : "Warm up your muscles and get your heart rate up."]
     
+    var medBallDumbbellPressDict = [
+        "name" : "Medicine Ball Dumbbell Press",
+        "intensity" : "low",
+        "duration" : "5",
+        "workoutGroup" : "Chest",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var flyDict = [
+        "name" : "Fly",
+        "intensity" : "low",
+        "duration" : "5",
+        "workoutGroup" : "Chest",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "18",
+        "sets": "2",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var plankRowDict = [
+        "name" : "Plank Row",
+        "intensity" : "low",
+        "duration" : "5",
+        "workoutGroup" : "Back",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var bentReverseFlyDict = [
+        "name" : "Bent over reverse fly",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Back",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "12",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var lateralRaiseDict = [
+        "name" : "Laying lateral raise",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Shoulders",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var chinUpDict = [
+        "name" : "Chin up",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Biceps",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "4",
+        "equipmentRequired" : "Pull-up bar",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var dipsDict = [
+        "name" : "Chin up",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Triceps",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "12",
+        "sets": "3",
+        "equipmentRequired" : "None",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var standingTricepExtensionDict = [
+        "name" : "Standing overhead tricep extension",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Triceps",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
     var expandedSection: Int! = -1
     
     override func viewDidLoad() {
@@ -166,8 +261,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         var clientId = "BpmHUyPDIDaWYqoSL5rTcj27ryCj9N29"
         var fitnessApiUrl = NSURL(string: "https://www.kimonolabs.com/api/bfcfz33q?apikey=\(clientId)")!
         
-        // Add exercises to an array
+        // Add exercises to Workout #1
         exerciseArray = [jogDict, dumbellPressDict, bentOverRowDict, squatDict, stepUpDict, standingDumbbellDict, tricepExtensionDict, legRaiseDict]
+        
+        // Add exercises to Workout #2
+        exerciseArray2 = [burpeesDict, medBallDumbbellPressDict, flyDict, plankRowDict, bentReverseFlyDict, lateralRaiseDict, chinUpDict, dipsDict, standingTricepExtensionDict]
         
         // Networking request for JSON feed
         var request = NSURLRequest(URL: fitnessApiUrl)
