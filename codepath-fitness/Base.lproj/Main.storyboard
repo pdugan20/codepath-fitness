@@ -157,12 +157,8 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02a_dumbbell_press" id="1Ol-81-jb0" userLabel="exerciseImageView">
-                                                    <rect key="frame" x="63" y="13" width="192" height="161"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Warm up your muscles and get your heart rate up." textAlignment="center" id="vWW-59-Qel">
-                                                    <rect key="frame" x="21" y="182" width="278" height="50.5"/>
+                                                    <rect key="frame" x="21" y="187" width="278" height="50.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
@@ -178,6 +174,10 @@
                                                         <action selector="didFavoriteExercise:" destination="J8n-0x-dSd" eventType="touchUpInside" id="liq-w9-nb0"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="02a_dumbbell_bench_press" id="1Ol-81-jb0" userLabel="exerciseImageView">
+                                                    <rect key="frame" x="69" y="35" width="182" height="152"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -786,13 +786,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="02a_dumbbell_press" width="510" height="608"/>
+        <image name="02a_dumbbell_bench_press" width="640" height="640"/>
         <image name="CloseProfile" width="9" height="18"/>
         <image name="GenerateWorkoutButton" width="248" height="248"/>
         <image name="Profile" width="29" height="26"/>
         <image name="Screen Shot 2015-06-20 at 4.37.07 PM" width="321" height="569"/>
-        <image name="GenerateWorkoutButton" width="248" height="248"/>
-        <image name="NUX_BG" width="375" height="668"/>
         <image name="archive_icon" width="25" height="25"/>
         <image name="heart_icon_stroke" width="60" height="52"/>
         <image name="later_icon" width="25" height="25"/>
