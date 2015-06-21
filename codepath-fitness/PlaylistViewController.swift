@@ -24,8 +24,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var timeNavCell: UIView!
     
     // Set UI colors to be used in playlist view
-    var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
+    // var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
     var blueHeaderColor = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 1.0)
+    var blueHeaderColorTinted = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 0.9)
     
     // Declare individual exercise dictionaries
     var jogDict = [
@@ -130,12 +131,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         // Style nav cells
-        muscleGroupNavCell.layer.borderColor = borderColor.CGColor
-        muscleGroupNavCell.layer.borderWidth = 1.0
-        timeNavCell.layer.borderColor = borderColor.CGColor
-        timeNavCell.layer.borderWidth = 1.0
-        locationNavCell.layer.borderColor = borderColor.CGColor
-        locationNavCell.layer.borderWidth = 1.0
+        // muscleGroupNavCell.layer.borderColor = borderColor.CGColor
+        // muscleGroupNavCell.layer.borderWidth = 1.0
+        // timeNavCell.layer.borderColor = borderColor.CGColor
+        // timeNavCell.layer.borderWidth = 1.0
+        // locationNavCell.layer.borderColor = borderColor.CGColor
+        // locationNavCell.layer.borderWidth = 1.0
+        
+        muscleGroupNavCell.layer.backgroundColor = blueHeaderColorTinted.CGColor
         
         // Setup initial tableView
         playlistTableView.delegate = self
@@ -280,17 +283,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     func exerciseDeleted(exerciseIndex: Int) {
         exerciseArray.removeAtIndex(exerciseIndex)
         playlistTableView.beginUpdates()
-        
-        // Broken attempt to delete multiple rows at once
-        // playlistTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
-        // playlistTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: (index+1), inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
-        
-        // Deletes current section
         playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
-        
         playlistTableView.endUpdates()
         playlistTableView.reloadData()
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

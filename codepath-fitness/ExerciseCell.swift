@@ -87,8 +87,8 @@ class ExerciseCell: UITableViewCell {
                     self.laterIconImageView.alpha = translation.x/(60 * -1)
                     self.exerciseCellView.backgroundColor = self.grayColor
                     
-                    // Later icon + yellow background
-                } else if (-260 <= currentOrigin) && (currentOrigin < -60) {
+                // Later icon + yellow background
+                } else if (currentOrigin < -60) {
                     self.laterIconImageView.alpha = 1
                     self.laterIconImageView.frame.origin.x = self.laterIconStartingOrigin.x +
                         location.x - self.gestureViewStartingOrigin.x + 60
@@ -96,17 +96,6 @@ class ExerciseCell: UITableViewCell {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellView.backgroundColor = self.yellowColor
                         self.laterIconImageView.image = UIImage(named: "later_icon")
-                    })
-                    
-                    // List icon + brown background
-                } else if currentOrigin < -260 {
-                    self.laterIconImageView.alpha = 1
-                    self.laterIconImageView.frame.origin.x = self.laterIconStartingOrigin.x +
-                        location.x - self.gestureViewStartingOrigin.x + 60
-                    
-                    UIView.animateWithDuration(0.3, animations: {  () -> Void in
-                        self.exerciseCellView.backgroundColor = self.brownColor
-                        self.laterIconImageView.image = UIImage(named: "list_icon")
                     })
                 }
                 
@@ -120,7 +109,7 @@ class ExerciseCell: UITableViewCell {
                     self.exerciseCellView.backgroundColor = self.grayColor
                     
                     // Archive icon + green background
-                } else if (60 < currentOrigin) && (currentOrigin <= 260) {
+                } else if (60 < currentOrigin) {
                     self.archiveIconImageView.alpha = 1
                     self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x +
                         location.x - self.gestureViewStartingOrigin.x - 60
@@ -128,17 +117,6 @@ class ExerciseCell: UITableViewCell {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellView.backgroundColor = self.greenColor
                         self.archiveIconImageView.image = UIImage(named: "archive_icon")
-                    })
-                    
-                    // Delete icon + green background
-                } else if 260 < currentOrigin {
-                    self.archiveIconImageView.alpha = 1
-                    self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x +
-                        location.x - self.gestureViewStartingOrigin.x - 60
-                    
-                    UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellView.backgroundColor = self.redColor
-                        self.archiveIconImageView.image = UIImage(named: "delete_icon")
                     })
                 }
             }
@@ -160,7 +138,7 @@ class ExerciseCell: UITableViewCell {
                 }
                     
                     // Complete animation (yellow background + later icon)
-                else if (-260 <= translation.x) && (translation.x < -60) {
+                else if (translation.x < -60) {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellContentView.frame.origin.x = -320
                         self.laterIconImageView.alpha = 0
@@ -168,23 +146,10 @@ class ExerciseCell: UITableViewCell {
                         
                         // Show options imageView
                         }, completion: { (BOOL) -> Void in
-                            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                                // self.rescheduleImageView.alpha = 1
-                            })
-                    })
-                    
-                    // Complete animation (brown background + list icon)
-                } else {
-                    UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellContentView.frame.origin.x = -320
-                        self.laterIconImageView.alpha = 0
-                        self.exerciseCellView.backgroundColor = self.brownColor
-                        
-                        // Show options imageView
-                        }, completion: { (BOOL) -> Void in
-                            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                                // self.listImageView.alpha = 1
-                            })
+                            if self.delegate != nil {
+                                self.delegate!.exerciseDeleted(exerciseIndex)
+                                self.hideMessageView()
+                            }
                     })
                 }
                 
@@ -206,18 +171,6 @@ class ExerciseCell: UITableViewCell {
                         self.exerciseCellContentView.frame.origin.x = 320
                         self.archiveIconImageView.alpha = 0
                         self.exerciseCellView.backgroundColor = self.greenColor
-                        
-                        // Hide the messageView
-                        }, completion: { (BOOL) -> Void in
-                            // self.hideMessageView()
-                    })
-                    
-                    // Complete animation (red background + delete icon)
-                } else {
-                    UIView.animateWithDuration(0.3, animations: { () -> Void in
-                        self.exerciseCellContentView.frame.origin.x = 320
-                        self.archiveIconImageView.alpha = 0
-                        self.exerciseCellView.backgroundColor = self.redColor
                         
                         // Hide the messageView
                         }, completion: { (BOOL) -> Void in
