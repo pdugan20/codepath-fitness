@@ -791,6 +791,8 @@
         <image name="GenerateWorkoutButton" width="248" height="248"/>
         <image name="Profile" width="29" height="26"/>
         <image name="Screen Shot 2015-06-20 at 4.37.07 PM" width="321" height="569"/>
+        <image name="GenerateWorkoutButton" width="248" height="248"/>
+        <image name="NUX_BG" width="375" height="668"/>
         <image name="archive_icon" width="25" height="25"/>
         <image name="heart_icon_stroke" width="60" height="52"/>
         <image name="later_icon" width="25" height="25"/>
