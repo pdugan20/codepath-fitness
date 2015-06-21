@@ -69,8 +69,8 @@ class ExerciseCell: UITableViewCell {
             archiveIconStartingOrigin = archiveIconImageView.frame.origin
             
             exerciseCellView.backgroundColor = grayColor
-            laterIconImageView.image = UIImage(named: "later_icon")
-            archiveIconImageView.image = UIImage(named: "archive_icon")
+            laterIconImageView.image = UIImage(named: "swap_icon")
+            archiveIconImageView.image = UIImage(named: "done_icon")
             
             // Control dragable messageView on x-axis
         } else if sender.state == UIGestureRecognizerState.Changed {
@@ -95,7 +95,7 @@ class ExerciseCell: UITableViewCell {
                     
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellView.backgroundColor = self.yellowColor
-                        self.laterIconImageView.image = UIImage(named: "later_icon")
+                        self.laterIconImageView.image = UIImage(named: "swap_icon")
                     })
                 }
                 
@@ -116,7 +116,7 @@ class ExerciseCell: UITableViewCell {
                     
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellView.backgroundColor = self.greenColor
-                        self.archiveIconImageView.image = UIImage(named: "archive_icon")
+                        self.archiveIconImageView.image = UIImage(named: "done_icon")
                     })
                 }
             }
@@ -191,10 +191,10 @@ class ExerciseCell: UITableViewCell {
             { (BOOL) -> Void in
                 self.exerciseCellContentView.frame.origin.x = 0
                 self.laterIconImageView.frame.origin.x = 279
-                self.laterIconImageView.image = UIImage(named: "later_icon")
+                self.laterIconImageView.image = UIImage(named: "swap_icon")
                 self.laterIconImageView.alpha = 0
                 self.archiveIconImageView.frame.origin.x = 16
-                self.archiveIconImageView.image = UIImage(named: "archive_icon")
+                self.archiveIconImageView.image = UIImage(named: "done_icon")
                 self.archiveIconImageView.alpha = 0
         })
     }

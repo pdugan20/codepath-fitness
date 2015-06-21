@@ -72,12 +72,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="321" height="86.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="Lkf-Go-gP1" userLabel="archiveIcon">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="done_icon" id="Lkf-Go-gP1" userLabel="doneIcon">
                                                     <rect key="frame" x="12" y="31" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_icon" id="lGF-VH-f9P" userLabel="laterIcon">
-                                                    <rect key="frame" x="287" y="31" width="25" height="25"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="swap_icon" id="lGF-VH-f9P" userLabel="swapIcon">
+                                                    <rect key="frame" x="282" y="31" width="30" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="gun-VB-ZyZ" userLabel="exerciseCellContentView">
@@ -791,9 +791,9 @@
         <image name="GenerateWorkoutButton" width="248" height="248"/>
         <image name="Profile" width="29" height="26"/>
         <image name="Screen Shot 2015-06-20 at 4.37.07 PM" width="321" height="569"/>
-        <image name="archive_icon" width="25" height="25"/>
+        <image name="done_icon" width="30" height="30"/>
         <image name="heart_icon_stroke" width="60" height="52"/>
-        <image name="later_icon" width="25" height="25"/>
+        <image name="swap_icon" width="27" height="24"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
