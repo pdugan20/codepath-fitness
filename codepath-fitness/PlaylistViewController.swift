@@ -48,7 +48,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "5",
         "workoutGroup" : "Chest",
         "muscleGroup" : "Upper Body",
-        "imageGroup" : ["exercise03", "exercise09"],
+        "imageGroup" : ["02a_dumbbell_press.png", "02b_dumbbell_press.png"],
         "reps": "8",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
@@ -60,7 +60,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "4",
         "workoutGroup" : "Back",
         "muscleGroup" : "Upper Body",
-        "imageGroup" : ["exercise03", "exercise09"],
+        "imageGroup" : ["09a_bent_row.png", "09b_bent_row.png"],
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
@@ -72,7 +72,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "3",
         "workoutGroup" : "Quadriceps",
         "muscleGroup" : "Lower Body",
-        "imageGroup" : ["exercise01", "exercise06"],
+        "imageGroup" : ["", ""],
         "reps": "20",
         "sets": "3",
         "equipmentRequired" : "None",
@@ -84,7 +84,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "6",
         "workoutGroup" : "Legs, Biceps",
         "muscleGroup" : "Full Body",
-        "imageGroup" : ["exercise01", "exercise03"],
+        "imageGroup" : ["", ""],
         "reps": "10",
         "sets": "2",
         "equipmentRequired" : "Dumbbells",
@@ -96,7 +96,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "4",
         "workoutGroup" : "Shoulders",
         "muscleGroup" : "Upper Body",
-        "imageGroup" : ["exercise04", "exercise08"],
+        "imageGroup" : ["", ""],
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
@@ -108,7 +108,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "5",
         "workoutGroup" : "Triceps",
         "muscleGroup" : "Upper Body",
-        "imageGroup" : ["exercise03", "exercise07"],
+        "imageGroup" : ["", ""],
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
@@ -120,7 +120,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "3",
         "workoutGroup" : "Abs",
         "muscleGroup" : "Core",
-        "imageGroup" : ["exercise03", "exercise07"],
+        "imageGroup" : ["", ""],
         "reps": "12",
         "sets": "4",
         "equipmentRequired" : "Pull-up Bar",
@@ -228,6 +228,18 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // Define exerciseDetailCell
             let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseDetailCell") as! ExerciseDetailCell
             var exerciseDescription = exerciseArray[exerciseDisplayCount]["description"] as? String
+            var exerciseImageArray = exerciseArray[exerciseDisplayCount]["imageGroup"] as! [String]
+            
+            var exerciseStartingImagePath = String(exerciseImageArray[0])
+            var exerciseEndingImagePath = String(exerciseImageArray[1])
+            
+            // 02a_dumbbell_press.png
+            // 09a_bent_row.png
+            
+            if exerciseEndingImagePath != "" {
+                cell.exerciseImageView.image = UIImage(named: exerciseStartingImagePath)
+                println(exerciseStartingImagePath)
+            }
             
             cell.exerciseDescriptionTextField.textAlignment = .Center
             cell.exerciseDescriptionTextField.text = exerciseDescription
