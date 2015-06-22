@@ -11,6 +11,7 @@
         </mutableArray>
         <mutableArray key="SF-UI-Text-Medium.otf">
             <string>SFUIText-Medium</string>
+            <string>SFUIText-Medium</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
             <string>SFUIText-Regular</string>
@@ -76,9 +77,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="done_icon" id="Lkf-Go-gP1" userLabel="doneIcon">
-                                                    <rect key="frame" x="12" y="31" width="25" height="25"/>
+                                                    <rect key="frame" x="12" y="23" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5GQ-LX-MSN" userLabel="doneLabel">
+                                                    <rect key="frame" x="11" y="46" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="swap_icon" id="lGF-VH-f9P" userLabel="swapIcon">
                                                     <rect key="frame" x="282" y="26" width="23" height="19"/>
                                                     <autoresizingMask key="autoresizingMask"/>
@@ -137,6 +145,7 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="archiveIconImageView" destination="Lkf-Go-gP1" id="mQ8-kA-Kc6"/>
+                                            <outlet property="doneLabel" destination="5GQ-LX-MSN" id="b8c-VW-pln"/>
                                             <outlet property="durationLabel" destination="njb-Fu-3fz" id="dev-HH-A87"/>
                                             <outlet property="exerciseCellContentView" destination="gun-VB-ZyZ" id="L2o-yi-IAH"/>
                                             <outlet property="exerciseCellView" destination="YeY-vb-wSu" id="5bd-nJ-fx1"/>

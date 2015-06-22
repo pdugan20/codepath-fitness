@@ -27,6 +27,7 @@ class ExerciseCell: UITableViewCell {
     @IBOutlet weak var exerciseCellContentView: UIView!
     
     @IBOutlet weak var swapLabel: UILabel!
+    @IBOutlet weak var doneLabel: UILabel!
     
     let blueColor = UIColor(red: 68/255, green: 170/255, blue: 210/255, alpha: 1)
     let yellowColor = UIColor(red: 254/255, green: 202/255, blue: 22/255, alpha: 1)
@@ -45,6 +46,7 @@ class ExerciseCell: UITableViewCell {
     var exerciseCellViewStartingOrigin: CGPoint!
     var laterIconStartingOrigin: CGPoint!
     var swapLabelStartingOrigin: CGPoint!
+    var doneLabelStartingOrigin: CGPoint!
     var archiveIconStartingOrigin: CGPoint!
 
     override func awakeFromNib() {
@@ -70,6 +72,7 @@ class ExerciseCell: UITableViewCell {
             exerciseCellViewStartingOrigin = exerciseCellContentView.frame.origin
             laterIconStartingOrigin = laterIconImageView.frame.origin
             swapLabelStartingOrigin = swapLabel.frame.origin
+            doneLabelStartingOrigin = doneLabel.frame.origin
             archiveIconStartingOrigin = archiveIconImageView.frame.origin
             
             exerciseCellView.backgroundColor = grayColor
@@ -115,12 +118,17 @@ class ExerciseCell: UITableViewCell {
                 if currentOrigin < 60 {
                     self.archiveIconImageView.frame.origin.x = 16
                     self.archiveIconImageView.alpha = translation.x/60
+                    self.doneLabel.alpha = translation.x/60
                     self.exerciseCellView.backgroundColor = self.grayColor
                     
                     // Archive icon + green background
                 } else if (60 < currentOrigin) {
                     self.archiveIconImageView.alpha = 1
                     self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x +
+                        location.x - self.gestureViewStartingOrigin.x - 56
+                    
+                    self.doneLabel.alpha = 1
+                    self.doneLabel.frame.origin.x = self.doneLabelStartingOrigin.x +
                         location.x - self.gestureViewStartingOrigin.x - 60
                     
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
@@ -163,7 +171,7 @@ class ExerciseCell: UITableViewCell {
                     })
                 }
                 
-                // Swipe right inside of the messageView
+            // Swipe right inside of the messageView
             } else if 0 < translation.x {
                 
                 // Snap back to original origin
@@ -172,6 +180,10 @@ class ExerciseCell: UITableViewCell {
                         self.exerciseCellContentView.frame.origin.x = self.exerciseCellViewStartingOrigin.x
                         self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x
                         self.archiveIconImageView.alpha = 0
+                        
+                        self.doneLabel.frame.origin.x = self.doneLabelStartingOrigin.x
+                        self.doneLabel.alpha = 0
+                        
                         self.exerciseCellView.backgroundColor = self.grayColor
                     })
                     
@@ -180,6 +192,7 @@ class ExerciseCell: UITableViewCell {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellContentView.frame.origin.x = 320
                         self.archiveIconImageView.alpha = 0
+                        self.doneLabel.alpha = 0
                         self.exerciseCellView.backgroundColor = self.greenColor
                         
                         // Hide the messageView
