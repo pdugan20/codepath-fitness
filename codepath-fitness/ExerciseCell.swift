@@ -10,6 +10,7 @@ import UIKit
 
 protocol TableViewCellDelegate {
     func exerciseDeleted(exerciseIndex: Int)
+    func exerciseSwapped(exerciseIndex: Int)
 }
 
 class ExerciseCell: UITableViewCell {
@@ -154,7 +155,7 @@ class ExerciseCell: UITableViewCell {
                     })
                 }
                     
-                    // Complete animation (yellow background + later icon)
+                // Complete animation (yellow background + later icon)
                 else if (translation.x < -60) {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellContentView.frame.origin.x = -320
@@ -165,7 +166,7 @@ class ExerciseCell: UITableViewCell {
                         // Show options imageView
                         }, completion: { (BOOL) -> Void in
                             if self.delegate != nil {
-                                self.delegate!.exerciseDeleted(exerciseIndex)
+                                self.delegate!.exerciseSwapped(exerciseIndex)
                                 self.hideMessageView()
                             }
                     })
@@ -187,7 +188,7 @@ class ExerciseCell: UITableViewCell {
                         self.exerciseCellView.backgroundColor = self.grayColor
                     })
                     
-                    // Complete animation (green background + archive icon)
+                // Complete animation (green background + archive icon)
                 } else if (60 < translation.x) && (translation.x <= 260) {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellContentView.frame.origin.x = 320

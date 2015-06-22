@@ -129,7 +129,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // Begin Workout #2
     
     var burpeesDict = [
-        "name" : "Leg raises",
+        "name" : "Burpees",
         "intensity" : "low",
         "duration" : "3",
         "workoutGroup" : "Legs + Triceps",
@@ -418,6 +418,17 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         exerciseArray.removeAtIndex(exerciseIndex)
         playlistTableView.beginUpdates()
         playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
+        playlistTableView.endUpdates()
+        playlistTableView.reloadData()
+    }
+    
+    func exerciseSwapped(exerciseIndex: Int) {
+        // Deletes current exercise from array
+        exerciseArray.removeAtIndex(exerciseIndex)
+        // Adds new exercise into previous position
+        exerciseArray.insert(exerciseArray2[exerciseIndex], atIndex: exerciseIndex)
+        playlistTableView.beginUpdates()
+        // playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
         playlistTableView.endUpdates()
         playlistTableView.reloadData()
     }
