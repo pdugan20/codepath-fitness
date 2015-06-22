@@ -414,10 +414,13 @@ class SettingsViewController: UIViewController {
             sender.selected = true
             locationButton.setTitle("Location: " + "\(sender.titleLabel!.text!)", forState: .Normal)
             header3optionsHide()
-            UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-                self.buttonCoverView.alpha = 0
-                self.generateWorkoutButton.center = self.generateWorkoutButtonShown
-                }, completion: nil)
+            delay(0.2, { () -> () in
+                UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                    self.buttonCoverView.alpha = 0
+                    self.generateWorkoutButton.center = self.generateWorkoutButtonShown
+                    }, completion: nil)
+            })
+            
         } else {
             header3option1Button.selected = false
             header3option2Button.selected = false

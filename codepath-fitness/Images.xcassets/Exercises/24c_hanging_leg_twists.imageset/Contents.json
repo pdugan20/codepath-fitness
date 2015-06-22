@@ -4,6 +4,14 @@
       "idiom" : "universal",
       "scale" : "1x",
       "filename" : "24c_hanging_leg_twists.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

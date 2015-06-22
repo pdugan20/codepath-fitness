@@ -4,6 +4,14 @@
       "idiom" : "universal",
       "scale" : "1x",
       "filename" : "02b_dumbbell_bench_press.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
