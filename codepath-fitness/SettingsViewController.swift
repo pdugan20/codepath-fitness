@@ -91,9 +91,32 @@ class SettingsViewController: UIViewController {
     
     var onNavigationButtonPressed:((Void)->Void)!
     
+    // Set UI colors to be used in playlist view
+    // var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
+    var blueHeaderColor = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 1.0)
+    var blueHeaderColorTinted = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 0.9)
+    var borderGray = UIColor(red: 188/255, green: 186/255, blue: 193/255, alpha: 1.0)
+    var listItemColor = UIColor(red: 235/255, green: 241/255, blue: 244/255, alpha: 1.0)
+    var descriptionColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+    var descriptionSelectedColor = UIColor.whiteColor()
+    
+    var listItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 1.0)
+    var option1ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.9)
+    var option2ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.7)
+    var option3ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.5)
+    var option4ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.3)
+
+
+
+
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        header1View.layer.backgroundColor = listItemSelectedColor.CGColor
+        durationButton.setTitleColor(descriptionSelectedColor, forState: UIControlState.Normal)
+
         header1ViewOriginalCenter = header1View.center
         
         // For all options, shown = the final location of the button when exposed, hidden = animating from behind the header
@@ -105,13 +128,16 @@ class SettingsViewController: UIViewController {
         header1option2Hidden = CGPoint(x: header1View.center.x, y: header1View.center.y)
         header1option2.center = header1option2Hidden
         
+        
         header1option3Shown = header1option3.center
         header1option3Hidden = CGPoint(x: header1View.center.x, y: header1View.center.y)
         header1option3.center = header1option3Hidden
         
+        
         header1option4Shown = header1option4.center
         header1option4Hidden = CGPoint(x: header1View.center.x, y: header1View.center.y)
         header1option4.center = header1option4Hidden
+        
         
         // These allow us to know when the section is expanded or collapsed, so we can toggle
         header1optionsShown = false
@@ -154,6 +180,20 @@ class SettingsViewController: UIViewController {
         header3option1.alpha = 0
         header3option2.alpha = 0
         
+        // Set the background colors for option cells
+        self.header1option1.backgroundColor = self.option1ItemSelectedColor
+        self.header1option2.backgroundColor = self.option2ItemSelectedColor
+        self.header1option3.backgroundColor = self.option3ItemSelectedColor
+        self.header1option4.backgroundColor = self.option4ItemSelectedColor
+        
+        self.header2option1.backgroundColor = self.option1ItemSelectedColor
+        self.header2option2.backgroundColor = self.option2ItemSelectedColor
+        self.header2option3.backgroundColor = self.option3ItemSelectedColor
+        
+        self.header3option1.backgroundColor = self.option1ItemSelectedColor
+        self.header3option2.backgroundColor = self.option2ItemSelectedColor
+
+        
         // After the user has made all 3 required selections, the 'Generate Workout' button is exposed
         generateWorkoutButtonShown = generateWorkoutButton.center
         generateWorkoutButtonHidden = CGPoint(x: generateWorkoutButton.center.x, y: generateWorkoutButtonShown.y + 400)
@@ -195,13 +235,16 @@ class SettingsViewController: UIViewController {
             
             // This if / else-if rule set alters the behavior depending on if Headers 2 and 3 have been exposed yet
             if header2HasBeenPresented == true && header3HasBeenPresented == false {
+                
                 header1optionsShow()
                 header2optionsHide()
                 header3optionsHide()
                 UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.header2View.center = CGPoint(x: self.header2View.center.x, y: self.header1option4.center.y + 72)
                     }, completion: nil)
+                
             } else if header2HasBeenPresented == true && header3HasBeenPresented == true {
+                
                 header1optionsShow()
                 header2optionsHide()
                 header3optionsHide()
@@ -215,6 +258,7 @@ class SettingsViewController: UIViewController {
         } else if header1optionsShown == true {
             
             if header2HasBeenPresented == true && header3HasBeenPresented == false {
+                
                 header1optionsHide()
                 UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.header2View.center = self.header2ViewExpandPosition
@@ -223,6 +267,7 @@ class SettingsViewController: UIViewController {
                 header3optionsShow()
                 
             } else if header2HasBeenPresented == true && header3HasBeenPresented == true {
+                
                 header1optionsHide()
                 UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                     self.header2View.center = self.header2ViewExpandPosition
@@ -230,10 +275,7 @@ class SettingsViewController: UIViewController {
                     self.buttonCoverView.alpha = 0
                     }, completion: nil)
             }
-            
         }
-        
-        
     }
     
     @IBAction func onHeader2Tap(sender: AnyObject) {
@@ -273,7 +315,6 @@ class SettingsViewController: UIViewController {
                     }, completion: nil)
             }
         }
-        
     }
     
     @IBAction func onHeader3Tap(sender: AnyObject) {
@@ -288,6 +329,7 @@ class SettingsViewController: UIViewController {
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                 self.header3View.center = self.header3ViewExpandPosition
                 self.buttonCoverView.alpha = 0.95
+                self.header2View.center = self.header2ViewExpandPosition
                 }, completion: nil)
             
         } else if header3optionsShown == true {
@@ -396,11 +438,19 @@ class SettingsViewController: UIViewController {
     
     func header1optionsShow() {
         
+        
+        
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.header1View.layer.backgroundColor = self.listItemSelectedColor.CGColor
+            self.durationButton.setTitleColor(self.descriptionSelectedColor, forState: UIControlState.Normal)
+            
             self.header1option1.center = self.header1option1Shown
             self.header1option2.center = self.header1option2Shown
             self.header1option3.center = self.header1option3Shown
             self.header1option4.center = self.header1option4Shown
+            
+            
             
             }, completion: nil)
         self.header1optionsShown = true
@@ -410,10 +460,16 @@ class SettingsViewController: UIViewController {
     func header1optionsHide() {
         
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.header1View.layer.backgroundColor = self.listItemColor.CGColor
+            self.durationButton.setTitleColor(self.descriptionColor, forState: UIControlState.Normal)
+
+            
             self.header1option1.center = self.header1option1Hidden
             self.header1option2.center = self.header1option2Hidden
             self.header1option3.center = self.header1option3Hidden
             self.header1option4.center = self.header1option4Hidden
+            
             
             
             }, completion: nil)
@@ -422,7 +478,12 @@ class SettingsViewController: UIViewController {
     }
     
     func header2optionsShow() {
+        
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.header2View.layer.backgroundColor = self.listItemSelectedColor.CGColor
+            self.workoutTypeButton.setTitleColor(self.descriptionSelectedColor, forState: UIControlState.Normal)
+            
             self.header2option1.alpha = 1
             self.header2option2.alpha = 1
             self.header2option3.alpha = 1
@@ -432,12 +493,18 @@ class SettingsViewController: UIViewController {
             self.header2option3.center = self.header2option3Shown
             
             }, completion: nil)
+        
         self.header2optionsShown = true
         self.header2HasBeenPresented = true
     }
     
     func header2optionsHide() {
+        
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.header2View.layer.backgroundColor = self.listItemColor.CGColor
+            self.workoutTypeButton.setTitleColor(self.descriptionColor, forState: UIControlState.Normal)
+            
             self.header2option1.center = self.header2option1Hidden
             self.header2option2.center = self.header2option2Hidden
             self.header2option3.center = self.header2option3Hidden
@@ -452,7 +519,12 @@ class SettingsViewController: UIViewController {
     }
     
     func header3optionsShow() {
+        
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.header3View.layer.backgroundColor = self.listItemSelectedColor.CGColor
+            self.locationButton.setTitleColor(self.descriptionSelectedColor, forState: UIControlState.Normal)
+            
             self.header3option1.alpha = 1
             self.header3option2.alpha = 1
             
@@ -460,11 +532,16 @@ class SettingsViewController: UIViewController {
             self.header3option2.center = self.header3option2Shown
             
             }, completion: nil)
+        
         self.header3optionsShown = true
         self.header3HasBeenPresented = true
     }
     
     func header3optionsHide() {
+        
+        self.header3View.layer.backgroundColor = self.listItemColor.CGColor
+        self.locationButton.setTitleColor(self.descriptionColor, forState: UIControlState.Normal)
+        
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             self.header3option1.center = self.header3option1Hidden
             self.header3option2.center = self.header3option2Hidden
