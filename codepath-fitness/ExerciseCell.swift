@@ -10,6 +10,7 @@ import UIKit
 
 protocol TableViewCellDelegate {
     func exerciseDeleted(exerciseIndex: Int)
+    func exerciseSwapped(exerciseIndex: Int)
 }
 
 class ExerciseCell: UITableViewCell {
@@ -25,6 +26,9 @@ class ExerciseCell: UITableViewCell {
     @IBOutlet weak var laterIconImageView: UIImageView!
     @IBOutlet weak var exerciseCellView: UIView!
     @IBOutlet weak var exerciseCellContentView: UIView!
+    
+    @IBOutlet weak var swapLabel: UILabel!
+    @IBOutlet weak var doneLabel: UILabel!
     
     let blueColor = UIColor(red: 68/255, green: 170/255, blue: 210/255, alpha: 1)
     let yellowColor = UIColor(red: 254/255, green: 202/255, blue: 22/255, alpha: 1)
@@ -42,6 +46,8 @@ class ExerciseCell: UITableViewCell {
     var gestureViewStartingOrigin: CGPoint!
     var exerciseCellViewStartingOrigin: CGPoint!
     var laterIconStartingOrigin: CGPoint!
+    var swapLabelStartingOrigin: CGPoint!
+    var doneLabelStartingOrigin: CGPoint!
     var archiveIconStartingOrigin: CGPoint!
 
     override func awakeFromNib() {
@@ -66,11 +72,13 @@ class ExerciseCell: UITableViewCell {
             gestureViewStartingOrigin = location
             exerciseCellViewStartingOrigin = exerciseCellContentView.frame.origin
             laterIconStartingOrigin = laterIconImageView.frame.origin
+            swapLabelStartingOrigin = swapLabel.frame.origin
+            doneLabelStartingOrigin = doneLabel.frame.origin
             archiveIconStartingOrigin = archiveIconImageView.frame.origin
             
             exerciseCellView.backgroundColor = grayColor
-            laterIconImageView.image = UIImage(named: "later_icon")
-            archiveIconImageView.image = UIImage(named: "archive_icon")
+            laterIconImageView.image = UIImage(named: "swap_icon")
+            archiveIconImageView.image = UIImage(named: "done_icon")
             
             // Control dragable messageView on x-axis
         } else if sender.state == UIGestureRecognizerState.Changed {
@@ -82,9 +90,10 @@ class ExerciseCell: UITableViewCell {
             // Swipe left inside of messageView
             if currentOrigin < 0 {
                 
-                // Later icon + gray background
+                // Swap icon + gray background
                 if -60 < currentOrigin {
                     self.laterIconImageView.alpha = translation.x/(60 * -1)
+                    self.swapLabel.alpha = translation.x/(60 * -1)
                     self.exerciseCellView.backgroundColor = self.grayColor
                     
                 // Later icon + yellow background
@@ -93,9 +102,13 @@ class ExerciseCell: UITableViewCell {
                     self.laterIconImageView.frame.origin.x = self.laterIconStartingOrigin.x +
                         location.x - self.gestureViewStartingOrigin.x + 60
                     
+                    self.swapLabel.alpha = 1
+                    self.swapLabel.frame.origin.x = self.swapLabelStartingOrigin.x +
+                        location.x - self.gestureViewStartingOrigin.x + 60
+                    
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellView.backgroundColor = self.yellowColor
-                        self.laterIconImageView.image = UIImage(named: "later_icon")
+                        self.laterIconImageView.image = UIImage(named: "swap_icon")
                     })
                 }
                 
@@ -106,17 +119,22 @@ class ExerciseCell: UITableViewCell {
                 if currentOrigin < 60 {
                     self.archiveIconImageView.frame.origin.x = 16
                     self.archiveIconImageView.alpha = translation.x/60
+                    self.doneLabel.alpha = translation.x/60
                     self.exerciseCellView.backgroundColor = self.grayColor
                     
                     // Archive icon + green background
                 } else if (60 < currentOrigin) {
                     self.archiveIconImageView.alpha = 1
                     self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x +
+                        location.x - self.gestureViewStartingOrigin.x - 56
+                    
+                    self.doneLabel.alpha = 1
+                    self.doneLabel.frame.origin.x = self.doneLabelStartingOrigin.x +
                         location.x - self.gestureViewStartingOrigin.x - 60
                     
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellView.backgroundColor = self.greenColor
-                        self.archiveIconImageView.image = UIImage(named: "archive_icon")
+                        self.archiveIconImageView.image = UIImage(named: "done_icon")
                     })
                 }
             }
@@ -137,23 +155,24 @@ class ExerciseCell: UITableViewCell {
                     })
                 }
                     
-                    // Complete animation (yellow background + later icon)
+                // Complete animation (yellow background + later icon)
                 else if (translation.x < -60) {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellContentView.frame.origin.x = -320
                         self.laterIconImageView.alpha = 0
+                        self.swapLabel.alpha = 0
                         self.exerciseCellView.backgroundColor = self.yellowColor
                         
                         // Show options imageView
                         }, completion: { (BOOL) -> Void in
                             if self.delegate != nil {
-                                self.delegate!.exerciseDeleted(exerciseIndex)
+                                self.delegate!.exerciseSwapped(exerciseIndex)
                                 self.hideMessageView()
                             }
                     })
                 }
                 
-                // Swipe right inside of the messageView
+            // Swipe right inside of the messageView
             } else if 0 < translation.x {
                 
                 // Snap back to original origin
@@ -162,14 +181,19 @@ class ExerciseCell: UITableViewCell {
                         self.exerciseCellContentView.frame.origin.x = self.exerciseCellViewStartingOrigin.x
                         self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x
                         self.archiveIconImageView.alpha = 0
+                        
+                        self.doneLabel.frame.origin.x = self.doneLabelStartingOrigin.x
+                        self.doneLabel.alpha = 0
+                        
                         self.exerciseCellView.backgroundColor = self.grayColor
                     })
                     
-                    // Complete animation (green background + archive icon)
+                // Complete animation (green background + archive icon)
                 } else if (60 < translation.x) && (translation.x <= 260) {
                     UIView.animateWithDuration(0.3, animations: { () -> Void in
                         self.exerciseCellContentView.frame.origin.x = 320
                         self.archiveIconImageView.alpha = 0
+                        self.doneLabel.alpha = 0
                         self.exerciseCellView.backgroundColor = self.greenColor
                         
                         // Hide the messageView
@@ -191,10 +215,10 @@ class ExerciseCell: UITableViewCell {
             { (BOOL) -> Void in
                 self.exerciseCellContentView.frame.origin.x = 0
                 self.laterIconImageView.frame.origin.x = 279
-                self.laterIconImageView.image = UIImage(named: "later_icon")
+                self.laterIconImageView.image = UIImage(named: "swap_icon")
                 self.laterIconImageView.alpha = 0
                 self.archiveIconImageView.frame.origin.x = 16
-                self.archiveIconImageView.image = UIImage(named: "archive_icon")
+                self.archiveIconImageView.image = UIImage(named: "done_icon")
                 self.archiveIconImageView.alpha = 0
         })
     }

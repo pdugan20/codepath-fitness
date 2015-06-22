@@ -12,16 +12,15 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var playlistTableView: UITableView!
     
-    // Declare parent exercise array
+    // Declare parent exercise arrays
     var exerciseArray: [AnyObject] = []
+    var exerciseArray2: [AnyObject] = []
     
     // Declare master of displayed exercises
     var exerciseDisplayCount: Int!
 
     // Declare cells for each top-level summary item
     @IBOutlet weak var muscleGroupNavCell: UIView!
-    @IBOutlet weak var locationNavCell: UIView!
-    @IBOutlet weak var timeNavCell: UIView!
     
     // Set UI colors to be used in playlist view
     // var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
@@ -29,7 +28,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     var blueHeaderColorTinted = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 0.9)
     var borderGray = UIColor(red: 188/255, green: 186/255, blue: 193/255, alpha: 1.0)
     
-    // Declare individual exercise dictionaries
+    // Begin Workout #1
+    
     var jogDict = [
         "name" : "Light jog", 
         "intensity" : "low", 
@@ -48,7 +48,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "5",
         "workoutGroup" : "Chest",
         "muscleGroup" : "Upper Body",
-        "imageGroup" : ["02a_dumbbell_press.png", "02b_dumbbell_press.png"],
+        "imageGroup" : ["02a_dumbbell_bench_press.png", "02b_dumbbell_bench_press.png"],
         "reps": "8",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
@@ -60,7 +60,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "4",
         "workoutGroup" : "Back",
         "muscleGroup" : "Upper Body",
-        "imageGroup" : ["09a_bent_row.png", "09b_bent_row.png"],
+        "imageGroup" : ["09a_bent_over_row.png", "09b_bent_over_row.png"],
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
@@ -72,7 +72,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "3",
         "workoutGroup" : "Quadriceps",
         "muscleGroup" : "Lower Body",
-        "imageGroup" : ["", ""],
+        "imageGroup" : ["20a_squat.png", "20b_squat.png"],
         "reps": "20",
         "sets": "3",
         "equipmentRequired" : "None",
@@ -84,7 +84,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "6",
         "workoutGroup" : "Legs, Biceps",
         "muscleGroup" : "Full Body",
-        "imageGroup" : ["", ""],
+        "imageGroup" : ["22a_step_up_with_curl.png", "22b_step_up_with_curl.png"],
         "reps": "10",
         "sets": "2",
         "equipmentRequired" : "Dumbbells",
@@ -96,7 +96,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "4",
         "workoutGroup" : "Shoulders",
         "muscleGroup" : "Upper Body",
-        "imageGroup" : ["", ""],
+        "imageGroup" : ["17a_standing_dumbbell_shoulder_press.png", "17b_standing_dumbbell_shoulder_press.png"],
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
@@ -108,7 +108,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "5",
         "workoutGroup" : "Triceps",
         "muscleGroup" : "Upper Body",
-        "imageGroup" : ["", ""],
+        "imageGroup" : ["10a_bent_over_tricep_extension.png", "10b_bent_over_tricep_extension.png"],
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
@@ -120,10 +120,120 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "duration" : "3",
         "workoutGroup" : "Abs",
         "muscleGroup" : "Core",
-        "imageGroup" : ["", ""],
+        "imageGroup" : ["23a_hanging_leg_raises.png", "23a_hanging_leg_raises.png"],
         "reps": "12",
         "sets": "4",
         "equipmentRequired" : "Pull-up Bar",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    // Begin Workout #2
+    
+    var burpeesDict = [
+        "name" : "Burpees",
+        "intensity" : "low",
+        "duration" : "3",
+        "workoutGroup" : "Legs + Triceps",
+        "muscleGroup" : "Full Body",
+        "imageGroup" : ["", ""],
+        "reps": "15",
+        "sets": "3",
+        "equipmentRequired" : "None",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var medBallDumbbellPressDict = [
+        "name" : "Medicine Ball Dumbbell Press",
+        "intensity" : "low",
+        "duration" : "5",
+        "workoutGroup" : "Chest",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var flyDict = [
+        "name" : "Fly",
+        "intensity" : "low",
+        "duration" : "5",
+        "workoutGroup" : "Chest",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "18",
+        "sets": "2",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var plankRowDict = [
+        "name" : "Plank Row",
+        "intensity" : "low",
+        "duration" : "5",
+        "workoutGroup" : "Back",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var bentReverseFlyDict = [
+        "name" : "Bent over reverse fly",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Back",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "12",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var lateralRaiseDict = [
+        "name" : "Laying lateral raise",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Shoulders",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var chinUpDict = [
+        "name" : "Chin up",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Biceps",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "4",
+        "equipmentRequired" : "Pull-up bar",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var dipsDict = [
+        "name" : "Chin up",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Triceps",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "12",
+        "sets": "3",
+        "equipmentRequired" : "None",
+        "description" : "Warm up your muscles and get your heart rate up."]
+    
+    var standingTricepExtensionDict = [
+        "name" : "Standing overhead tricep extension",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Triceps",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["", ""],
+        "reps": "10",
+        "sets": "3",
+        "equipmentRequired" : "Dumbbells",
         "description" : "Warm up your muscles and get your heart rate up."]
     
     var expandedSection: Int! = -1
@@ -151,8 +261,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         var clientId = "BpmHUyPDIDaWYqoSL5rTcj27ryCj9N29"
         var fitnessApiUrl = NSURL(string: "https://www.kimonolabs.com/api/bfcfz33q?apikey=\(clientId)")!
         
-        // Add exercises to an array
+        // Add exercises to Workout #1
         exerciseArray = [jogDict, dumbellPressDict, bentOverRowDict, squatDict, stepUpDict, standingDumbbellDict, tricepExtensionDict, legRaiseDict]
+        
+        // Add exercises to Workout #2
+        exerciseArray2 = [burpeesDict, medBallDumbbellPressDict, flyDict, plankRowDict, bentReverseFlyDict, lateralRaiseDict, chinUpDict, dipsDict, standingTricepExtensionDict]
         
         // Networking request for JSON feed
         var request = NSURLRequest(URL: fitnessApiUrl)
@@ -236,12 +349,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             var exerciseStartingImagePath = String(exerciseImageArray[0])
             var exerciseEndingImagePath = String(exerciseImageArray[1])
             
-            // 02a_dumbbell_press.png
-            // 09a_bent_row.png
-            
             if exerciseEndingImagePath != "" {
                 cell.exerciseImageView.image = UIImage(named: exerciseStartingImagePath)
-                println(exerciseStartingImagePath)
+                // println(exerciseStartingImagePath)
             }
             
             cell.exerciseDescriptionTextField.textAlignment = .Center
@@ -308,6 +418,17 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         exerciseArray.removeAtIndex(exerciseIndex)
         playlistTableView.beginUpdates()
         playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
+        playlistTableView.endUpdates()
+        playlistTableView.reloadData()
+    }
+    
+    func exerciseSwapped(exerciseIndex: Int) {
+        // Deletes current exercise from array
+        exerciseArray.removeAtIndex(exerciseIndex)
+        // Adds new exercise into previous position
+        exerciseArray.insert(exerciseArray2[exerciseIndex], atIndex: exerciseIndex)
+        playlistTableView.beginUpdates()
+        // playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
         playlistTableView.endUpdates()
         playlistTableView.reloadData()
     }
