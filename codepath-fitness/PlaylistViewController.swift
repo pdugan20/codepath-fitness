@@ -250,7 +250,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         playlistTableView.delegate = self
         playlistTableView.dataSource = self
         playlistTableView.contentInset = UIEdgeInsetsZero;
-        self.playlistTableView.reloadData()
+        playlistTableView.reloadData()
 
         // Adds long-press gesture recgonizer to each cell
         longPress.addTarget(self, action: "longPressGestureRecognized:")
@@ -470,7 +470,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         for (var i = 0; i < exerciseArray.count ; i++ ) {
             indexSet.addIndex(i)
         }
-        
+
         // Animates all remaining sections within index
         playlistTableView.reloadSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
         
@@ -505,6 +505,18 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             let cell = playlistTableView.cellForRowAtIndexPath(indexPath!)!
             var center = cell.center
+            
+            // Implements expansion functionality
+            if indexPath!.row == 0 {
+                if expandedSection == indexPath!.section {
+                    // Collapse already expanded section onTap
+                    expandedSection = -1
+                }
+                // Animates row height of expanding cell
+                playlistTableView.beginUpdates()
+                playlistTableView.endUpdates()
+                playlistTableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Top, animated: true)
+            }
             
             snapshot = customSnapshotFromView(cell)
             snapshot?.center = center
