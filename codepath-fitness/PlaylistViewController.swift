@@ -550,7 +550,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
                 sourceIndexPath = indexPath;
             }
             
-        default:
+        case UIGestureRecognizerState.Ended:
+            playlistTableView.reloadData()
+            
             let cell = playlistTableView.cellForRowAtIndexPath(indexPath!)!
             cell.alpha = 0.0
             
@@ -566,8 +568,12 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.snapshot?.removeFromSuperview()
                     self.snapshot = nil;
             })
+            
+        default:
+            // Do nothing
             break
         }
+        
     }
     
     // Generates snapshot of exericse cell while moving
