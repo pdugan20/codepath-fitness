@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController {
 
     var profileViewController: UIViewController!
     var setupViewController: SettingsViewController!
-
     
     var setupViewOriginalCenter: CGPoint!
     var setupViewLockedToBottom: CGPoint!
@@ -33,8 +32,6 @@ class ProfileViewController: UIViewController {
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileContentViewController") as! UIViewController
         setupViewController = storyboard.instantiateViewControllerWithIdentifier("SettingsViewController") as! SettingsViewController
-
-//    NSNotificationCenter.defaultCenter().addObserver(self, selector: displayTrayUI, name: "displayTrayUI", object: nil)
         
         setupViewController.onNavigationButtonPressed = {
             println("wants display ui")
@@ -45,7 +42,6 @@ class ProfileViewController: UIViewController {
                     }, completion: nil)
                 self.profileExposed = true
                 
-                
             } else {
                 UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: { () -> Void in
                     self.setupView.center = self.setupViewOriginalCenter
@@ -53,22 +49,13 @@ class ProfileViewController: UIViewController {
                 self.profileExposed = false
                 
             }
-            
-            
-
 
         }
         
         hideMenu()
         showMenu()
         
-        
     }
-    
-//    func displayTrayUI -> Void {
-//        
-//    }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -87,18 +74,5 @@ class ProfileViewController: UIViewController {
         setupView.addSubview(setupViewController.view)
         setupViewController.didMoveToParentViewController(self)
     }
-    
-
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
