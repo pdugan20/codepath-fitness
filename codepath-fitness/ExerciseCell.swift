@@ -13,7 +13,7 @@ protocol TableViewCellDelegate {
     func exerciseSwapped(exerciseIndex: Int)
 }
 
-class ExerciseCell: UITableViewCell {
+class ExerciseCell: UITableViewCell, UIGestureRecognizerDelegate {
     
     var delegate: TableViewCellDelegate?
 
@@ -49,14 +49,16 @@ class ExerciseCell: UITableViewCell {
     var swapLabelStartingOrigin: CGPoint!
     var doneLabelStartingOrigin: CGPoint!
     var archiveIconStartingOrigin: CGPoint!
+    
+    let exercisePanRecgonizer = UIPanGestureRecognizer()
 
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Adds a pan recognizer
-        var sender = UIPanGestureRecognizer(target: self, action: "didPanExerciseCell:")
-        sender.delegate = self
-        addGestureRecognizer(sender)
+        exercisePanRecgonizer.addTarget(self, action: "didPanExerciseCell:")
+        exercisePanRecgonizer.delegate = self
+        exerciseCellContentView.addGestureRecognizer(exercisePanRecgonizer)
         
     }
     
@@ -233,15 +235,18 @@ class ExerciseCell: UITableViewCell {
         })
     }
     
-    // Adds ability for TableView to scroll and cells to pan
-    override func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    // Prevents panning cell + scrolling tableview at same time
+    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
+            let velocity = panGestureRecognizer.velocityInView(superview!)
+            if fabs(velocity.x) >= fabs(velocity.y) { return true }
+            return false
+        }
+        return false
     }
-
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

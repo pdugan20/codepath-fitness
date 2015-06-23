@@ -287,6 +287,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.exerciseCellContentView.alpha = 1
             cell.swapLabel.alpha = 1
             cell.doneLabel.alpha = 1
+            
+            // cell.exercisePanRecgonizer.enabled = false
         
             // Sets all variables pulled from exerciseArray
             var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
