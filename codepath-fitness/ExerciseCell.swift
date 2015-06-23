@@ -80,7 +80,7 @@ class ExerciseCell: UITableViewCell {
             laterIconImageView.image = UIImage(named: "swap_icon")
             archiveIconImageView.image = UIImage(named: "done_icon")
             
-            // Control dragable messageView on x-axis
+        // Control dragable messageView on x-axis
         } else if sender.state == UIGestureRecognizerState.Changed {
             
             var currentOrigin = exerciseCellViewStartingOrigin.x + location.x -
@@ -112,7 +112,7 @@ class ExerciseCell: UITableViewCell {
                     })
                 }
                 
-                // Swipe right inside of messageView
+            // Swipe right inside of messageView
             } else if 0 < currentOrigin {
                 
                 // Archive icon + gray background
@@ -122,7 +122,7 @@ class ExerciseCell: UITableViewCell {
                     self.doneLabel.alpha = translation.x/60
                     self.exerciseCellView.backgroundColor = self.grayColor
                     
-                    // Archive icon + green background
+                // Archive icon + green background
                 } else if (60 < currentOrigin) {
                     self.archiveIconImageView.alpha = 1
                     self.archiveIconImageView.frame.origin.x = self.archiveIconStartingOrigin.x +
@@ -139,7 +139,7 @@ class ExerciseCell: UITableViewCell {
                 }
             }
             
-            // Handle animations post-drag of messageView
+        // Handle animations post-drag of messageView
         } else if sender.state == UIGestureRecognizerState.Ended {
             
             // Swipe left inside of messageView
@@ -216,12 +216,16 @@ class ExerciseCell: UITableViewCell {
             }, completion:
             { (BOOL) -> Void in
                 self.exerciseCellContentView.frame.origin.x = 0
-                self.laterIconImageView.frame.origin.x = 279
                 self.laterIconImageView.image = UIImage(named: "swap_icon")
                 self.laterIconImageView.alpha = 0
-                self.archiveIconImageView.frame.origin.x = 16
                 self.archiveIconImageView.image = UIImage(named: "done_icon")
                 self.archiveIconImageView.alpha = 0
+                
+                // Repositions everything real nice
+                self.laterIconImageView.frame.origin.x = 282
+                self.swapLabel.frame.origin.x = 275
+                self.doneLabel.frame.origin.x = 11
+                self.archiveIconImageView.frame.origin.x = 12
                 
                 // Hides views so there isn't a flicker during animation
                 self.exerciseCellContentView.alpha = 0

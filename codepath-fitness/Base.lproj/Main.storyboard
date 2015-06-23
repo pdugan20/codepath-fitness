@@ -40,7 +40,7 @@
         <!--Monday's Playlist-->
         <scene sceneID="PqC-mc-fO7">
             <objects>
-                <viewController id="cCX-YU-QkM" customClass="PlaylistViewController" customModule="codepath_fitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cCX-YU-QkM" customClass="PlaylistViewController" customModule="codepath_fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7fI-no-NnK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
