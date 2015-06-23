@@ -13,14 +13,12 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var playlistTableView: UITableView!
     
     // Declare parent exercise arrays
-    // var exerciseArray: [AnyObject] = []
     var exerciseArray: NSMutableArray = []
-    
-    // var exerciseArray2: [AnyObject] = []
     var exerciseArray2: NSMutableArray = []
     
     // Declare master of displayed exercises
     var exerciseDisplayCount: Int!
+    var expandedSection: Int! = -1
 
     // Declare cells for each top-level summary item
     @IBOutlet weak var muscleGroupNavCell: UIView!
@@ -30,13 +28,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     var snapshot: UIView? = nil
     
     // Set UI colors to be used in playlist view
-    // var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
     var blueHeaderColor = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 1.0)
-    var blueHeaderColorTinted = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 0.9)
     var borderGray = UIColor(red: 188/255, green: 186/255, blue: 193/255, alpha: 1.0)
     
     // Begin Workout #1
-    
     var jogDict = [
         "name" : "Light jog", 
         "intensity" : "low", 
@@ -134,7 +129,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "description" : "Slowly raise legs to a 90-degree angle, holding for 2 seconds. Don't swing!"]
     
     // Begin Workout #2
-    
     var burpeesDict = [
         "name" : "Burpees",
         "intensity" : "low",
@@ -243,8 +237,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "equipmentRequired" : "Dumbbells",
         "description" : "Slight knee bend, keeping back straight. Hold at full extension to feel the power!"]
     
-    var expandedSection: Int! = -1
-    
     // Instantiate long press gesture
     let longPress: UILongPressGestureRecognizer = {
         let recognizer = UILongPressGestureRecognizer()
@@ -254,28 +246,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        longPress.addTarget(self, action: "longPressGestureRecognized:")
-        playlistTableView.addGestureRecognizer(longPress)
-        
-        // Style nav cells
-        // muscleGroupNavCell.layer.borderColor = borderColor.CGColor
-        // muscleGroupNavCell.layer.borderWidth = 1.0
-        // timeNavCell.layer.borderColor = borderColor.CGColor
-        // timeNavCell.layer.borderWidth = 1.0
-        // locationNavCell.layer.borderColor = borderColor.CGColor
-        // locationNavCell.layer.borderWidth = 1.0
-        
-        muscleGroupNavCell.layer.backgroundColor = blueHeaderColorTinted.CGColor
-        
         // Setup initial tableView
         playlistTableView.delegate = self
         playlistTableView.dataSource = self
-        // playlistTableView.registerClass(ExerciseCell.self, forCellReuseIdentifier: "cell")
         self.playlistTableView.reloadData()
-        
-        // API url
-        var clientId = "BpmHUyPDIDaWYqoSL5rTcj27ryCj9N29"
-        var fitnessApiUrl = NSURL(string: "https://www.kimonolabs.com/api/bfcfz33q?apikey=\(clientId)")!
+
+        // Adds long-press gesture recgonizer to each cell
+        longPress.addTarget(self, action: "longPressGestureRecognized:")
+        playlistTableView.addGestureRecognizer(longPress)
         
         // Add exercises to Workout #1
         exerciseArray = [dumbellPressDict, bentOverRowDict, squatDict, stepUpDict, standingDumbbellDict, tricepExtensionDict, legRaiseDict]
@@ -283,51 +261,28 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Add exercises to Workout #2
         exerciseArray2 = [burpeesDict, medBallDumbbellPressDict, flyDict, plankRowDict, bentReverseFlyDict, lateralRaiseDict, chinUpDict, dipsDict, standingTricepExtensionDict]
         
-        // Networking request for JSON feed
-        var request = NSURLRequest(URL: fitnessApiUrl)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
-            (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            // var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
-            // println(responseDictionary)
-            // self.exerciseArray = responseDictionary["results"] as! NSArray
-            // println(self.exerciseArray)
-        }
-        
     }
     
     // View for the cell in the TableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        // Variables for debugging
-        // println("section \(indexPath.section)")
-        // println("row \(indexPath.row)")
-        // println("combined \(indexPath.row + indexPath.section)")
-        // println("exerciseDisplayCount \(exerciseDisplayCount)")
-        
+        // Row + section provides iterator
         exerciseDisplayCount = (indexPath.row + indexPath.section)
         
-        // Solves for off by 1 error which causes crash on last exercise
-        // if exerciseDisplayCount >= (exerciseArray.count - 1) {
-        //    exerciseDisplayCount = (exerciseArray.count - 1)
-        // }
-        
-        // If row is even (summary exercise cell)
+        // If row is even (implements collapsed exercise cell)
         if indexPath.row % 2 == 0 {
             
             // Define exerciseCell
             let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
-            // cell.contentView.layer.borderColor = borderColor.CGColor
-            // cell.contentView.layer.borderWidth = 5.0
-            
-            self.playlistTableView.layer.masksToBounds = true
-            
             // Sets the tableview cells to align margin left
+            self.playlistTableView.layer.masksToBounds = true
             self.playlistTableView.separatorInset = UIEdgeInsetsZero
             self.playlistTableView.layoutMargins = UIEdgeInsetsZero
             cell.layoutMargins = UIEdgeInsetsZero
         
+            // Sets all variables pulled from exerciseArray
             var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
             var exerciseDuration = exerciseArray[exerciseDisplayCount]["duration"] as? String
             var exerciseIntensity = exerciseArray[exerciseDisplayCount]["intensity"] as? String
@@ -351,7 +306,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             return cell
 
-        // If row is odd (detailed exercise cell)
+        // If row is odd (implements expanded exercise cell)
         } else {
             
             // Offset exerciseDisplayCount
@@ -359,9 +314,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             // Define exerciseDetailCell
             let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseDetailCell") as! ExerciseDetailCell
+            
+            // Sets all variables pulled from exerciseArray
             var exerciseDescription = exerciseArray[exerciseDisplayCount]["description"] as? String
             var exerciseImageArray = exerciseArray[exerciseDisplayCount]["imageGroup"] as! [String]
-            
             var exerciseStartingImagePath = String(exerciseImageArray[0])
             var exerciseEndingImagePath = String(exerciseImageArray[1])
             
@@ -375,22 +331,24 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
                 cell.exerciseCompleteImageView.image = UIImage(named: exerciseEndingImagePath)
             }
             
+            // Adds additional UI polish to expanded cell
             cell.exerciseDescriptionTextField.textAlignment = .Center
             cell.exerciseDescriptionTextField.text = exerciseDescription
-            cell.clipsToBounds = true
-            
             cell.favoriteViewContainer.layer.borderColor = borderGray.CGColor
             cell.favoriteViewContainer.layer.borderWidth = 0.5;
             
             // Keeps cell flush with left margins
             cell.layoutMargins = UIEdgeInsetsZero
+            cell.clipsToBounds = true
             
             // Prevents cell from highlighting
             cell.selectionStyle = UITableViewCellSelectionStyle.None
             
+            // Sets transparency of both exercise images
             cell.exerciseCompleteImageView.alpha = 0
             cell.exerciseImageView.alpha = 1
             
+            // Handles looping animation for both exercise images
             UIView.animateWithDuration(2, delay:0, options:UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: {
                 cell.exerciseCompleteImageView.alpha = 1
                 cell.exerciseImageView.alpha = 0
@@ -413,30 +371,36 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         return exerciseArray.count
     }
     
+    // Handles expansion of second exercise cell
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Implements expansion functionality
         if indexPath.row == 0 {
             if expandedSection == indexPath.section {
-                // If you tap on the section that's already expanded, you should collapse it
+                // Collapse already expanded section onTap
                 expandedSection = -1
             } else {
                 expandedSection = indexPath.section
             }
-            
-            // This causes the row height change to be animated
-            tableView.beginUpdates()
-            tableView.endUpdates()
-            tableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Top, animated: true)
+            // Animates row height of expanding cell
+            playlistTableView.beginUpdates()
+            playlistTableView.endUpdates()
+            playlistTableView.scrollToNearestSelectedRowAtScrollPosition(UITableViewScrollPosition.Top, animated: true)
         }
     }
     
+    // Handles expansion of second exercise cell
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        // Sets height of expanded exercise cell
         var exerciseHeight = CGFloat(86)
+        // Implements expansion functionality
         if indexPath.row == 0 {
             return exerciseHeight
         } else {
             if indexPath.section == expandedSection {
-                // Calculate the height of the detail view so that there is room for an exercise header above and below the detail view.
-                var height = tableView.frame.size.height - 2 * exerciseHeight
+                // Calculates the height of the detail view, makes room for exercise header
+                var height = playlistTableView.frame.size.height - 2 * exerciseHeight
                 return height
             } else {
                 return 0
@@ -444,53 +408,30 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // Deletes exercise cell when swiping left
     func exerciseDeleted(exerciseIndex: Int) {
-        // exerciseArray.removeAtIndex(exerciseIndex)
         exerciseArray.removeObjectAtIndex(exerciseIndex)
-        
         playlistTableView.beginUpdates()
         playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
         playlistTableView.endUpdates()
         playlistTableView.reloadData()
     }
     
+    // Swaps exercise cell when swiping right
     func exerciseSwapped(exerciseIndex: Int) {
-        // Deletes current exercise from array
-        // exerciseArray.removeAtIndex(exerciseIndex)
+        // Deletes selected exercise from current playlist
         exerciseArray.removeObjectAtIndex(exerciseIndex)
-        
-        // Adds new exercise into previous position
-        // exerciseArray.insert(exerciseArray2[exerciseIndex], atIndex: exerciseIndex)
-        exerciseArray.insertObject(exerciseArray2[exerciseIndex], atIndex: exerciseIndex)
-        
+        // Swaps in first exercise from second playlist
+        exerciseArray.insertObject(exerciseArray2[0], atIndex: exerciseIndex)
+        // Deletes first exercise from second playlist
+        exerciseArray2.removeObjectAtIndex(0)
+        // Updates current tableview
         playlistTableView.beginUpdates()
-        // playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
         playlistTableView.endUpdates()
         playlistTableView.reloadData()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Determine which row was selected
-        var cell = sender as! UITableViewCell
-        var indexPath = playlistTableView.indexPathForCell(cell)
-        
-        // Get the view controller that we're transitioning to.
-        var exerciseDetailViewController = segue.destinationViewController as! ExerciseDetailViewController
-        
-        // Set the data of the view controller
-        var exerciseName = exerciseArray[indexPath!.row]["name"] as? String
-        var exerciseDuration = exerciseArray[indexPath!.row]["duration"] as? String
-        var exerciseIntensity = exerciseArray[indexPath!.row]["intensity"] as? String
-        var exerciseDescription  = exerciseArray[indexPath!.row]["description"] as? String
-        
-        // Pass through the data into the child of the segue
-        exerciseDetailViewController.exerciseName = exerciseName
-        exerciseDetailViewController.exerciseIntensity = exerciseIntensity
-        exerciseDetailViewController.exerciseDuration = exerciseDuration
-        exerciseDetailViewController.exerciseDescription = exerciseDescription
-    }
-    
-    // Sets the style for that sweet sweet navigationBar
+    // Sets the style for navigation bar
     override func viewDidAppear(animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "Monday's Playlist"
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -503,6 +444,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         return UIStatusBarStyle.LightContent
     }
     
+    // Handles longpress reordering of exericse cells
     func longPressGestureRecognized(gesture: UILongPressGestureRecognizer) {
         let state: UIGestureRecognizerState = gesture.state
         let location: CGPoint = gesture.locationInView(playlistTableView)
@@ -513,17 +455,18 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         switch (state) {
-            
         case UIGestureRecognizerState.Began:
             sourceIndexPath = indexPath;
-            let cell = playlistTableView.cellForRowAtIndexPath(indexPath!)!
-            snapshot = customSnapshotFromView(cell)
             
+            let cell = playlistTableView.cellForRowAtIndexPath(indexPath!)!
             var center = cell.center
+            
+            snapshot = customSnapshotFromView(cell)
             snapshot?.center = center
             snapshot?.alpha = 0.0
-            playlistTableView.addSubview(snapshot!)
             
+            playlistTableView.addSubview(snapshot!)
+    
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 center.y = location.y
                 self.snapshot?.center = center
@@ -537,31 +480,28 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             center.y = location.y
             snapshot?.center = center
             
-            // Is destination valid and is it different from source?
+            // Is destination valid and is different from source
             if indexPath != sourceIndexPath {
                 
-                // println(indexPath!.section)
-                // println(sourceIndexPath!.section)
-                
-                // update data source.
+                // Updates exerciseArray
                 exerciseArray.exchangeObjectAtIndex(indexPath!.section, withObjectAtIndex: sourceIndexPath!.section)
                         
-                // move the rows
-                // playlistTableView.moveRowAtIndexPath(sourceIndexPath!, toIndexPath: indexPath!)
+                // Move the exercise summary cell
                 playlistTableView.moveSection(indexPath!.section, toSection: sourceIndexPath!.section)
                 
-                // update source so it is in sync with UI changes.
+                // Update source so it is in sync with UI changes
                 sourceIndexPath = indexPath;
             }
             
         default:
-            // Clean up.
             let cell = playlistTableView.cellForRowAtIndexPath(indexPath!)!
             cell.alpha = 0.0
+            
             UIView.animateWithDuration(0.25, animations: { () -> Void in
                 self.snapshot?.center = cell.center
                 self.snapshot?.transform = CGAffineTransformIdentity
                 self.snapshot?.alpha = 0.0
+                
                 // Undo fade out.
                 cell.alpha = 1.0
                 }, completion: { (finished) in
@@ -573,15 +513,18 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // Generates snapshot of exericse cell while moving
     func customSnapshotFromView(inputView: UIView) -> UIView {
         
-        // Make an image from the input view.
+        // Make an image from the input view
         UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0)
         inputView.layer.renderInContext(UIGraphicsGetCurrentContext())
+        
+        // Defines image inside of table view
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext();
         
-        // Create an image view.
+        // Create an image view
         let snapshot = UIImageView(image: image)
         snapshot.layer.masksToBounds = false
         snapshot.layer.cornerRadius = 0.0
