@@ -540,8 +540,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // Is destination valid and is it different from source?
             if indexPath != sourceIndexPath {
                 
-                println(indexPath!.section)
-                println(sourceIndexPath!.section)
+                // println(indexPath!.section)
+                // println(sourceIndexPath!.section)
                 
                 // update data source.
                 exerciseArray.exchangeObjectAtIndex(indexPath!.section, withObjectAtIndex: sourceIndexPath!.section)
