@@ -249,6 +249,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         // Setup initial tableView
         playlistTableView.delegate = self
         playlistTableView.dataSource = self
+        playlistTableView.contentInset = UIEdgeInsetsZero;
         self.playlistTableView.reloadData()
 
         // Adds long-press gesture recgonizer to each cell
@@ -281,6 +282,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             self.playlistTableView.separatorInset = UIEdgeInsetsZero
             self.playlistTableView.layoutMargins = UIEdgeInsetsZero
             cell.layoutMargins = UIEdgeInsetsZero
+            
+            // Makes sure all views are visible
+            cell.exerciseCellContentView.alpha = 1
+            cell.swapLabel.alpha = 1
+            cell.doneLabel.alpha = 1
         
             // Sets all variables pulled from exerciseArray
             var exerciseName = exerciseArray[exerciseDisplayCount]["name"] as? String
@@ -436,6 +442,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             indexSet.addIndex(i)
         }
         
+        // If all exercises are done, complete workout
+        if exerciseArray.count == 0 {
+            completeWorkout()
+        }
+        
         // Animates all remaining sections within index
         playlistTableView.reloadSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
         
@@ -565,6 +576,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         snapshot.layer.shadowOpacity = 0.4
         
         return snapshot
+    }
+    
+    // Manually segues into workout complete view controller
+    func completeWorkout() {
+        self.performSegueWithIdentifier("workoutCompleteSegue", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {

@@ -162,6 +162,7 @@ class ExerciseCell: UITableViewCell {
                         self.laterIconImageView.alpha = 0
                         self.swapLabel.alpha = 0
                         self.exerciseCellView.backgroundColor = self.yellowColor
+                        self.doneLabel.alpha = 0
                         
                         // Show options imageView
                         }, completion: { (BOOL) -> Void in
@@ -195,6 +196,7 @@ class ExerciseCell: UITableViewCell {
                         self.archiveIconImageView.alpha = 0
                         self.doneLabel.alpha = 0
                         self.exerciseCellView.backgroundColor = self.greenColor
+                        self.swapLabel.alpha = 0
                         
                         // Hide the messageView
                         }, completion: { (BOOL) -> Void in
@@ -220,6 +222,10 @@ class ExerciseCell: UITableViewCell {
                 self.archiveIconImageView.frame.origin.x = 16
                 self.archiveIconImageView.image = UIImage(named: "done_icon")
                 self.archiveIconImageView.alpha = 0
+                
+                // Hides views so there isn't a flicker during animation
+                self.exerciseCellContentView.alpha = 0
+                
         })
     }
     

@@ -190,7 +190,7 @@
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
-                                                                <segue destination="hQg-Yk-eU2" kind="modal" modalTransitionStyle="crossDissolve" id="Ynm-b1-jZ8"/>
+                                                                <segue destination="hQg-Yk-eU2" kind="modal" identifier="workoutCompleteSegue" modalTransitionStyle="crossDissolve" id="Ynm-b1-jZ8"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
