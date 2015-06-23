@@ -13,14 +13,21 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var playlistTableView: UITableView!
     
     // Declare parent exercise arrays
-    var exerciseArray: [AnyObject] = []
-    var exerciseArray2: [AnyObject] = []
+    // var exerciseArray: [AnyObject] = []
+    var exerciseArray: NSMutableArray = []
+    
+    // var exerciseArray2: [AnyObject] = []
+    var exerciseArray2: NSMutableArray = []
     
     // Declare master of displayed exercises
     var exerciseDisplayCount: Int!
 
     // Declare cells for each top-level summary item
     @IBOutlet weak var muscleGroupNavCell: UIView!
+    
+    // Initalization for moving cells
+    var sourceIndexPath: NSIndexPath? = nil
+    var snapshot: UIView? = nil
     
     // Set UI colors to be used in playlist view
     // var borderColor : UIColor = UIColor(red: 0.5, green: 0.5, blue: 0.0, alpha: 1.0)
@@ -238,8 +245,17 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var expandedSection: Int! = -1
     
+    // Instantiate long press gesture
+    let longPress: UILongPressGestureRecognizer = {
+        let recognizer = UILongPressGestureRecognizer()
+        return recognizer
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        longPress.addTarget(self, action: "longPressGestureRecognized:")
+        playlistTableView.addGestureRecognizer(longPress)
         
         // Style nav cells
         // muscleGroupNavCell.layer.borderColor = borderColor.CGColor
@@ -429,7 +445,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func exerciseDeleted(exerciseIndex: Int) {
-        exerciseArray.removeAtIndex(exerciseIndex)
+        // exerciseArray.removeAtIndex(exerciseIndex)
+        exerciseArray.removeObjectAtIndex(exerciseIndex)
+        
         playlistTableView.beginUpdates()
         playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
         playlistTableView.endUpdates()
@@ -438,9 +456,13 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func exerciseSwapped(exerciseIndex: Int) {
         // Deletes current exercise from array
-        exerciseArray.removeAtIndex(exerciseIndex)
+        // exerciseArray.removeAtIndex(exerciseIndex)
+        exerciseArray.removeObjectAtIndex(exerciseIndex)
+        
         // Adds new exercise into previous position
-        exerciseArray.insert(exerciseArray2[exerciseIndex], atIndex: exerciseIndex)
+        // exerciseArray.insert(exerciseArray2[exerciseIndex], atIndex: exerciseIndex)
+        exerciseArray.insertObject(exerciseArray2[exerciseIndex], atIndex: exerciseIndex)
+        
         playlistTableView.beginUpdates()
         // playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
         playlistTableView.endUpdates()
@@ -479,6 +501,95 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     // Sets status bar style to either light or dark (default)
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
+    }
+    
+    func longPressGestureRecognized(gesture: UILongPressGestureRecognizer) {
+        let state: UIGestureRecognizerState = gesture.state
+        let location: CGPoint = gesture.locationInView(playlistTableView)
+        let indexPath: NSIndexPath? = playlistTableView.indexPathForRowAtPoint(location)
+        
+        if indexPath == nil {
+            return
+        }
+        
+        switch (state) {
+            
+        case UIGestureRecognizerState.Began:
+            sourceIndexPath = indexPath;
+            let cell = playlistTableView.cellForRowAtIndexPath(indexPath!)!
+            snapshot = customSnapshotFromView(cell)
+            
+            var center = cell.center
+            snapshot?.center = center
+            snapshot?.alpha = 0.0
+            playlistTableView.addSubview(snapshot!)
+            
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                center.y = location.y
+                self.snapshot?.center = center
+                self.snapshot?.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                self.snapshot?.alpha = 0.98
+                cell.alpha = 0.0
+            })
+            
+        case UIGestureRecognizerState.Changed:
+            var center: CGPoint = snapshot!.center
+            center.y = location.y
+            snapshot?.center = center
+            
+            // Is destination valid and is it different from source?
+            if indexPath != sourceIndexPath {
+                
+                println(indexPath!.section)
+                println(sourceIndexPath!.section)
+                
+                // update data source.
+                exerciseArray.exchangeObjectAtIndex(indexPath!.section, withObjectAtIndex: sourceIndexPath!.section)
+                        
+                // move the rows
+                // playlistTableView.moveRowAtIndexPath(sourceIndexPath!, toIndexPath: indexPath!)
+                playlistTableView.moveSection(indexPath!.section, toSection: sourceIndexPath!.section)
+                
+                // update source so it is in sync with UI changes.
+                sourceIndexPath = indexPath;
+            }
+            
+        default:
+            // Clean up.
+            let cell = playlistTableView.cellForRowAtIndexPath(indexPath!)!
+            cell.alpha = 0.0
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                self.snapshot?.center = cell.center
+                self.snapshot?.transform = CGAffineTransformIdentity
+                self.snapshot?.alpha = 0.0
+                // Undo fade out.
+                cell.alpha = 1.0
+                }, completion: { (finished) in
+                    self.sourceIndexPath = nil
+                    self.snapshot?.removeFromSuperview()
+                    self.snapshot = nil;
+            })
+            break
+        }
+    }
+    
+    func customSnapshotFromView(inputView: UIView) -> UIView {
+        
+        // Make an image from the input view.
+        UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0)
+        inputView.layer.renderInContext(UIGraphicsGetCurrentContext())
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        
+        // Create an image view.
+        let snapshot = UIImageView(image: image)
+        snapshot.layer.masksToBounds = false
+        snapshot.layer.cornerRadius = 0.0
+        snapshot.layer.shadowOffset = CGSize(width: -5.0, height: 0.0)
+        snapshot.layer.shadowRadius = 5.0
+        snapshot.layer.shadowOpacity = 0.4
+        
+        return snapshot
     }
 
     override func didReceiveMemoryWarning() {
