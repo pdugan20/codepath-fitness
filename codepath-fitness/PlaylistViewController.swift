@@ -262,7 +262,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         var fitnessApiUrl = NSURL(string: "https://www.kimonolabs.com/api/bfcfz33q?apikey=\(clientId)")!
         
         // Add exercises to Workout #1
-        exerciseArray = [jogDict, dumbellPressDict, bentOverRowDict, squatDict, stepUpDict, standingDumbbellDict, tricepExtensionDict, legRaiseDict]
+        exerciseArray = [dumbellPressDict, bentOverRowDict, squatDict, stepUpDict, standingDumbbellDict, tricepExtensionDict, legRaiseDict]
         
         // Add exercises to Workout #2
         exerciseArray2 = [burpeesDict, medBallDumbbellPressDict, flyDict, plankRowDict, bentReverseFlyDict, lateralRaiseDict, chinUpDict, dipsDict, standingTricepExtensionDict]
@@ -291,9 +291,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         exerciseDisplayCount = (indexPath.row + indexPath.section)
         
         // Solves for off by 1 error which causes crash on last exercise
-        if exerciseDisplayCount >= (exerciseArray.count - 1) {
-            exerciseDisplayCount = (exerciseArray.count - 1)
-        }
+        // if exerciseDisplayCount >= (exerciseArray.count - 1) {
+        //    exerciseDisplayCount = (exerciseArray.count - 1)
+        // }
         
         // If row is even (summary exercise cell)
         if indexPath.row % 2 == 0 {
