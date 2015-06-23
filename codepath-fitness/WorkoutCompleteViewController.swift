@@ -7,15 +7,61 @@
 //
 
 import UIKit
+import Social
 
 class WorkoutCompleteViewController: UIViewController {
 
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var workoutCompletedView: UIView!
+    @IBOutlet weak var workoutCompletedImages: UIImageView!
+    @IBOutlet weak var fbShareButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        var images = UIImage.animatedImageNamed("workout-complete-", duration: 5)
+        workoutCompletedImages.image = images
+        
+        delay(4.7, { () -> () in
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.workoutCompletedView.alpha = 0
+            })
+        })
+        
+
+        
+        
     }
 
+    
+    @IBAction func onShareButtonTap(sender: AnyObject) {
+        
+        let firstActivityItem = "Hey, checkout this workout I crushed using Flex Fitness!"
+        
+        let activityViewController : UIActivityViewController = UIActivityViewController(activityItems: [firstActivityItem], applicationActivities: nil)
+        
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+    }
+    
+// Code for creating a button to share directly on Facebook
+//    @IBAction func onTaptoFBShare(sender: AnyObject) {
+//        
+//        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+//            var fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+//            
+//            self.presentViewController(fbShare, animated: true, completion: nil)
+//            
+//        } else {
+//            var alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+//            
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        }
+//        
+//    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="5H5-Of-KHv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hQg-Yk-eU2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -25,6 +25,7 @@
             <string>SFUIText-Medium</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
@@ -247,8 +248,54 @@
                     <view key="view" contentMode="scaleToFill" id="03e-bI-1fT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="egR-Pp-uoG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="workout-complete-1" id="49A-0n-kV9">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="KkO-fh-s0Z">
+                                <rect key="frame" x="2" y="0.0" width="316" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="workout-complete-12" id="8Er-U3-ooe">
+                                        <rect key="frame" x="-2" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="csG-tU-zfh">
+                                        <rect key="frame" x="44" y="503" width="228" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Share">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onShareButtonTap:" destination="hQg-Yk-eU2" eventType="touchUpInside" id="syl-da-0ks"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digging Flex? Humble brag to your friends.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5C0-7s-8ha">
+                                        <rect key="frame" x="5" y="474" width="307" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="shareButton" destination="csG-tU-zfh" id="TKC-hY-4sL"/>
+                        <outlet property="workoutCompletedImages" destination="49A-0n-kV9" id="boY-wS-VEA"/>
+                        <outlet property="workoutCompletedView" destination="egR-Pp-uoG" id="rVR-4W-Kck"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Lj-71-YKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -711,7 +758,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup Your Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t6R-aF-pEU">
                                         <rect key="frame" x="74" y="14" width="172" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.18892691950000001" green="0.27394908750000002" blue="0.35585073579999998" alpha="0.94999999999999996" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -796,9 +843,12 @@
         <image name="CloseProfile" width="9" height="18"/>
         <image name="Generate" width="88" height="88"/>
         <image name="Profile_white" width="28" height="28"/>
+        <image name="Share" width="228" height="52"/>
         <image name="done_icon" width="30" height="30"/>
         <image name="heart_icon_stroke" width="60" height="52"/>
         <image name="swap_icon" width="27" height="24"/>
+        <image name="workout-complete-1" width="320" height="568"/>
+        <image name="workout-complete-12" width="320" height="568"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
