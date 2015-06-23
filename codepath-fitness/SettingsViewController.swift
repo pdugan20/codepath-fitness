@@ -233,6 +233,8 @@ class SettingsViewController: UIViewController {
             
             println("i'm tapping header 1")
             
+            durationButton.setTitle(("Duration"), forState: .Normal)
+            
             // This if / else-if rule set alters the behavior depending on if Headers 2 and 3 have been exposed yet
             if header2HasBeenPresented == true && header3HasBeenPresented == false {
                 
@@ -256,6 +258,8 @@ class SettingsViewController: UIViewController {
             }
             
         } else if header1optionsShown == true {
+            
+            self.durationButton.setTitle("\(sender.titleLabel!!.text!)", forState: .Normal)
             
             if header2HasBeenPresented == true && header3HasBeenPresented == false {
                 
@@ -282,6 +286,8 @@ class SettingsViewController: UIViewController {
         
         println("i'm tapping header 2")
         
+        workoutTypeButton.setTitle(("Workout Type"), forState: .Normal)
+        
         if header2optionsShown == false {
             
             if header3HasBeenPresented == false {
@@ -299,6 +305,8 @@ class SettingsViewController: UIViewController {
                     }, completion: nil)
             }
         } else if header2optionsShown == true {
+            
+            self.workoutTypeButton.setTitle("\(sender.titleLabel!!.text!)", forState: .Normal)
             
             if header3HasBeenPresented == false {
                 header2optionsHide()
@@ -320,6 +328,7 @@ class SettingsViewController: UIViewController {
     @IBAction func onHeader3Tap(sender: AnyObject) {
         
         println("i'm tapping header 3")
+        locationButton.setTitle(("Location"), forState: .Normal)
         
         if header3optionsShown == false {
             
@@ -333,7 +342,11 @@ class SettingsViewController: UIViewController {
                 }, completion: nil)
             
         } else if header3optionsShown == true {
+            
             header3optionsHide()
+            
+            self.locationButton.setTitle("\(sender.titleLabel!!.text!)", forState: .Normal)
+            
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                 self.buttonCoverView.alpha = 0
                 }, completion: nil)
@@ -351,7 +364,7 @@ class SettingsViewController: UIViewController {
         // pull pull from here in PrepareForSegue
         durationSelection = sender.titleLabel?.text
         
-        durationButton.setTitle("Duration: " + "\(sender.titleLabel!.text!)", forState: .Normal)
+        durationButton.setTitle("\(sender.titleLabel!.text!)", forState: .Normal)
         
         if header2HasBeenPresented == false {
             
@@ -389,7 +402,7 @@ class SettingsViewController: UIViewController {
         // pull pull from here in PrepareForSegue
         typeSelection = sender.titleLabel?.text
         
-        workoutTypeButton.setTitle("Type: " + "\(sender.titleLabel!.text!)", forState: .Normal)
+        workoutTypeButton.setTitle("\(sender.titleLabel!.text!)", forState: .Normal)
         
         if header3HasBeenPresented == false {
             
@@ -412,7 +425,7 @@ class SettingsViewController: UIViewController {
         
         if header3option1Button.selected == false && header3option2Button.selected == false {
             sender.selected = true
-            locationButton.setTitle("Location: " + "\(sender.titleLabel!.text!)", forState: .Normal)
+            locationButton.setTitle("\(sender.titleLabel!.text!)" + " Workout", forState: .Normal)
             header3optionsHide()
             delay(0.2, { () -> () in
                 UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
@@ -429,7 +442,7 @@ class SettingsViewController: UIViewController {
             // pull pull from here in PrepareForSegue
             locationSelection = sender.titleLabel?.text
             
-            locationButton.setTitle("Location: " + "\(sender.titleLabel!.text!)", forState: .Normal)
+            locationButton.setTitle("\(sender.titleLabel!.text!)" + " Workout", forState: .Normal)
             
             header3optionsHide()
             UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
@@ -440,8 +453,6 @@ class SettingsViewController: UIViewController {
     
     
     func header1optionsShow() {
-        
-        
         
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             

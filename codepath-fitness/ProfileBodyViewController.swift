@@ -1,24 +1,19 @@
 //
-//  profileContentViewController.swift
+//  ProfileBodyViewController.swift
 //  codepath-fitness
 //
-//  Created by Patrick Weiss on 6/20/15.
+//  Created by Patrick Weiss on 6/22/15.
 //  Copyright (c) 2015 PPK Inc. All rights reserved.
 //
 
 import UIKit
 
-class ProfileContentViewController: UIViewController {
+class ProfileBodyViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var profileImageView: UIImageView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        scrollView.contentSize = profileImageView.image!.size
 
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +21,11 @@ class ProfileContentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didPressClose(sender: AnyObject) {
+        
+        navigationController?.popViewControllerAnimated(true)
+        
+    }
 
     /*
     // MARK: - Navigation
