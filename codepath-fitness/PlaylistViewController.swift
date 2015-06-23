@@ -410,25 +410,45 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Deletes exercise cell when swiping left
     func exerciseDeleted(exerciseIndex: Int) {
+        // Deletes selected exercise from current playlist
         exerciseArray.removeObjectAtIndex(exerciseIndex)
+        
+        // Updates current tableview
         playlistTableView.beginUpdates()
         playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
         playlistTableView.endUpdates()
-        playlistTableView.reloadData()
+        
+        // Adds all remaining sections to an indexSet
+        var indexSet = NSMutableIndexSet()
+        for (var i = 0; i < exerciseArray.count ; i++ ) {
+            indexSet.addIndex(i)
+        }
+        
+        // Animates all remaining sections within index
+        playlistTableView.reloadSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+        
     }
     
     // Swaps exercise cell when swiping right
     func exerciseSwapped(exerciseIndex: Int) {
         // Deletes selected exercise from current playlist
         exerciseArray.removeObjectAtIndex(exerciseIndex)
+        
         // Swaps in first exercise from second playlist
         exerciseArray.insertObject(exerciseArray2[0], atIndex: exerciseIndex)
+        
         // Deletes first exercise from second playlist
         exerciseArray2.removeObjectAtIndex(0)
-        // Updates current tableview
-        playlistTableView.beginUpdates()
-        playlistTableView.endUpdates()
-        playlistTableView.reloadData()
+        
+        // Adds all remaining sections to an indexSet
+        var indexSet = NSMutableIndexSet()
+        for (var i = 0; i < exerciseArray.count ; i++ ) {
+            indexSet.addIndex(i)
+        }
+        
+        // Animates all remaining sections within index
+        playlistTableView.reloadSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+        
     }
     
     // Sets the style for navigation bar
@@ -502,7 +522,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.snapshot?.transform = CGAffineTransformIdentity
                 self.snapshot?.alpha = 0.0
                 
-                // Undo fade out.
+                // Undo fade out
                 cell.alpha = 1.0
                 }, completion: { (finished) in
                     self.sourceIndexPath = nil
