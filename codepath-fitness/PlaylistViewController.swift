@@ -349,9 +349,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             var exerciseStartingImagePath = String(exerciseImageArray[0])
             var exerciseEndingImagePath = String(exerciseImageArray[1])
             
-            if exerciseEndingImagePath != "" {
+            // Loads exercise starting image
+            if exerciseStartingImagePath != "" {
                 cell.exerciseImageView.image = UIImage(named: exerciseStartingImagePath)
-                // println(exerciseStartingImagePath)
+            }
+            
+            // Loads exercise complete image
+            if exerciseEndingImagePath != "" {
+                cell.exerciseCompleteImageView.image = UIImage(named: exerciseEndingImagePath)
             }
             
             cell.exerciseDescriptionTextField.textAlignment = .Center
@@ -366,6 +371,15 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             
             // Prevents cell from highlighting
             cell.selectionStyle = UITableViewCellSelectionStyle.None
+            
+            cell.exerciseCompleteImageView.alpha = 0
+            cell.exerciseImageView.alpha = 1
+            
+            UIView.animateWithDuration(2, delay:0, options:UIViewAnimationOptions.Autoreverse | UIViewAnimationOptions.Repeat, animations: {
+                cell.exerciseCompleteImageView.alpha = 1
+                cell.exerciseImageView.alpha = 0
+                }, completion: { finished in
+            })
             
             return cell
         }

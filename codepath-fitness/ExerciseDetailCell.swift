@@ -12,6 +12,7 @@ class ExerciseDetailCell: UITableViewCell {
 
     @IBOutlet weak var exerciseDescriptionTextField: UITextView!
     @IBOutlet weak var exerciseImageView: UIImageView!
+    @IBOutlet weak var exerciseCompleteImageView: UIImageView!
     @IBOutlet weak var favoriteViewContainer: UIView!
     @IBOutlet weak var favoriteLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -21,7 +22,7 @@ class ExerciseDetailCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // Hides complete exercise image by default
     }
     
     @IBAction func didFavoriteExercise(sender: UIButton) {
