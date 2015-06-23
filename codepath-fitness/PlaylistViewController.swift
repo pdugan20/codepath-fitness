@@ -315,6 +315,9 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // Define exerciseDetailCell
             let cell = playlistTableView.dequeueReusableCellWithIdentifier("ExerciseDetailCell") as! ExerciseDetailCell
             
+            // Hides workoutCompleteButton by default
+            cell.workoutCompleteButton.alpha = 0
+            
             // Sets all variables pulled from exerciseArray
             var exerciseDescription = exerciseArray[exerciseDisplayCount]["description"] as? String
             var exerciseImageArray = exerciseArray[exerciseDisplayCount]["imageGroup"] as! [String]
@@ -329,6 +332,15 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             // Loads exercise complete image
             if exerciseEndingImagePath != "" {
                 cell.exerciseCompleteImageView.image = UIImage(named: exerciseEndingImagePath)
+            }
+            
+            // If viewing the last expanded exercise cell
+            if exerciseDisplayCount == (exerciseArray.count - 1) {
+                cell.favoriteLabel.alpha = 0
+                cell.workoutCompleteButton.alpha = 1
+            } else {
+                cell.favoriteLabel.alpha = 1
+                cell.workoutCompleteButton.alpha = 0
             }
             
             // Adds additional UI polish to expanded cell

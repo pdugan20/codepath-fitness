@@ -183,6 +183,16 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ur5-b8-QFP" userLabel="workoutCompleteButton">
+                                                            <rect key="frame" x="90" y="14" width="159" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Complete Workout">
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <segue destination="hQg-Yk-eU2" kind="modal" modalTransitionStyle="crossDissolve" id="Ynm-b1-jZ8"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -220,6 +230,7 @@
                                             <outlet property="favoriteButton" destination="Cah-bM-vwa" id="P4X-aE-tox"/>
                                             <outlet property="favoriteLabel" destination="G0Q-Td-dN2" id="sgX-K1-FdZ"/>
                                             <outlet property="favoriteViewContainer" destination="kLm-lg-HRb" id="AWy-Z4-vR2"/>
+                                            <outlet property="workoutCompleteButton" destination="ur5-b8-QFP" id="tNq-Xc-Ky8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -234,7 +245,6 @@
                     <connections>
                         <outlet property="muscleGroupNavCell" destination="59a-XN-8j5" id="Dd4-cV-NVy"/>
                         <outlet property="playlistTableView" destination="rts-VB-dGX" id="KKL-KN-tyB"/>
-                        <segue destination="hQg-Yk-eU2" kind="modal" id="DYO-hb-qkk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEc-k0-tZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

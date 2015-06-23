@@ -16,6 +16,7 @@ class ExerciseDetailCell: UITableViewCell {
     @IBOutlet weak var favoriteViewContainer: UIView!
     @IBOutlet weak var favoriteLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var workoutCompleteButton: UIButton!
     
     // Used for favorite button toggle
     var isHighLighted:Bool = false
