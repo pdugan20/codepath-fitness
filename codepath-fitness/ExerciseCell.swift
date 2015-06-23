@@ -13,7 +13,7 @@ protocol TableViewCellDelegate {
     func exerciseSwapped(exerciseIndex: Int)
 }
 
-class ExerciseCell: UITableViewCell, UIGestureRecognizerDelegate {
+class ExerciseCell: UITableViewCell {
     
     var delegate: TableViewCellDelegate?
 
