@@ -52,7 +52,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "8",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Raise and lower weights slowly, bringing arm to a 45 degree angle."]
     
     var bentOverRowDict = [
         "name" : "Bent over row", 
@@ -64,10 +64,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Keep your back straight and head up, lifting weights towards your rib cage."]
     
     var squatDict = [
-        "name" : "Squats", 
+        "name" : "Bodyweight squat", 
         "intensity" : "low", 
         "duration" : "3",
         "workoutGroup" : "Quadriceps",
@@ -76,7 +76,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "20",
         "sets": "3",
         "equipmentRequired" : "None",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Feet shoulder width apart. Lower slowly, keeping back straight up and knees out."]
     
     var stepUpDict = [
         "name" : "Step up with curl", 
@@ -88,7 +88,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "2",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Keep your back straight and head up, lifting weights towards your rib cage."]
     
     var standingDumbbellDict = [
         "name" : "Standing dumbbell shoulder press", 
@@ -100,10 +100,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Start with dumbbells at shoulder height and slowly raise until arms are fully extended."]
     
     var tricepExtensionDict = [
-        "name" : "Bent over tricep extension", 
+        "name" : "Bent over tricep kickback", 
         "intensity" : "low", 
         "duration" : "5",
         "workoutGroup" : "Triceps",
@@ -112,10 +112,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Lean over with torso parallel to the floor, fully extend at the elbow."]
     
     var legRaiseDict = [
-        "name" : "Leg raises", 
+        "name" : "Hanging leg raises", 
         "intensity" : "low", 
         "duration" : "3",
         "workoutGroup" : "Abs",
@@ -124,7 +124,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "12",
         "sets": "4",
         "equipmentRequired" : "Pull-up Bar",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Slowly raise legs to a 90-degree angle, holding for 2 seconds. Don't swing!"]
     
     // Begin Workout #2
     
@@ -138,10 +138,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "15",
         "sets": "3",
         "equipmentRequired" : "None",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Stand, drop to pushup position, jump your feet under you, then jump up. Repeat."]
     
     var medBallDumbbellPressDict = [
-        "name" : "Medicine Ball Dumbbell Press",
+        "name" : "Swiss Ball Dumbbell Press",
         "intensity" : "low",
         "duration" : "5",
         "workoutGroup" : "Chest",
@@ -150,10 +150,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Raise your hips and keep your feet wide for balance."]
     
     var flyDict = [
-        "name" : "Fly",
+        "name" : "Dumbbell Fly",
         "intensity" : "low",
         "duration" : "5",
         "workoutGroup" : "Chest",
@@ -162,7 +162,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "18",
         "sets": "2",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Slowly lower weights until your tricep is parallel with the floor."]
     
     var plankRowDict = [
         "name" : "Plank Row",
@@ -174,7 +174,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Retract each shoulder blade, pulling the weight until your hand is alongside your ribs."]
     
     var bentReverseFlyDict = [
         "name" : "Bent over reverse fly",
@@ -186,7 +186,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "12",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Use light weights, squeeze shoulder blades together"]
     
     var lateralRaiseDict = [
         "name" : "Laying lateral raise",
@@ -198,7 +198,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Raise your, keeping it perpendicular to the body. Hold at the top for bonus pump."]
     
     var chinUpDict = [
         "name" : "Chin up",
@@ -210,10 +210,10 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "4",
         "equipmentRequired" : "Pull-up bar",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Grip bar narrower than shoulder width, keeping torso straight throughout the movement"]
     
     var dipsDict = [
-        "name" : "Chin up",
+        "name" : "Dips",
         "intensity" : "low",
         "duration" : "4",
         "workoutGroup" : "Triceps",
@@ -222,7 +222,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "12",
         "sets": "3",
         "equipmentRequired" : "None",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Lower until tricepts are parrallel to the ground, keep it nice and slow."]
     
     var standingTricepExtensionDict = [
         "name" : "Standing overhead tricep extension",
@@ -234,7 +234,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Warm up your muscles and get your heart rate up."]
+        "description" : "Slight knee bend, keeping back straight. Hold at full extension to feel the power!"]
     
     var expandedSection: Int! = -1
     
