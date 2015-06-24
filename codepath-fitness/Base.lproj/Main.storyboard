@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eA7-4K-Tzg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="z6F-Yf-wWM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEc-k0-tZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="300"/>
+            <point key="canvasLocation" x="1109" y="300"/>
         </scene>
         <!--Workout Complete View Controller-->
         <scene sceneID="8oR-Q2-Ebp">
@@ -263,24 +263,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="csG-tU-zfh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="csG-tU-zfh" userLabel="Share">
                                         <rect key="frame" x="50" y="490" width="220" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Share-1">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="onShareButtonTap:" destination="hQg-Yk-eU2" eventType="touchUpInside" id="syl-da-0ks"/>
+                                            <action selector="onShareButtonTap:" destination="hQg-Yk-eU2" eventType="touchUpInside" id="45d-vw-eEZ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wqQ-6M-4mk">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wqQ-6M-4mk" userLabel="Let's Go Again">
                                         <rect key="frame" x="50" y="440" width="220" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button" image="Reset">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="didPressReset:" destination="hQg-Yk-eU2" eventType="touchUpInside" id="zt8-nR-rMo"/>
+                                            <segue destination="z6F-Yf-wWM" kind="modal" id="zlD-HY-xTt"/>
                                         </connections>
                                     </button>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Complete_Circle" id="EJE-5v-vwG">
@@ -302,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Lj-71-YKZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1311" y="300"/>
+            <point key="canvasLocation" x="1673" y="300"/>
         </scene>
         <!--Nux View Controller-->
         <scene sceneID="pCL-ix-ZGQ">
@@ -350,7 +350,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vrC-SY-YGc" kind="modal" id="aCg-sR-wo8"/>
+                                    <segue destination="z6F-Yf-wWM" kind="modal" id="aCg-sR-wo8"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="9Zk-i3-fDm">
@@ -373,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4AK-aB-Ner" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1154" y="403"/>
+            <point key="canvasLocation" x="-1034" y="-381"/>
         </scene>
         <!--Profile Content View Controller-->
         <scene sceneID="0Nz-cB-iAV">
@@ -410,7 +410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3l-5D-gAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="-1238"/>
+            <point key="canvasLocation" x="23" y="-1070"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Lnt-bN-2sn">
@@ -432,6 +432,7 @@
                             </view>
                         </subviews>
                     </view>
+                    <navigationItem key="navigationItem" id="0hE-eS-jG9"/>
                     <connections>
                         <outlet property="profileView" destination="H1Y-Wt-xAU" id="fOD-q6-XTa"/>
                         <outlet property="setupView" destination="2oA-z1-IuJ" id="tfh-TB-Sio"/>
@@ -439,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUR-ff-504" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="-493"/>
+            <point key="canvasLocation" x="23" y="-381"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="GYJ-RD-agS">
@@ -717,7 +718,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup Your Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t6R-aF-pEU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Your Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t6R-aF-pEU">
                                         <rect key="frame" x="74" y="14" width="172" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -799,7 +800,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-AN-7uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="-493"/>
+            <point key="canvasLocation" x="567" y="300"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OHp-IQ-hjn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="z6F-Yf-wWM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4eH-Vg-2eO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vrC-SY-YGc" kind="relationship" relationship="rootViewController" id="Zwo-zO-GfG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZLt-q6-i8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-429" y="-381"/>
         </scene>
     </scenes>
     <resources>
@@ -822,4 +841,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="zlD-HY-xTt"/>
+    </inferredMetricsTieBreakers>
 </document>

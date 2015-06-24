@@ -38,16 +38,17 @@ class WorkoutCompleteViewController: UIViewController {
 //    @IBAction func didPressReset(sender: AnyObject) {
 //        dismissViewControllerAnimated(true, completion: nil)
 //    }
-//    
-//    @IBAction func onShareButtonTap(sender: AnyObject) {
-//        
-//        let firstActivityItem = "Hey, checkout this workout I crushed using Flex Fitness!"
-//        
-//        let activityViewController : UIActivityViewController = UIActivityViewController(activityItems: [firstActivityItem], applicationActivities: nil)
-//        
-//        self.presentViewController(activityViewController, animated: true, completion: nil)
-//        
-//    }
+    
+    @IBAction func onShareButtonTap(sender: AnyObject) {
+        
+        let firstActivityItem = "Hey, checkout this workout I crushed using Flex Fitness!"
+        
+        let activityViewController : UIActivityViewController = UIActivityViewController(activityItems: [firstActivityItem], applicationActivities: nil)
+        
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+        
+    }
+    
     
 // Code for creating a button to share directly on Facebook
 //    @IBAction func onTaptoFBShare(sender: AnyObject) {
