@@ -41,7 +41,7 @@ class WorkoutCompleteViewController: UIViewController {
     
     @IBAction func onShareButtonTap(sender: AnyObject) {
         
-        let firstActivityItem = "Hey, checkout this workout I crushed using Flex Fitness!"
+        let firstActivityItem = "Hey, checkout this workout I crushed using Flex Fitness! wwww.flex.io/kyle/20150624"
         
         let activityViewController : UIActivityViewController = UIActivityViewController(activityItems: [firstActivityItem], applicationActivities: nil)
         

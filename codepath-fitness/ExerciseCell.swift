@@ -30,12 +30,13 @@ class ExerciseCell: UITableViewCell {
     @IBOutlet weak var swapLabel: UILabel!
     @IBOutlet weak var doneLabel: UILabel!
     
+    
     let blueColor = UIColor(red: 68/255, green: 170/255, blue: 210/255, alpha: 1)
-    let yellowColor = UIColor(red: 254/255, green: 202/255, blue: 22/255, alpha: 1)
+    let yellowColor = UIColor(red: 167/255, green: 167/255, blue: 167/255, alpha: 1)
     let brownColor = UIColor(red: 206/255, green: 150/255, blue: 98/255, alpha: 1)
-    let greenColor = UIColor(red: 85/255, green: 213/255, blue: 80/255, alpha: 1)
+    let greenColor = UIColor(red: 255/255, green: 193/255, blue: 0/229, alpha: 1) // now blue
     let redColor   = UIColor(red: 231/255, green: 61/255, blue: 14/255, alpha: 1)
-    let grayColor = UIColor.lightGrayColor()
+    let grayColor = UIColor(red: 67/255, green: 67/255, blue: 67/255, alpha: 1)
     
     var openMenuOffset = CGFloat(300)
     var mainViewCenter = CGPoint()

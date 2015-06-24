@@ -93,7 +93,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "description" : "Keep your back straight and head up, lifting weights towards your rib cage."]
     
     var standingDumbbellDict = [
-        "name" : "Standing dumbbell shoulder press", 
+        "name" : "Dumbbell shoulder press",
         "intensity" : "low", 
         "duration" : "4",
         "workoutGroup" : "Shoulders",
@@ -129,6 +129,19 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "description" : "Slowly raise legs to a 90-degree angle, holding for 2 seconds. Don't swing!"]
     
     // Begin Workout #2
+    
+    var dipsDict = [
+        "name" : "Dips",
+        "intensity" : "low",
+        "duration" : "4",
+        "workoutGroup" : "Triceps",
+        "muscleGroup" : "Upper Body",
+        "imageGroup" : ["12a_dips.png", "12b_dips.png"],
+        "reps": "12",
+        "sets": "3",
+        "equipmentRequired" : "None",
+        "description" : "Lower until tricepts are parrallel to the ground, keep it nice and slow."]
+    
     var burpeesDict = [
         "name" : "Burpees",
         "intensity" : "low",
@@ -212,18 +225,6 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "sets": "4",
         "equipmentRequired" : "Pull-up bar",
         "description" : "Grip bar narrower than shoulder width, keeping torso straight throughout the movement"]
-    
-    var dipsDict = [
-        "name" : "Dips",
-        "intensity" : "low",
-        "duration" : "4",
-        "workoutGroup" : "Triceps",
-        "muscleGroup" : "Upper Body",
-        "imageGroup" : ["12a_dips.png", "12b_dips.png"],
-        "reps": "12",
-        "sets": "3",
-        "equipmentRequired" : "None",
-        "description" : "Lower until tricepts are parrallel to the ground, keep it nice and slow."]
     
     var standingTricepExtensionDict = [
         "name" : "Standing overhead tricep extension",
@@ -481,9 +482,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidAppear(animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "Your Workout"
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
-//        self.navigationController?.navigationBar.barTintColor = blueHeaderColor
         self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
     }
     
@@ -605,6 +604,12 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     func completeWorkout() {
         self.performSegueWithIdentifier("workoutCompleteSegue", sender: nil)
     }
+    
+//    @IBAction func didPressBackButton(sender: AnyObject) {
+//        
+//        navigationController!.popViewControllerAnimated(true)
+//        
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
