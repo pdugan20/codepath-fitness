@@ -76,7 +76,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="22" sectionFooterHeight="22" id="rts-VB-dGX" userLabel="playlistTableView">
                                 <rect key="frame" x="0.0" y="64" width="321" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.26410590280000001" green="0.26410590280000001" blue="0.26410590280000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseCell" rowHeight="87" id="lMS-DO-lTW" customClass="ExerciseCell" customModule="codepath_fitness" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="321" height="87"/>
@@ -403,6 +403,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" id="KlV-4c-kz9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Profile_Distribution" id="fz7-ho-beW">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Xx-DA-8aD">
+                                        <rect key="frame" x="259" y="0.0" width="61" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTapToDismissModal:" destination="gcl-gg-Afe" eventType="touchUpInside" id="Vig-q6-asW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1W1-Mf-me7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -411,10 +432,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="05B Profile Full" id="mR6-kg-cNV">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="716"/>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="05B Profile Full" id="Ii1-9u-wkk">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="840"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="86a-by-9Pq">
+                                                <rect key="frame" x="82" y="38" width="156" height="154"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapToSeeDistribution:" destination="gcl-gg-Afe" eventType="touchUpInside" id="3aY-df-OaH"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -424,7 +455,9 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="profileImageView" destination="mR6-kg-cNV" id="IU7-M8-BGd"/>
+                        <outlet property="profileDistributionView" destination="fz7-ho-beW" id="HKz-AK-XO8"/>
+                        <outlet property="profileImageView" destination="dxT-qt-HXR" id="i21-mH-Qo0"/>
+                        <outlet property="profileView" destination="dxT-qt-HXR" id="mNz-AD-Ito"/>
                         <outlet property="scrollView" destination="1W1-Mf-me7" id="ebO-5r-MW3"/>
                     </connections>
                 </viewController>
@@ -760,7 +793,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.26410590277777779" green="0.26410590277777779" blue="0.26410590277777779" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -843,12 +876,13 @@
     </scenes>
     <resources>
         <image name="02a_dumbbell_bench_press" width="640" height="640"/>
-        <image name="05B Profile Full" width="320" height="716"/>
+        <image name="05B Profile Full" width="320" height="840"/>
         <image name="CloseProfile" width="9" height="18"/>
         <image name="Complete_Circle" width="466" height="466"/>
         <image name="Generate" width="300" height="300"/>
         <image name="NUX1" width="640" height="1136"/>
         <image name="NUX2" width="640" height="1136"/>
+        <image name="Profile_Distribution" width="320" height="568"/>
         <image name="Profile_white" width="28" height="28"/>
         <image name="Reset" width="442" height="74"/>
         <image name="Share-1" width="441" height="74"/>
@@ -862,6 +896,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="aCg-sR-wo8"/>
+        <segue reference="RU1-7E-0Jm"/>
     </inferredMetricsTieBreakers>
 </document>

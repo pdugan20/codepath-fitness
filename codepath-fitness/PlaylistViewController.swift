@@ -482,8 +482,8 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidAppear(animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "Your Workout"
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 30/255, green: 30/255, blue: 30/255, alpha: 1.0)
+
     }
     
     // Sets status bar style to either light or dark (default)
