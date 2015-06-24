@@ -199,6 +199,7 @@ class SettingsViewController: UIViewController {
         generateWorkoutButtonHidden = CGPoint(x: generateWorkoutButton.center.x, y: generateWorkoutButtonShown.y + 400)
         generateWorkoutButton.center = generateWorkoutButtonHidden
         buttonCoverView.alpha = 0
+        println("\(generateWorkoutButton!.center)")
         
         // Used to determine how the animations should behave between the first flow (false) and after exposing sections (true)
         header2HasBeenPresented = false
