@@ -101,13 +101,13 @@ class SettingsViewController: UIViewController {
     var descriptionSelectedColor = UIColor.whiteColor()
     
     var listItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 1.0)
-    var option1ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.9)
-    var option2ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.7)
-    var option3ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.5)
-    var option4ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.3)
+    var option1ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.80)
+    var option2ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.60)
+    var option3ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.40)
+    var option4ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.20)
 
 
-
+    
 
 
     
@@ -204,9 +204,9 @@ class SettingsViewController: UIViewController {
         header2HasBeenPresented = false
         header3HasBeenPresented = false
         
-        durationButton.setTitle(("Duration"), forState: .Normal)
-        workoutTypeButton.setTitle(("Workout Type"), forState: .Normal)
-        locationButton.setTitle(("Location"), forState: .Normal)
+        durationButton.setTitle(("How long of a workout?"), forState: .Normal)
+        workoutTypeButton.setTitle(("What type of workout?"), forState: .Normal)
+        locationButton.setTitle(("Are you at home or the gym?"), forState: .Normal)
         
         profileButton.selected = false
         
@@ -221,10 +221,31 @@ class SettingsViewController: UIViewController {
         self.header1optionsShown = true
     }
     
+//    // Sets status bar style to either light or dark (default)
+//    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+//        return UIStatusBarStyle.LightContent
+//    }
+//    
+//    // Sets the style for that sweet sweet navigationBar
+//    
+//    override func viewDidAppear(animated: Bool) {
+//        
+//        self.navigationController?.navigationBar.topItem?.title = "Your Workout"
+//        
+//        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        
+//        self.navigationController?.navigationBar.barTintColor = blueHeaderColor
+//        
+//        self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+//        
+//    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     @IBAction func onHeader1Tap(sender: AnyObject) {
         
@@ -233,7 +254,7 @@ class SettingsViewController: UIViewController {
             
             println("i'm tapping header 1")
             
-            durationButton.setTitle(("Duration"), forState: .Normal)
+            durationButton.setTitle(("How long of a workout?"), forState: .Normal)
             
             // This if / else-if rule set alters the behavior depending on if Headers 2 and 3 have been exposed yet
             if header2HasBeenPresented == true && header3HasBeenPresented == false {
@@ -286,7 +307,7 @@ class SettingsViewController: UIViewController {
         
         println("i'm tapping header 2")
         
-        workoutTypeButton.setTitle(("Workout Type"), forState: .Normal)
+        workoutTypeButton.setTitle(("What type of workout?"), forState: .Normal)
         
         if header2optionsShown == false {
             
@@ -305,6 +326,7 @@ class SettingsViewController: UIViewController {
                     }, completion: nil)
             }
         } else if header2optionsShown == true {
+            
             
             self.workoutTypeButton.setTitle("\(sender.titleLabel!!.text!)", forState: .Normal)
             
@@ -328,7 +350,7 @@ class SettingsViewController: UIViewController {
     @IBAction func onHeader3Tap(sender: AnyObject) {
         
         println("i'm tapping header 3")
-        locationButton.setTitle(("Location"), forState: .Normal)
+        locationButton.setTitle(("Are you at home or the gym?"), forState: .Normal)
         
         if header3optionsShown == false {
             
@@ -468,6 +490,7 @@ class SettingsViewController: UIViewController {
             
             }, completion: nil)
         self.header1optionsShown = true
+
         
     }
     

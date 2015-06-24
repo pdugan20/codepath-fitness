@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Pods-codepath-fitness-Toast.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Pods-codepath-fitness.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,7 +27,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>88F79EAEDDACB75955B0A180</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D82509B5779825E8F3B47D64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E74EDA901C66BEBB1498E6A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBCEEBFB4AC77ABDC3CE5151</key>
 		<dict>
 			<key>primary</key>
 			<true/>

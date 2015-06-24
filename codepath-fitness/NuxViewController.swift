@@ -21,6 +21,11 @@ class NuxViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         skipButton.alpha = 0
     }
+    
+    // Sets status bar style to either light or dark (default)
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
