@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eA7-4K-Tzg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hQg-Yk-eU2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -307,6 +307,10 @@
                                         <rect key="frame" x="44" y="121" width="232" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="completed-1" id="i2j-Fg-IdO">
+                                        <rect key="frame" x="44" y="121" width="232" height="232"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -316,7 +320,8 @@
                     <connections>
                         <outlet property="fbShareButton" destination="csG-tU-zfh" id="LwG-tt-TUa"/>
                         <outlet property="shareButton" destination="csG-tU-zfh" id="TKC-hY-4sL"/>
-                        <outlet property="workoutCompletedImages" destination="EJE-5v-vwG" id="XdW-TQ-Oan"/>
+                        <outlet property="workoutCompletedImage" destination="EJE-5v-vwG" id="1xM-x2-HMz"/>
+                        <outlet property="workoutCompletedImages" destination="i2j-Fg-IdO" id="Bbp-We-Rds"/>
                         <outlet property="workoutCompletedView" destination="KkO-fh-s0Z" id="5NB-yR-8HK"/>
                     </connections>
                 </viewController>
@@ -400,7 +405,7 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileContentViewController" id="gcl-gg-Afe" customClass="ProfileContentViewController" customModule="codepath_fitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hov-kI-OqK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="KlV-4c-kz9">
@@ -422,14 +427,14 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.26410590280000001" green="0.26410590280000001" blue="0.26410590280000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1W1-Mf-me7">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="dxT-qt-HXR">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="05B Profile Full" id="Ii1-9u-wkk">
@@ -454,6 +459,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="1200"/>
                     <connections>
                         <outlet property="profileDistributionView" destination="fz7-ho-beW" id="HKz-AK-XO8"/>
                         <outlet property="profileImageView" destination="dxT-qt-HXR" id="i21-mH-Qo0"/>
@@ -463,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3l-5D-gAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="-1070"/>
+            <point key="canvasLocation" x="23" y="-1646"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Lnt-bN-2sn">
@@ -878,7 +885,7 @@
         <image name="02a_dumbbell_bench_press" width="640" height="640"/>
         <image name="05B Profile Full" width="320" height="840"/>
         <image name="CloseProfile" width="9" height="18"/>
-        <image name="Complete_Circle" width="466" height="466"/>
+        <image name="Complete_Circle" width="472" height="472"/>
         <image name="Generate" width="300" height="300"/>
         <image name="NUX1" width="640" height="1136"/>
         <image name="NUX2" width="640" height="1136"/>
@@ -886,6 +893,7 @@
         <image name="Profile_white" width="28" height="28"/>
         <image name="Reset" width="442" height="74"/>
         <image name="Share-1" width="441" height="74"/>
+        <image name="completed-1" width="472" height="472"/>
         <image name="done_icon" width="30" height="30"/>
         <image name="heart_icon_stroke" width="60" height="52"/>
         <image name="swap_icon" width="27" height="24"/>
@@ -896,6 +904,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RU1-7E-0Jm"/>
+        <segue reference="zlD-HY-xTt"/>
     </inferredMetricsTieBreakers>
 </document>

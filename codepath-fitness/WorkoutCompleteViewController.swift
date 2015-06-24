@@ -14,30 +14,34 @@ class WorkoutCompleteViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var workoutCompletedView: UIView!
     @IBOutlet weak var workoutCompletedImages: UIImageView!
+    @IBOutlet weak var workoutCompletedImage: UIImageView!
     @IBOutlet weak var fbShareButton: UIButton!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        var images = UIImage.animatedImageNamed("Complete_Circle", duration: 5)
-//        workoutCompletedImages.image = images
-//        
-//        delay(4.7, { () -> () in
-//            UIView.animateWithDuration(0.3, animations: { () -> Void in
-//                self.workoutCompletedView.alpha = 0
-//            })
-//        })
-//
-//
-//        
-//        
+
+        workoutCompletedImage.alpha = 0
+        
+        var images = UIImage.animatedImageNamed("completed-", duration: 2)
+        workoutCompletedImages.image = images
+        
+        delay(1.8, { () -> () in
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.workoutCompletedImages.alpha = 0
+                self.workoutCompletedImage.alpha = 1
+            })
+        })
+
+
+        
+        
     }
-//
-//    @IBAction func didPressReset(sender: AnyObject) {
-//        dismissViewControllerAnimated(true, completion: nil)
-//    }
+
+    @IBAction func didPressReset(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func onShareButtonTap(sender: AnyObject) {
         
