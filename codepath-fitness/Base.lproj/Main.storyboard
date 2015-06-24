@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="hQg-Yk-eU2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eA7-4K-Tzg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="SF-UI-Text-Bold.otf">
+            <string>SFUIText-Bold</string>
+            <string>SFUIText-Bold</string>
             <string>SFUIText-Bold</string>
             <string>SFUIText-Bold</string>
             <string>SFUIText-Bold</string>
@@ -25,6 +27,8 @@
             <string>SFUIText-Medium</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
@@ -74,7 +78,7 @@
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="22" sectionFooterHeight="22" id="rts-VB-dGX" userLabel="playlistTableView">
-                                <rect key="frame" x="0.0" y="64" width="321" height="504"/>
+                                <rect key="frame" x="0.0" y="76" width="321" height="492"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.26410590280000001" green="0.26410590280000001" blue="0.26410590280000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -241,6 +245,50 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" id="mHi-R1-LuG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Workout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="x2B-sY-bJk">
+                                        <rect key="frame" x="102" y="14" width="116" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QME-bK-Foi">
+                                        <rect key="frame" x="12" y="34" width="30" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <state key="normal" title="End">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="z6F-Yf-wWM" kind="modal" id="iy8-gN-fEB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.26410590280000001" green="0.26410590280000001" blue="0.26410590280000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="dQP-bg-eUv" userLabel="Loading View">
+                                <rect key="frame" x="-1" y="0.0" width="321" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="flex_loading-1" id="fBs-zy-I6c">
+                                        <rect key="frame" x="73" y="128" width="186" height="176"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="building your perfect workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y0u-PJ-jma">
+                                        <rect key="frame" x="35" y="312" width="251" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.20784313730000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -256,13 +304,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="z6F-Yf-wWM" kind="modal" id="RU1-7E-0Jm"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="loadingAnimationView" destination="dQP-bg-eUv" id="6dS-Gk-KyV"/>
+                        <outlet property="loadingImages" destination="fBs-zy-I6c" id="3Qi-vR-VO7"/>
                         <outlet property="muscleGroupNavCell" destination="59a-XN-8j5" id="Dd4-cV-NVy"/>
                         <outlet property="playlistTableView" destination="rts-VB-dGX" id="KKL-KN-tyB"/>
                     </connections>
@@ -429,6 +476,25 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.26410590280000001" green="0.26410590280000001" blue="0.26410590280000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view contentMode="scaleToFill" id="nj4-Hi-euC">
+                                <rect key="frame" x="0.0" y="-2" width="320" height="312"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="TopImage" id="sY5-N7-zYB">
+                                        <rect key="frame" x="0.0" y="2" width="320" height="405"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Settings2" id="5zk-SL-9V8">
+                                        <rect key="frame" x="285" y="26" width="27" height="28"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ProfileHead" id="Upg-RN-faS">
+                                        <rect key="frame" x="99" y="52" width="121" height="121"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1W1-Mf-me7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -437,22 +503,23 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="05B Profile Full" id="Ii1-9u-wkk">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="840"/>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ProfileBottom" id="AHI-ls-W8G">
+                                                <rect key="frame" x="0.0" y="304" width="320" height="545"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="86a-by-9Pq">
-                                                <rect key="frame" x="82" y="38" width="156" height="154"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="didTapToSeeDistribution:" destination="gcl-gg-Afe" eventType="touchUpInside" id="3aY-df-OaH"/>
-                                                </connections>
-                                            </button>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="01_workoutsTile" id="nen-Yf-FFa">
+                                                <rect key="frame" x="0.0" y="234" width="108" height="72"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="02_FavoritesTile" id="og7-5i-IcN">
+                                                <rect key="frame" x="106" y="234" width="110" height="72"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="03_TipsTile" id="UeG-4j-drO">
+                                                <rect key="frame" x="214" y="234" width="106" height="72"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                             </scrollView>
@@ -463,7 +530,8 @@
                     <size key="freeformSize" width="320" height="1200"/>
                     <connections>
                         <outlet property="profileDistributionView" destination="fz7-ho-beW" id="HKz-AK-XO8"/>
-                        <outlet property="profileImageView" destination="dxT-qt-HXR" id="i21-mH-Qo0"/>
+                        <outlet property="profileHeadImageView" destination="Upg-RN-faS" id="1TV-NY-65o"/>
+                        <outlet property="profileImageView" destination="dxT-qt-HXR" id="esh-vy-Qii"/>
                         <outlet property="profileView" destination="dxT-qt-HXR" id="mNz-AD-Ito"/>
                         <outlet property="scrollView" destination="1W1-Mf-me7" id="ebO-5r-MW3"/>
                     </connections>
@@ -778,14 +846,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Your Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t6R-aF-pEU">
-                                        <rect key="frame" x="74" y="14" width="172" height="70"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Tk-3m-XHY">
                                         <rect key="frame" x="276" y="36" width="29" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -799,6 +859,14 @@
                                             <action selector="onTapToShowProfile:" destination="toj-eP-R7D" eventType="touchUpInside" id="OJT-sA-AyB"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan Your Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t6R-aF-pEU">
+                                        <rect key="frame" x="74" y="14" width="172" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.26410590277777779" green="0.26410590277777779" blue="0.26410590277777779" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -847,7 +915,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Fy0-UF-obg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5H5-Of-KHv" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5H5-Of-KHv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EZ1-2v-jEH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -882,19 +950,26 @@
         </scene>
     </scenes>
     <resources>
+        <image name="01_workoutsTile" width="108" height="72"/>
+        <image name="02_FavoritesTile" width="110" height="72"/>
         <image name="02a_dumbbell_bench_press" width="640" height="640"/>
-        <image name="05B Profile Full" width="320" height="840"/>
+        <image name="03_TipsTile" width="106" height="72"/>
         <image name="CloseProfile" width="9" height="18"/>
         <image name="Complete_Circle" width="472" height="472"/>
         <image name="Generate" width="300" height="300"/>
         <image name="NUX1" width="640" height="1136"/>
         <image name="NUX2" width="640" height="1136"/>
+        <image name="ProfileBottom" width="320" height="545"/>
+        <image name="ProfileHead" width="121" height="121"/>
         <image name="Profile_Distribution" width="320" height="568"/>
         <image name="Profile_white" width="28" height="28"/>
         <image name="Reset" width="442" height="74"/>
+        <image name="Settings2" width="27" height="28"/>
         <image name="Share-1" width="441" height="74"/>
+        <image name="TopImage" width="320" height="405"/>
         <image name="completed-1" width="472" height="472"/>
         <image name="done_icon" width="30" height="30"/>
+        <image name="flex_loading-1" width="320" height="320"/>
         <image name="heart_icon_stroke" width="60" height="52"/>
         <image name="swap_icon" width="27" height="24"/>
     </resources>

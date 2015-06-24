@@ -11,6 +11,8 @@ import UIKit
 class PlaylistViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
 
     @IBOutlet weak var playlistTableView: UITableView!
+    @IBOutlet weak var loadingAnimationView: UIView!
+    @IBOutlet weak var loadingImages: UIImageView!
     
     // Declare parent exercise arrays
     var exerciseArray: NSMutableArray = []
@@ -246,6 +248,20 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIView.animateWithDuration(0.3, animations: { () -> Void in
+            self.loadingAnimationView.alpha = 1
+        })
+        
+        var images = UIImage.animatedImageNamed("flex_loading-", duration: 4)
+        loadingImages.image = images
+        
+        delay(3.6, { () -> () in
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.loadingAnimationView.alpha = 0
+            })
+        })
+        
         
         // Setup initial tableView
         playlistTableView.delegate = self

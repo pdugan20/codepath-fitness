@@ -611,7 +611,6 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onTapToExposeButton(sender: AnyObject) {
         
-        
         UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             
             self.header1optionsHide()

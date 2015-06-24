@@ -37,13 +37,13 @@ class ProfileViewController: UIViewController {
             println("wants display ui")
             
             if self.profileExposed == false {
-                UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: { () -> Void in
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: { () -> Void in
                     self.setupView.center = self.setupViewLockedToBottom
                     }, completion: nil)
                 self.profileExposed = true
                 
             } else {
-                UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: { () -> Void in
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: nil, animations: { () -> Void in
                     self.setupView.center = self.setupViewOriginalCenter
                     }, completion: nil)
                 self.profileExposed = false
