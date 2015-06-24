@@ -21,11 +21,11 @@ static const CGFloat CSToastMaxHeight           = 0.8;      // 80% of parent vie
 static const CGFloat CSToastHorizontalPadding   = 10.0;
 static const CGFloat CSToastVerticalPadding     = 10.0;
 static const CGFloat CSToastCornerRadius        = 10.0;
-static const CGFloat CSToastOpacity             = 0.8;
+static const CGFloat CSToastOpacity             = 0.5;
 static const CGFloat CSToastFontSize            = 16.0;
 static const CGFloat CSToastMaxTitleLines       = 0;
 static const CGFloat CSToastMaxMessageLines     = 0;
-static const NSTimeInterval CSToastFadeDuration = 0.2;
+static const NSTimeInterval CSToastFadeDuration = 0.25;
 
 // shadow appearance
 static const CGFloat CSToastShadowOpacity       = 0.8;
@@ -37,8 +37,8 @@ static const BOOL    CSToastDisplayShadow       = YES;
 static const NSTimeInterval CSToastDefaultDuration  = 3.0;
 
 // image view size
-static const CGFloat CSToastImageViewWidth      = 80.0;
-static const CGFloat CSToastImageViewHeight     = 80.0;
+static const CGFloat CSToastImageViewWidth      = 60.0;
+static const CGFloat CSToastImageViewHeight     = 60.0;
 
 // activity
 static const CGFloat CSToastActivityWidth       = 100.0;
