@@ -250,6 +250,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         playlistTableView.delegate = self
         playlistTableView.dataSource = self
         playlistTableView.contentInset = UIEdgeInsetsZero;
+        playlistTableView.tableFooterView = UIView(frame: CGRectZero)
         playlistTableView.reloadData()
 
         // Adds long-press gesture recgonizer to each cell
