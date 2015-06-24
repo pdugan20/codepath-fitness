@@ -437,7 +437,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // Updates current tableview
         playlistTableView.beginUpdates()
-        playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Fade)
+        playlistTableView.deleteSections(NSIndexSet(index:exerciseIndex), withRowAnimation: UITableViewRowAnimation.Right)
         playlistTableView.endUpdates()
         
         // Adds all remaining sections to an indexSet
@@ -446,13 +446,20 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
             indexSet.addIndex(i)
         }
         
+        // Adds selected exercise into it's own indexSet
+        var singleIndexSet = NSMutableIndexSet()
+        singleIndexSet.addIndex(exerciseIndex)
+        
         // If all exercises are done, complete workout
         if exerciseArray.count == 0 {
             completeWorkout()
         }
         
         // Animates all remaining sections within index
-        playlistTableView.reloadSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+        delay(0.3, { () -> () in
+            self.playlistTableView.reloadSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+            // playlistTableView.reloadSections(singleIndexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+        })
         
     }
     
@@ -472,9 +479,19 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         for (var i = 0; i < exerciseArray.count ; i++ ) {
             indexSet.addIndex(i)
         }
-
+        
+        // Adds selected exercise into it's own indexSet
+        var singleIndexSet = NSMutableIndexSet()
+        singleIndexSet.addIndex(exerciseIndex)
+        
+        // Animates the individual cell being swapped
+        playlistTableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: exerciseIndex)], withRowAnimation: UITableViewRowAnimation.Left)
+        
         // Animates all remaining sections within index
-        playlistTableView.reloadSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+        delay(0.3, { () -> () in
+            self.playlistTableView.reloadSections(indexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+            // playlistTableView.reloadSections(singleIndexSet, withRowAnimation: UITableViewRowAnimation.Fade)
+        })
         
     }
     
