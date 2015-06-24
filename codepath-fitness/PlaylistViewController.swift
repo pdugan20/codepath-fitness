@@ -478,9 +478,11 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Sets the style for navigation bar
     override func viewDidAppear(animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "Monday's Playlist"
+        self.navigationController?.navigationBar.topItem?.title = "Your Workout"
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SFUIText-Bold", size: 18)!,  NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController?.navigationBar.barTintColor = blueHeaderColor
+//        self.navigationController?.navigationBar.barTintColor = blueHeaderColor
+        self.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+
         self.navigationController?.navigationBar.barStyle = UIBarStyle.BlackTranslucent
     }
     

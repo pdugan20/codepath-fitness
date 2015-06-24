@@ -20,6 +20,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var header1option2Button: UIButton!
     @IBOutlet weak var header1option3Button: UIButton!
     @IBOutlet weak var header1option4Button: UIButton!
+    @IBOutlet var backgroundView: UIView!
     
     var header1ViewOriginalCenter: CGPoint!
     var header1option1Hidden: CGPoint!
@@ -96,15 +97,25 @@ class SettingsViewController: UIViewController {
     var blueHeaderColor = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 1.0)
     var blueHeaderColorTinted = UIColor(red: 30/255, green: 128/255, blue: 240/255, alpha: 0.9)
     var borderGray = UIColor(red: 188/255, green: 186/255, blue: 193/255, alpha: 1.0)
-    var listItemColor = UIColor(red: 235/255, green: 241/255, blue: 244/255, alpha: 1.0)
-    var descriptionColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+//    var listItemColor = UIColor(red: 235/255, green: 241/255, blue: 244/255, alpha: 1.0)
+//    var descriptionColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
     var descriptionSelectedColor = UIColor.whiteColor()
     
-    var listItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 1.0)
-    var option1ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.80)
-    var option2ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.60)
-    var option3ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.40)
-    var option4ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.20)
+    var listItemColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+    
+    var descriptionColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+    
+//    var listItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 1.0)
+//    var option1ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.80)
+//    var option2ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.60)
+//    var option3ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.40)
+//    var option4ItemSelectedColor = UIColor(red: 33/255, green: 140/255, blue: 190/255, alpha: 0.20)
+    
+    var listItemSelectedColor = UIColor(red: 255/255, green: 192/255, blue: 0/255, alpha: 1.0)
+    var option1ItemSelectedColor = UIColor(red: 255/255, green: 192/255, blue: 0/255, alpha: 0.80)
+    var option2ItemSelectedColor = UIColor(red: 255/255, green: 192/255, blue: 0/255, alpha: 0.60)
+    var option3ItemSelectedColor = UIColor(red: 255/255, green: 192/255, blue: 0/255, alpha: 0.40)
+    var option4ItemSelectedColor = UIColor(red: 255/255, green: 192/255, blue: 0/255, alpha: 0.20)
 
 
     
@@ -113,6 +124,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         header1View.layer.backgroundColor = listItemSelectedColor.CGColor
         durationButton.setTitleColor(descriptionSelectedColor, forState: UIControlState.Normal)
@@ -250,8 +262,12 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onHeader1Tap(sender: AnyObject) {
         
+        
+        
         // This first if statement deterimes if the header is already expanded or collapsed
         if header1optionsShown == false {
+            
+        
             
             println("i'm tapping header 1")
             

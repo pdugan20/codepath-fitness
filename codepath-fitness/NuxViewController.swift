@@ -17,7 +17,7 @@ class NuxViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        scrollView.contentSize = CGSizeMake(1280, 568)
+        scrollView.contentSize = CGSizeMake(640, 568)
         scrollView.delegate = self
         skipButton.alpha = 0
     }
@@ -36,8 +36,8 @@ class NuxViewController: UIViewController, UIScrollViewDelegate {
         var page : Int = Int(round(scrollView.contentOffset.x / 320))
         pager.currentPage = page
         
-        if pager.currentPage == 3{
-            UIView.animateWithDuration(0.1, animations: {
+        if pager.currentPage == 1{
+            UIView.animateWithDuration(0.2, animations: {
                 self.pager.alpha = 0
                 self.skipButton.alpha = 1
             })
