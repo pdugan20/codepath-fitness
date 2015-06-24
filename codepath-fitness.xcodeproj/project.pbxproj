@@ -77,6 +77,7 @@
 		E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		E7D7CF241B2901E400BB54F0 /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		E7D7CF261B29021B00BB54F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E7EC4F371B3A26B700696F3F /* codepath-fitness-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "codepath-fitness-Bridging-Header.h"; sourceTree = "<group>"; };
 		E7F0ED261B264B5C008645F5 /* codepath-fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codepath-fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F0ED2A1B264B5C008645F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7F0ED2B1B264B5C008645F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 		E7F0ED291B264B5C008645F5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E7EC4F371B3A26B700696F3F /* codepath-fitness-Bridging-Header.h */,
 				E76753F21B32329700D5ABD6 /* Resources */,
 				E7F0ED2A1B264B5C008645F5 /* Info.plist */,
 			);
@@ -541,6 +543,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/patdugan/GitHub/codepath-fitness/codepath-fitness/codepath-fitness-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -555,6 +558,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/patdugan/GitHub/codepath-fitness/codepath-fitness/codepath-fitness-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

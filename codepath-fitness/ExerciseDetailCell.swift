@@ -17,22 +17,28 @@ class ExerciseDetailCell: UITableViewCell {
     @IBOutlet weak var favoriteLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var workoutCompleteButton: UIButton!
+    @IBOutlet weak var expandedExerciseView: UIView!
     
     // Used for favorite button toggle
     var isHighLighted:Bool = false
     
+    let heartPoint = CGPointMake(160, 150)
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Hides complete exercise image by default
     }
     
     @IBAction func didFavoriteExercise(sender: UIButton) {
+        
+        var heartPointObject = NSValue(CGPoint: heartPoint)
+        
         dispatch_async(dispatch_get_main_queue(), {
             if self.isHighLighted == false {
                 sender.highlighted = true;
                 self.isHighLighted = true
                 self.favoriteButton.setImage(UIImage(named: "heart_icon_filled.png"), forState: UIControlState.Highlighted)
-                // self.favoriteLabel.text = "Favorited!"
+                self.expandedExerciseView.makeToast(nil , duration: 2.5, position: heartPointObject, image: UIImage(named: "heart_icon_filled.png"))
             } else {
                 sender.highlighted = false;
                 self.isHighLighted = false

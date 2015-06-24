@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "88F79EAEDDACB75955B0A180"
-               BuildableName = "libPods-codepath-fitness-AFNetworking.a"
-               BlueprintName = "Pods-codepath-fitness-AFNetworking"
+               BlueprintIdentifier = "FBCEEBFB4AC77ABDC3CE5151"
+               BuildableName = "libPods-codepath-fitness-Toast.a"
+               BlueprintName = "Pods-codepath-fitness-Toast"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

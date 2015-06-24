@@ -227,6 +227,7 @@
                                             <outlet property="exerciseCompleteImageView" destination="QXJ-XP-XDM" id="Por-Kl-3PT"/>
                                             <outlet property="exerciseDescriptionTextField" destination="vWW-59-Qel" id="eXi-4B-0kM"/>
                                             <outlet property="exerciseImageView" destination="1Ol-81-jb0" id="YMT-3I-2c2"/>
+                                            <outlet property="expandedExerciseView" destination="yXL-oT-TOl" id="7bv-YD-u9Z"/>
                                             <outlet property="favoriteButton" destination="Cah-bM-vwa" id="P4X-aE-tox"/>
                                             <outlet property="favoriteLabel" destination="G0Q-Td-dN2" id="sgX-K1-FdZ"/>
                                             <outlet property="favoriteViewContainer" destination="kLm-lg-HRb" id="AWy-Z4-vR2"/>
