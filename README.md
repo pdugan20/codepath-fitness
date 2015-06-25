@@ -3,8 +3,14 @@ A fitness application that creates tailored workout playlists.
 
 **Team:** Kyle and Patrick(squared)
 
+####Demo Build
+
+<img src="https://lh3.googleusercontent.com/-9hzxUafdJjw/VYxme-9JzrI/AAAAAAAADhk/N39OkZPl0i4/s565/FlexDemo.gif">
+
+
+
 ####Goal
-Help people work towards their goal (however they want to)
+Help people create personalized workouts that fit their context and goals
 
 ####Flows
 1. **First-Time Use:** FTUE → Set Up (Home) → Preview Workout → Workout 
