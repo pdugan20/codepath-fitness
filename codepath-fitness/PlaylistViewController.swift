@@ -104,7 +104,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         "reps": "10",
         "sets": "3",
         "equipmentRequired" : "Dumbbells",
-        "description" : "Start with dumbbells at shoulder height and slowly raise until arms are fully extended."]
+        "description" : "With dumbbells at shoulder height and slowly raise until arms are fully extended."]
     
     var tricepExtensionDict = [
         "name" : "Bent over tricep kickback", 
@@ -278,7 +278,7 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
         exerciseArray = [dumbellPressDict, bentOverRowDict, squatDict, stepUpDict, standingDumbbellDict, tricepExtensionDict, legRaiseDict]
         
         // Add exercises to Workout #2
-        exerciseArray2 = [burpeesDict, medBallDumbbellPressDict, flyDict, plankRowDict, bentReverseFlyDict, lateralRaiseDict, chinUpDict, dipsDict, standingTricepExtensionDict]
+        exerciseArray2 = [dipsDict, burpeesDict, medBallDumbbellPressDict, flyDict, plankRowDict, bentReverseFlyDict, lateralRaiseDict, chinUpDict, standingTricepExtensionDict]
         
     }
     
