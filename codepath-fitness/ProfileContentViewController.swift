@@ -14,6 +14,7 @@ class ProfileContentViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var profileDistributionView: UIImageView!
+    @IBOutlet weak var settingsImageView: UIView!
     
     @IBOutlet weak var profileHeadImageView: UIView!
     
@@ -31,10 +32,12 @@ class ProfileContentViewController: UIViewController, UIScrollViewDelegate {
         var imageAlpha = convertValue(offset, r1Min: 0, r1Max: 568, r2Min: 0, r2Max: 1)
         
         
-        if scrollView.contentOffset.y <= 80 {
+        if scrollView.contentOffset.y <= 40 {
             profileHeadImageView.alpha = 1
+            settingsImageView.alpha = 1
         } else {
-            profileHeadImageView.alpha = ((scrollView.contentOffset.y)/80)
+            profileHeadImageView.alpha = (40/((scrollView.contentOffset.y)))
+            settingsImageView.alpha = (40/((scrollView.contentOffset.y)))
         }
         
         

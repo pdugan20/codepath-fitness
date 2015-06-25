@@ -418,7 +418,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <state key="normal" title="Let's go">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -507,16 +507,16 @@
                                                 <rect key="frame" x="0.0" y="304" width="320" height="545"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="01_workoutsTile" id="nen-Yf-FFa">
-                                                <rect key="frame" x="0.0" y="234" width="108" height="72"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </imageView>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="02_FavoritesTile" id="og7-5i-IcN">
                                                 <rect key="frame" x="106" y="234" width="110" height="72"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="03_TipsTile" id="UeG-4j-drO">
                                                 <rect key="frame" x="214" y="234" width="106" height="72"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="01_workoutsTile" id="nen-Yf-FFa">
+                                                <rect key="frame" x="0.0" y="234" width="108" height="72"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </imageView>
                                         </subviews>
@@ -534,6 +534,7 @@
                         <outlet property="profileImageView" destination="dxT-qt-HXR" id="esh-vy-Qii"/>
                         <outlet property="profileView" destination="dxT-qt-HXR" id="mNz-AD-Ito"/>
                         <outlet property="scrollView" destination="1W1-Mf-me7" id="ebO-5r-MW3"/>
+                        <outlet property="settingsImageView" destination="5zk-SL-9V8" id="ih8-qr-9h6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3l-5D-gAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -959,7 +960,7 @@
         <image name="Generate" width="300" height="300"/>
         <image name="NUX1" width="640" height="1136"/>
         <image name="NUX2" width="640" height="1136"/>
-        <image name="ProfileBottom" width="320" height="545"/>
+        <image name="ProfileBottom" width="320" height="602"/>
         <image name="ProfileHead" width="121" height="121"/>
         <image name="Profile_Distribution" width="320" height="568"/>
         <image name="Profile_white" width="28" height="28"/>
@@ -979,6 +980,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zlD-HY-xTt"/>
+        <segue reference="iy8-gN-fEB"/>
     </inferredMetricsTieBreakers>
 </document>
