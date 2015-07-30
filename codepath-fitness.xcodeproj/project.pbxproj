@@ -54,6 +54,7 @@
 		0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-codepath-fitness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		391515341B36185400A43CCB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		391515361B361B3D00A43CCB /* ProfileContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContentViewController.swift; sourceTree = "<group>"; };
+		39B62D6D1B3C9C3400B65866 /* codepath-fitness-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "codepath-fitness-Bridging-Header.h"; sourceTree = "<group>"; };
 		CA387BF9514957CEC52F06EE /* Pods-codepath-fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.release.xcconfig"; sourceTree = "<group>"; };
 		E0C2C4ABE61C308C08CF1A98 /* Pods-codepath-fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		E705C0AE1B33D2AE0031D218 /* ExerciseDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailCell.swift; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		E7D7CF221B29019700BB54F0 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		E7D7CF241B2901E400BB54F0 /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		E7D7CF261B29021B00BB54F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E7EC4F371B3A26B700696F3F /* codepath-fitness-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "codepath-fitness-Bridging-Header.h"; sourceTree = "<group>"; };
 		E7F0ED261B264B5C008645F5 /* codepath-fitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codepath-fitness.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7F0ED2A1B264B5C008645F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7F0ED2B1B264B5C008645F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		E7F0ED291B264B5C008645F5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E7EC4F371B3A26B700696F3F /* codepath-fitness-Bridging-Header.h */,
+				39B62D6D1B3C9C3400B65866 /* codepath-fitness-Bridging-Header.h */,
 				E76753F21B32329700D5ABD6 /* Resources */,
 				E7F0ED2A1B264B5C008645F5 /* Info.plist */,
 			);
@@ -543,7 +543,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/patrickweiss/Desktop/CodePath/GroupProject/03_Build/codepath-fitness/codepath-fitness/codepath-fitness-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -558,7 +558,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/patrickweiss/Desktop/CodePath/GroupProject/03_Build/codepath-fitness/codepath-fitness/codepath-fitness-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

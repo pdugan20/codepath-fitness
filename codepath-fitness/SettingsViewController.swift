@@ -400,7 +400,7 @@ class SettingsViewController: UIViewController {
         header1option4Button.selected = false
         sender.selected = true
         
-        // pull pull from here in PrepareForSegue
+        // pull from here in PrepareForSegue
         durationSelection = sender.titleLabel?.text
         
         durationButton.setTitle("\(sender.titleLabel!.text!)", forState: .Normal)
@@ -464,6 +464,7 @@ class SettingsViewController: UIViewController {
         
         if header3option1Button.selected == false && header3option2Button.selected == false {
             sender.selected = true
+            locationSelection = sender.titleLabel?.text
             locationButton.setTitle("\(sender.titleLabel!.text!)" + " Workout", forState: .Normal)
             header3optionsHide()
             delay(0.2, { () -> () in
@@ -635,14 +636,26 @@ class SettingsViewController: UIViewController {
 //        NSNotificationCenter.defaultCenter().postNotificationName("displayTrayUI", object: nil)
     }
     
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-    // Get the new view controller using segue.destinationViewController.
+
+    override func prepareForSegue(segue: (UIStoryboardSegue!), sender: AnyObject!) {
+
+        var fromViewController = segue.sourceViewController as! UIViewController
+        var toViewController = segue.destinationViewController as! UIViewController
+        var identifier = segue.identifier
+        
+        if (segue.identifier == "generateWorkoutSegue") {
+            var svc = segue!.destinationViewController as! PlaylistViewController;
+            
+            svc.durationToPass = durationSelection
+            svc.workoutTypeToPass = typeSelection
+            svc.locationToPass = locationSelection
+            
+        }
+        
+        
+        // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
     }
-    */
+
     
 }

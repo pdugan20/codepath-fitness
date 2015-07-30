@@ -38,7 +38,7 @@ class ExerciseDetailCell: UITableViewCell {
                 sender.highlighted = true;
                 self.isHighLighted = true
                 self.favoriteButton.setImage(UIImage(named: "heart_icon_filled.png"), forState: UIControlState.Highlighted)
-                self.expandedExerciseView.makeToast(nil , duration: 1.5, position: heartPointObject, image: UIImage(named: "heart_icon_filled.png"))
+//                self.expandedExerciseView.makeToast(nil , duration: 1.5, position: heartPointObject, image: UIImage(named: "heart_icon_filled.png"))
             } else {
                 sender.highlighted = false;
                 self.isHighLighted = false

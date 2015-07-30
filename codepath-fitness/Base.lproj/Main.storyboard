@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eA7-4K-Tzg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="eA7-4K-Tzg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -27,6 +27,9 @@
             <string>SFUIText-Medium</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
+            <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
             <string>SFUIText-Regular</string>
@@ -81,9 +84,47 @@
                                 <rect key="frame" x="0.0" y="76" width="321" height="492"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.26410590280000001" green="0.26410590280000001" blue="0.26410590280000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="XTL-47-G6n" userLabel="Workout Selection Summary">
+                                    <rect key="frame" x="0.0" y="0.0" width="321" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OF4-ic-mDm">
+                                            <rect key="frame" x="115" y="11" width="90" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QCW-bU-LE9">
+                                            <rect key="frame" x="222" y="11" width="90" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" id="7Ay-F1-HCr">
+                                            <rect key="frame" x="107" y="0.0" width="1" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" id="4nG-Wb-atk">
+                                            <rect key="frame" x="213" y="0.0" width="1" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fe7-mR-4r4">
+                                            <rect key="frame" x="8" y="11" width="90" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseCell" rowHeight="87" id="lMS-DO-lTW" customClass="ExerciseCell" customModule="codepath_fitness" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="321" height="87"/>
+                                        <rect key="frame" x="0.0" y="66" width="321" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lMS-DO-lTW" id="YeY-vb-wSu" userLabel="exerciseCellView">
                                             <rect key="frame" x="0.0" y="0.0" width="321" height="86.5"/>
@@ -170,7 +211,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseDetailCell" rowHeight="396" id="J8n-0x-dSd" customClass="ExerciseDetailCell" customModule="codepath_fitness" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="109" width="321" height="396"/>
+                                        <rect key="frame" x="0.0" y="153" width="321" height="396"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J8n-0x-dSd" id="yXL-oT-TOl">
                                             <rect key="frame" x="0.0" y="0.0" width="321" height="395.5"/>
@@ -272,7 +313,7 @@
                                 <color key="backgroundColor" red="0.26410590280000001" green="0.26410590280000001" blue="0.26410590280000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="dQP-bg-eUv" userLabel="Loading View">
-                                <rect key="frame" x="-1" y="0.0" width="321" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="flex_loading-1" id="fBs-zy-I6c">
@@ -310,8 +351,11 @@
                     <connections>
                         <outlet property="loadingAnimationView" destination="dQP-bg-eUv" id="6dS-Gk-KyV"/>
                         <outlet property="loadingImages" destination="fBs-zy-I6c" id="3Qi-vR-VO7"/>
+                        <outlet property="locationPassed" destination="QCW-bU-LE9" id="QDa-jj-iFT"/>
                         <outlet property="muscleGroupNavCell" destination="59a-XN-8j5" id="Dd4-cV-NVy"/>
                         <outlet property="playlistTableView" destination="rts-VB-dGX" id="KKL-KN-tyB"/>
+                        <outlet property="workoutDurationPassed" destination="Fe7-mR-4r4" id="5zk-19-wPQ"/>
+                        <outlet property="workoutTypePassed" destination="OF4-ic-mDm" id="3bP-dL-2ZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEc-k0-tZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4AK-aB-Ner" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1034" y="-381"/>
+            <point key="canvasLocation" x="-750" y="295"/>
         </scene>
         <!--Profile Content View Controller-->
         <scene sceneID="0Nz-cB-iAV">
@@ -540,7 +584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3l-5D-gAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="-1646"/>
+            <point key="canvasLocation" x="215" y="-682"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Lnt-bN-2sn">
@@ -570,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUR-ff-504" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="-381"/>
+            <point key="canvasLocation" x="215" y="300"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="GYJ-RD-agS">
@@ -587,7 +631,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5H5-Of-KHv" kind="modal" identifier="generateWorkoutSegue" modalTransitionStyle="crossDissolve" id="16W-6h-BgW"/>
+                                    <segue destination="cCX-YU-QkM" kind="modal" identifier="generateWorkoutSegue" id="93r-b3-dRq"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="7ee-l6-lCh" userLabel="Button Cover">
@@ -912,7 +956,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afr-u6-fmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="300"/>
+            <point key="canvasLocation" x="635" y="300"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fy0-UF-obg">
@@ -924,13 +968,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="cCX-YU-QkM" kind="relationship" relationship="rootViewController" id="CH3-IN-AJ6"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNz-AN-7uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="567" y="300"/>
+            <point key="canvasLocation" x="635" y="959"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OHp-IQ-hjn">
@@ -948,7 +989,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLt-q6-i8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-429" y="-381"/>
+            <point key="canvasLocation" x="-189" y="295"/>
         </scene>
     </scenes>
     <resources>
@@ -981,6 +1022,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="iy8-gN-fEB"/>
+        <segue reference="aCg-sR-wo8"/>
     </inferredMetricsTieBreakers>
 </document>

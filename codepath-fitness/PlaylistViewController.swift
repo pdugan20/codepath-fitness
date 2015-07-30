@@ -14,6 +14,16 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var loadingAnimationView: UIView!
     @IBOutlet weak var loadingImages: UIImageView!
     
+    
+    // Workout summary, passed from Setup View Controller
+    @IBOutlet weak var workoutDurationPassed: UILabel!
+    @IBOutlet weak var workoutTypePassed: UILabel!
+    @IBOutlet weak var locationPassed: UILabel!
+    
+    var durationToPass: String!
+    var workoutTypeToPass: String!
+    var locationToPass: String!
+    
     // Declare parent exercise arrays
     var exerciseArray: NSMutableArray = []
     var exerciseArray2: NSMutableArray = []
@@ -248,6 +258,14 @@ class PlaylistViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Passed selection data from prior View Controller
+        workoutDurationPassed.text = durationToPass
+        workoutTypePassed.text = workoutTypeToPass
+        locationPassed.text = locationToPass
+        println("duration = \(durationToPass)")
+        println("type = \(workoutTypeToPass)")
+        println("location = \(locationToPass)")
         
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.loadingAnimationView.alpha = 1
