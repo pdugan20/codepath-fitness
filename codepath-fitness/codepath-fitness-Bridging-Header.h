@@ -3,7 +3,6 @@
 //
 
 #import <Parse/Parse.h>
-#import <ParseUI/ParseUI.h>
 #import <Bolts/BFTask.h>
 
 #ifndef _codepath_fitness_Bridging_Header_h
