@@ -4,6 +4,7 @@
 target 'codepath-fitness' do
    pod 'AFNetworking'
    pod 'Toast', '~> 2.4'
+   pod 'Parse'
 end
 
 target 'codepath-fitnessTests' do

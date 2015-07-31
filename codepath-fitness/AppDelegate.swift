@@ -15,9 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-
-        var navigationBarAppearace = UINavigationBar.appearance()
         
+        Parse.enableLocalDatastore()
+        Parse.setApplicationId("yKWQjWHlP95eAevKQKzwiz7sXaQHLjQVe4HNLaiQ",
+            clientKey: "1UddqoZu9QRNIOuoyG1xIaXXdU7yTxU8jXdjqIYd")
+        
+        var navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UIColor.whiteColor()
         navigationBarAppearace.barTintColor = UIColor.whiteColor()
         

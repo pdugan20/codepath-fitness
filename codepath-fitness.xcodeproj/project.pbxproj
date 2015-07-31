@@ -10,6 +10,7 @@
 		391515351B36185400A43CCB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391515341B36185400A43CCB /* ProfileViewController.swift */; };
 		391515371B361B3D00A43CCB /* ProfileContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391515361B361B3D00A43CCB /* ProfileContentViewController.swift */; };
 		57F5C13B73FCEDE6D5370BC0 /* libPods-codepath-fitness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */; };
+		D4CD0A93283C56875E8FA573 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD997D7C2C08BA10662F978 /* libPods.a */; };
 		E705C0AF1B33D2AE0031D218 /* ExerciseDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E705C0AE1B33D2AE0031D218 /* ExerciseDetailCell.swift */; };
 		E70F05C81B2BB2F8001A1F0C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70F05C71B2BB2F8001A1F0C /* ExerciseCell.swift */; };
 		E76754001B3232B100D5ABD6 /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E76753F41B3232B100D5ABD6 /* SF-UI-Text-Bold.otf */; };
@@ -55,6 +56,7 @@
 		391515341B36185400A43CCB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		391515361B361B3D00A43CCB /* ProfileContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileContentViewController.swift; sourceTree = "<group>"; };
 		39B62D6D1B3C9C3400B65866 /* codepath-fitness-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "codepath-fitness-Bridging-Header.h"; sourceTree = "<group>"; };
+		9AD997D7C2C08BA10662F978 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA387BF9514957CEC52F06EE /* Pods-codepath-fitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.release.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.release.xcconfig"; sourceTree = "<group>"; };
 		E0C2C4ABE61C308C08CF1A98 /* Pods-codepath-fitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepath-fitness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-codepath-fitness/Pods-codepath-fitness.debug.xcconfig"; sourceTree = "<group>"; };
 		E705C0AE1B33D2AE0031D218 /* ExerciseDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetailCell.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57F5C13B73FCEDE6D5370BC0 /* libPods-codepath-fitness.a in Frameworks */,
+				D4CD0A93283C56875E8FA573 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				0BD83EFFBC29D6EA3EE66FF2 /* libPods-codepath-fitness.a */,
+				9AD997D7C2C08BA10662F978 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -492,6 +496,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/patrickweiss/Desktop/CodePath/GroupProject/03_Build/codepath-fitness/codepath-fitness/codepath-fitness-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -528,6 +533,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/patrickweiss/Desktop/CodePath/GroupProject/03_Build/codepath-fitness/codepath-fitness/codepath-fitness-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -539,11 +545,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "codepath-fitness/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/patrickweiss/Desktop/CodePath/GroupProject/03_Build/codepath-fitness/codepath-fitness-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "codepath-fitness-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -554,11 +563,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "codepath-fitness/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/patrickweiss/Desktop/CodePath/GroupProject/03_Build/codepath-fitness/codepath-fitness-Bridging-Header.h";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "codepath-fitness-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-codepath-fitness-Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-codepath-fitness-Parse.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-codepath-fitness-Toast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>91FEE4C21CAB51CB772912D9</key>
+		<key>24D10CB6FE00774E711A2679</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E157C3910B335D265CDDE9E1</key>
+		<key>33F9EBB63381830F153129DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD960043CE22F455F886E550</key>
+		<key>A359C74B36D07BA781744417</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C69CFF1BC8355EF3A8557DA1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F192932391D149C7D498680C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
